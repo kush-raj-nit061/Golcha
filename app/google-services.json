@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "182395245612",
+    "project_id": "golchaicecream-4e16c",
+    "storage_bucket": "golchaicecream-4e16c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182395245612:android:28305454685d9e4ae9ad89",
+        "android_client_info": {
+          "package_name": "com.example.golchaicecream"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "182395245612-jmu2vltgqj9ltu67eqttj49q8aoaqavb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.golchaicecream",
+            "certificate_hash": "75ce752d1f309a34d33941f8a9eb7c8a6ee48720"
+          }
+        },
+        {
+          "client_id": "182395245612-1d0t65vjdqoemisl1chppn0k3j2n835j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBL4iPocw6gX4cbEd7aL-x6pf_uWuU2Ooc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "182395245612-1d0t65vjdqoemisl1chppn0k3j2n835j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Registration_Activity">
+
+    <TextView
+        android:id="@+id/tvRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:drawableTop="@drawable/smalllogo"
+        android:fontFamily="@font/akronim"
+        android:paddingBottom="30dp"
+        android:text="Register"
+        android:textAlignment="center"
+        android:textColor="#700000"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="20dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/fullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded"
+            android:layout_gravity="center"
+            android:minHeight="48dp"
+            android:textColorHint="@color/carbon_black_38"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:padding="20dp"
+            android:hint="Enter your Full Name" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded"
+            android:paddingTop="20dp"
+            android:layout_gravity="center"
+            android:minHeight="48dp"
+            android:textColorHint="@color/carbon_black_38"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:padding="20dp"
+            android:hint="Enter your Email" />
+
+        <!-- Edit text for password -->
+        <EditText
+            android:id="@+id/passwd"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:paddingTop="20dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:textColorHint="@color/carbon_black_38"
+            android:padding="20dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:background="@drawable/rounded"
+            android:hint="Enter your Password"
+            android:inputType="textPassword" />
+        <EditText
+            android:id="@+id/PhoneNum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded"
+            android:layout_gravity="center"
+            android:minHeight="48dp"
+            android:textColorHint="@color/carbon_black_38"
+            android:ems="10"
+            android:inputType="phone"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:padding="20dp"
+            android:hint="Enter your Phone Number" />
+
+        <!-- Button for register with text "Register" -->
+        <Button
+            android:id="@+id/btnregister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#007236"
+            android:layout_marginTop="20dp"
+            android:text="Register" />
+
+
+        <!-- ProgressBar for loading time -->
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already Registered?"
+            android:paddingStart="20dp"
+            android:paddingBottom="5dp"
+            android:fontFamily="@font/akronim"
+            android:textColor="#700000"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#007236"
+            android:text="LOGIN" />
+
+    </LinearLayout>
+
+    <!-- Edit text for email -->
+
+
+
+
+</LinearLayout>
