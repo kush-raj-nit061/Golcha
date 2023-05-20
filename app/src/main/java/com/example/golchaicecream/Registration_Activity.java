@@ -8,25 +8,36 @@ import android.os.Bundle;
 
 import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.EditText;
 import android.widget.Button;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.AuthResult;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Registration_Activity extends AppCompatActivity {
 
-    private EditText emailTextView, passwordTextView;
+    public static final String TAG = "TAG";
+    private EditText emailTextView, passwordTextView,fullname,phone;
     private Button Btn;
 
 
     private Button b;
     private ProgressBar progressbar;
+
+    FirebaseFirestore fStore;
+    String userID;
     private FirebaseAuth mAuth;
 
     @SuppressLint("MissingInflatedId")
@@ -43,6 +54,9 @@ public class Registration_Activity extends AppCompatActivity {
         emailTextView = findViewById(R.id.email);
         passwordTextView = findViewById(R.id.passwd);
         Btn = findViewById(R.id.btnregister);
+        phone = findViewById(R.id.PhoneNum);
+        fullname = findViewById(R.id.fullName);
+        fStore = FirebaseFirestore.getInstance();
 
 
         progressbar = findViewById(R.id.progressbar);
@@ -74,9 +88,12 @@ public class Registration_Activity extends AppCompatActivity {
         progressbar.setVisibility(View.VISIBLE);
 
         // Take the value of two edit texts in Strings
-        String email, password;
+        String email, password,name,call;
         email = emailTextView.getText().toString();
         password = passwordTextView.getText().toString();
+        name = fullname.getText().toString();
+        call = phone.getText().toString();
+
 
         // Validations for input email and password
         if (TextUtils.isEmpty(email)) {
@@ -102,11 +119,21 @@ public class Registration_Activity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task)
                     {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(),
-                                            "Registration successful!",
-                                            Toast.LENGTH_LONG)
-                                    .show();
+                        if (task.isSuccessful()) {Toast.makeText(getApplicationContext(),"Registration successful!", Toast.LENGTH_LONG).show();
+                            userID = mAuth.getCurrentUser().getUid();
+                            DocumentReference documentReference = fStore.collection("users").document(userID);
+                            Map<String,Object> user = new HashMap<>();
+                            user.put("fName",name);
+                            user.put("email",email);
+                            user.put("phone",call);
+                            user.put("password",password);
+                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Log.d(TAG,"onSuccess: user Profile is created for "+ userID);
+
+                                }
+                            });
 
                             // hide the progress bar
                             progressbar.setVisibility(View.GONE);
