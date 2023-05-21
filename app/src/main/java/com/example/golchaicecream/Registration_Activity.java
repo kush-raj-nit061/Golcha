@@ -37,7 +37,7 @@ public class Registration_Activity extends AppCompatActivity {
     private ProgressBar progressbar;
 
     FirebaseFirestore fStore;
-    String userID;
+   public String userID;
     private FirebaseAuth mAuth;
 
     @SuppressLint("MissingInflatedId")
@@ -121,6 +121,7 @@ public class Registration_Activity extends AppCompatActivity {
                     {
                         if (task.isSuccessful()) {Toast.makeText(getApplicationContext(),"Registration successful!", Toast.LENGTH_LONG).show();
                             userID = mAuth.getCurrentUser().getUid();
+
                             DocumentReference documentReference = fStore.collection("users").document(userID);
                             Map<String,Object> user = new HashMap<>();
                             user.put("fName",name);

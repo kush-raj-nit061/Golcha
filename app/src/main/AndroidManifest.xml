@@ -13,17 +13,23 @@
         android:theme="@style/Theme.GolchaIcecream"
         tools:targetApi="31">
         <activity
+            android:name=".UserDetails"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotActivity"
+            android:exported="false" />
+        <activity
             android:name=".OldPrintActivity"
             android:exported="false" />
         <activity
             android:name=".PDF_Activity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Vendor_Activity"
             android:exported="false" />
         <activity
             android:name=".Menu_Activity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".SplashScreen_Activity"
             android:exported="true"></activity>
@@ -42,7 +48,11 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <meta-data

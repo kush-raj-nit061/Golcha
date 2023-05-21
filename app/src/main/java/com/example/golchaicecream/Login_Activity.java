@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.EditText;
 import android.widget.Button;
@@ -20,6 +21,7 @@ public class Login_Activity extends AppCompatActivity {
     private EditText emailTextView, passwordTextView;
     private Button Btn;
 //    private TextView tvLogin;
+    TextView tvForgot;
     private ProgressBar progressbar;
 
     private FirebaseAuth mAuth;
@@ -37,6 +39,7 @@ public class Login_Activity extends AppCompatActivity {
         passwordTextView = findViewById(R.id.password);
 //        tvLogin.findViewById(R.id.tvLogin);
         Btn = findViewById(R.id.login);
+        tvForgot = findViewById(R.id.tvForgot);
 
 
 
@@ -50,7 +53,15 @@ public class Login_Activity extends AppCompatActivity {
                 loginUserAccount();
             }
         });
+        tvForgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Login_Activity.this, ForgotActivity.class);
+                startActivity(i);
+            }
+        });
     }
+
 
 
 
@@ -121,5 +132,7 @@ public class Login_Activity extends AppCompatActivity {
                                 }
                             }
                         });
+
+
     }
 }

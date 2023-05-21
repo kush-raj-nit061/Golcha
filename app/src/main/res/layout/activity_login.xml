@@ -105,11 +105,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/forgetPass"
+        app:layout_constraintTop_toTopOf="@+id/tvForgot"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/forgetPass"
+        android:id="@+id/tvForgot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
