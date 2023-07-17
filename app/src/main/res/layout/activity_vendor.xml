@@ -1383,7 +1383,7 @@
                         android:layout_height="30dp"
                         android:paddingEnd="5dp"
                         android:paddingRight="20dp"
-                        android:text="₹25"
+                        android:text="₹20"
                         android:textAlignment="center"
                         android:textColor="#8c2756"
                         android:textSize="25sp"
@@ -1600,19 +1600,102 @@
                 </LinearLayout>
 
             </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:padding="10dp"
+                    android:text="Family Pack(₹120)"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingEnd="5dp"
+                        android:paddingRight="1dp"
+                        android:text="₹100"
+                        android:textAlignment="center"
+                        android:textColor="#8c2756"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        tools:ignore="DuplicateIds" />
+
+
+                    <EditText
+                        android:id="@+id/tvFamily2"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                    <EditText
+                        android:id="@+id/tvFamily2s"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingHorizontal="@dimen/default_gap"
+                        android:paddingBottom="10dp"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvTotal19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="15dp"
+                        android:paddingRight="15dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="170dp">
 
                 <EditText
-                    android:id="@+id/my_edit_text"
+                    android:id="@+id/vendorDetails"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="1dp"
                     android:background="@drawable/username_box"
                     android:backgroundTint="#80000000"
-                    android:hint="Enter Note Here"
+                    android:hint="Enter Details Of Vendor"
                     android:inputType="textMultiLine"
                     android:lines="5"
                     android:maxLines="10"
@@ -1630,7 +1713,7 @@
                         android:id="@+id/first_linear_layout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/my_edit_text"
+                        android:layout_toRightOf="@id/mynotes"
                         android:orientation="horizontal">
 
                         <TextView

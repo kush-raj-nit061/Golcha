@@ -40,5 +40,14 @@
     <string name="creamy_ice_cream">Ice Cream</string>
     <string name="creamy_whipe_cream">Whipe Cream</string>
     <string name="order">order</string>
+    <string name="vendorHighlight">Calculation of the amount is never been an easy task calculating
+        commission,and savings is just a single click away from you</string>
+    <string name="highlight">"Ordering ice cream has never been easier. Just enter the quantity of flavors you want, click Generate Bill, and let the deliciousness come to you!"</string>
+    <string name="welcome">Welcome to a world where happiness is served in a cone! Explore our
+        ice cream app and let your taste buds dance with joy.
+    \n Golcha icecream welcomes you on this application which is designed to make you comfortable in every aspects
+    \n {1} You can order online and can generate and save your bills for future.
+    \n {2} You can calculate total by setting commission of selling vendors and can generate bill too.
+    \n YOUR PROFILE ARE UNIQUE ALL THE HISTORY OF YOUR PROFILE WILL BE SAVE FOR FUTURE.</string>
 
 </resources>

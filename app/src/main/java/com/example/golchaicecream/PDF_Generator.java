@@ -18,6 +18,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,16 +34,15 @@ import java.util.Date;
 
 public class PDF_Generator extends AppCompatActivity {
 
+    FirebaseAuth fAuth = FirebaseAuth.getInstance();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("record");
+    DatabaseReference myRef = database.getReference("record/"+fAuth.getCurrentUser().getUid());
 
-    Button btnGenerate;
+    Button btnGenerate,btnHome;
     long invoiceNum;
     TextView tvTotal,tvCommision,tvDues,tv,tvT;
-
     EditText[] editTexts = new EditText[18];
     TextView[] textViews = new TextView[18];
-
     DetailsObj detailsObj = new DetailsObj();
 
 
@@ -57,6 +57,8 @@ public class PDF_Generator extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         generate();
+        Toast.makeText(getApplicationContext(), "This is my Toast message!",
+                Toast.LENGTH_LONG).show();
         callOnClickListeners();
 
         myRef.addValueEventListener(new ValueEventListener() {
@@ -64,19 +66,30 @@ public class PDF_Generator extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 invoiceNum = dataSnapshot.getChildrenCount();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
 
     }
 
     private void callOnClickListeners() {
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        detailsObj.invoiceNo=invoiceNum+ 1;
-        myRef.child(String.valueOf(invoiceNum+1)).setValue(detailsObj);
+                detailsObj.invoiceNo=invoiceNum+ 1;
+                detailsObj.date = new Date().getTime();
+                detailsObj.kacchaQty = Integer.parseInt(String.valueOf(editTexts[0].getText()));
+
+
+                myRef.child(String.valueOf(invoiceNum+1)).setValue(detailsObj);
+
+
+            }
+        });
+
+
 
     }
 
@@ -125,6 +138,7 @@ public class PDF_Generator extends AppCompatActivity {
         tvCommision = findViewById(R.id.tvCommision);
         tv = findViewById(R.id.second_edit_text);
         tvDues = findViewById(R.id.tvDues);
+        btnHome = findViewById(R.id.btnHome);
 
     }
 }

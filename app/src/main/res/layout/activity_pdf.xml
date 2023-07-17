@@ -1,67 +1,849 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".PDF_Activity">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="none">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editTextName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:ems="10"
-        android:hint="Customer Name"
-        android:inputType="textPersonName"
-        android:text="Ram"
-        tools:ignore="TouchTargetSizeCheck"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="32dp" />
+        <!-- invoice status -->
+        <TextView android:id="@+id/invoice_status"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="#E2E2E2"
+            android:textColor = "#28AF20"
+            android:textSize = "40px"
+            android:textStyle="bold"
+            android:padding = "10dp"
+            android:text="Invoice" />
+        <!-- end invoice status -->
+        <!-- invoice/client data -->
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop = "3dip"
+            android:paddingRight = "3dip"
+            android:paddingLeft = "3dip"
+            android:paddingBottom="24dip"
+            android:stretchColumns="1">
+            <TableRow>
+                <TextView android:id="@+id/invoice_name"
+                    android:text="Name: "
+                    android:textStyle="bold"
+                    android:padding="3dip" />
+                <TextView android:id="@+id/invoice_date"
+                    android:text="Date: "
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+            <TableRow>
+                <TextView android:id="@+id/invoice_client"
+                    android:text="Address:"
+                    android:paddingLeft="3dip"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+            <TableRow>
+                <TextView android:id="@+id/invoice_address"
+                    android:text=""
+                    android:paddingLeft="3dip"
+                    android:paddingTop="5dip"
+                    android:textSize = "45px"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="211dp"
-        android:layout_height="52dp"
-        android:layout_below="@+id/editTextName"
-        android:layout_alignStart="@+id/editTextName"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="-1dp" />
+        </TableLayout>
+        <!-- end invoice/client data -->
+        <!-- invoice items -->
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding = "3dip"
+            android:stretchColumns="1">
+            <!-- invoice item labels -->
+            <TableRow android:background="#E2E2E2">
+                <TextView android:text="Item"
+                    android:padding="3dip"
+                    android:textColor = "#090909"
+                    android:textSize = "35px"
+                    android:textStyle = "bold"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+                <TextView android:text="Cost"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:textColor = "#090909"
+                    android:textSize = "35px"
+                    android:textStyle = "bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView android:text="Qty"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:textColor = "#090909"
+                    android:textSize = "35px"
+                    android:textStyle = "bold"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+                <TextView android:text="Total"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:textColor = "#090909"
+                    android:textSize = "35px"
+                    android:textStyle = "bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+            <!-- end invoice item labels -->
+            <!-- invoice items -->
+            <TableRow>
 
-    <EditText
-        android:id="@+id/editTextQty"
-        android:layout_width="111dp"
-        android:layout_height="52dp"
-        android:layout_alignTop="@+id/spinner"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="0dp"
-        android:layout_toEndOf="@+id/spinner"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:text="2" />
+                <TextView
+                    android:layout_width="350px"
+                    android:layout_height="wrap_content"
+                    android:padding="3dip"
+                    android:text="Kaccha Mango (₹250)"
+                    android:textSize="30px" />
 
-    <Button
-        android:id="@+id/btnSaveAndPrint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/spinner"
-        android:layout_alignStart="@+id/spinner"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="40dp"
-        android:text="Save and Print" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:text="(₹250)"
+                    android:textSize="30px" />
 
-    <Button
-        android:id="@+id/btnPrint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/btnSaveAndPrint"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="0dp"
-        android:layout_toEndOf="@+id/btnSaveAndPrint"
-        android:text="Print" />
+                <TextView
+                    android:id="@+id/tvQuantity1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:text="0"
+                    android:textSize="30px" />
 
-</RelativeLayout>
+                <TextView
+                    android:id="@+id/tvTota1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:text="₹0.00"
+                    android:textSize="30px" />
+            </TableRow>
+            <TableRow>
+
+                <TextView
+                    android:layout_width="150px"
+                    android:layout_height="wrap_content"
+                    android:padding="3dip"
+                    android:text="Litchi "
+                    android:textSize="30px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:text="(₹250)"
+                    android:textSize="30px" />
+
+                <TextView
+                    android:id="@+id/tvQuantity2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:text="0"
+                    android:textSize="30px" />
+
+                <TextView
+                    android:id="@+id/tvTota2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:text="₹0.00"
+                    android:textSize="30px" />
+            </TableRow><TableRow>
+
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="Strawberry"
+                android:textSize="30px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="(₹250)"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvQuantity3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="0"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvTota3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="30px" />
+            </TableRow><TableRow>
+
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="Cola"
+                android:textSize="30px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="(₹250)"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvQuantity4"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="0"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvTota4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="30px" />
+            </TableRow><TableRow>
+
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="Pineapple"
+                android:textSize="30px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="(₹250)"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvQuantity5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="0"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvTota5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="30px" />
+            </TableRow><TableRow>
+
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="Orange Bar"
+                android:textSize="30px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="(₹250)"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvQuantity6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="0"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvTota6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="30px" />
+            </TableRow><TableRow>
+
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="Mango Bar"
+                android:textSize="30px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="(₹250)"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvQuantity7"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="0"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvTota7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="30px" />
+            </TableRow><TableRow>
+
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="Cup-S"
+                android:textSize="30px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="(₹150)"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvQuantity8"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="0"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvTota8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="30px" />
+            </TableRow><TableRow>
+
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="Cup-B"
+                android:textSize="30px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="(₹240)"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvQuantity9"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="0"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvTota9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="30px" />
+            </TableRow><TableRow>
+
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="ChocoBar-S"
+                android:textSize="30px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="(₹300)"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvQuantity10"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="0"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvTota10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="30px" />
+            </TableRow><TableRow>
+
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="ChocoBar-B"
+                android:textSize="30px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="(₹360)"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvQuantity11"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="0"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvTota11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="30px" />
+            </TableRow><TableRow>
+
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="Matka"
+                android:textSize="30px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="(₹300)"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvQuantity12"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="0"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvTota12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="30px" />
+            </TableRow><TableRow>
+
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="King Cone-S"
+                android:textSize="30px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="(₹420)"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvQuantity13"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="0"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvTota13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="30px" />
+            </TableRow><TableRow>
+
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="King Cone-B"
+                android:textSize="30px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="(₹500)"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvQuantity14"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="0"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvTota14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="30px" />
+            </TableRow><TableRow>
+
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="Nutty Crunch"
+                android:textSize="30px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="(₹400)"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvQuantity15"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="0"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvTota15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="30px" />
+            </TableRow><TableRow>
+
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="Keshar Pista"
+                android:textSize="30px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="(₹240)"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvQuantity16"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="0"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvTota16"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="30px" />
+            </TableRow>
+            <TableRow>
+
+                <TextView
+                    android:layout_width="150px"
+                    android:layout_height="wrap_content"
+                    android:padding="3dip"
+                    android:text="Bonanza"
+                    android:textSize="30px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:text="(₹200)"
+                    android:textSize="30px" />
+
+                <TextView
+                    android:id="@+id/tvQuantity17"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:text="0"
+                    android:textSize="30px" />
+
+                <TextView
+                    android:id="@+id/tvTota17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:text="₹0.00"
+                    android:textSize="30px" />
+            </TableRow> <TableRow>
+
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="Family Pack"
+                android:textSize="30px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="(₹100)"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvQuantity18"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="0"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvTota18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="30px" />
+            </TableRow>
+
+            <TableRow>
+
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="Family Pack(2 in 1)"
+                android:textSize="30px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="(₹120)"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvQuantity19"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="0"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tvTota19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="30px" />
+            </TableRow>
+
+            <TableRow>
+
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="Total:"
+                android:textSize="60px" />
+
+            <TextView
+                android:id="@+id/tvTota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_gravity="end"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="55px" />
+            </TableRow>            <TableRow>
+
+            <TextView
+                android:layout_width="150px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="Commission:"
+                android:textSize="55px" />
+
+            <TextView
+                android:id="@+id/tvComm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_gravity="end"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="55px" />
+            </TableRow>
+            <TableRow>
+
+            <TextView
+                android:layout_width="200px"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="Dues:"
+                android:textSize="55px" />
+
+            <TextView
+                android:id="@+id/tvDue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_gravity="end"
+                android:padding="3dip"
+                android:text="₹0.00"
+                android:textSize="55px" />
+            </TableRow>
+            <!-- end invoice items -->
+
+        </TableLayout>
+        <!-- end invoice items -->
+        <!-- invoice notes -->
+        <TextView
+            android:id="@+id/notes"
+            android:text="Notes:"
+            android:paddingLeft="6dip"
+            android:paddingTop="12dip"
+            android:textStyle = "bold"
+            android:textColor="@color/carbon_red_900"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+        <TextView android:text="This is the bill of your current order you are going to place. The invoice of this bill will be saved on downloads folder of your storage once you save this invoice."
+            android:padding="6dip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+        <!-- end invoice notes -->
+        <!-- invoice buttons -->
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1">
+            <TableRow>
+                <Button android:id="@+id/btnsp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Save Invoice" />
+                <Button android:id="@+id/btnp"
+                    android:layout_width="fill_parent"
+                    android:layout_gravity="end"
+                    android:layout_height="wrap_content"
+                    android:text="Payments" />
+            </TableRow>
+        </TableLayout>
+        <!-- end invoice buttons -->
+    </LinearLayout>
+</ScrollView>

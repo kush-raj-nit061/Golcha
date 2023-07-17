@@ -128,6 +128,8 @@ public class Registration_Activity extends AppCompatActivity {
                             user.put("email",email);
                             user.put("phone",call);
                             user.put("password",password);
+                            user.put("commission","0");
+                            user.put("location","YOUR LOCATION");
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {

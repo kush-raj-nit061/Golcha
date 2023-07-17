@@ -6,36 +6,274 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <RelativeLayout
-        android:id="@+id/a1"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="visible">
-        <Button
-            android:id="@+id/agency"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:text="AGENCY" />
-        <TextView
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottomNavigation"
+        >
+
+        <RelativeLayout
+            android:id="@+id/a1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="1"
-            android:paddingTop="50dp"
-            android:textAlignment="center"/>
-    </RelativeLayout>
+
+            android:visibility="visible">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardv"
+                style="@style/CardView.Light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                tools:ignore="ContentDescription">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/avatar_image"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginStart="12dp"
+                        android:padding="4dp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/logo"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/media_image"
+                        app:layout_constraintVertical_chainStyle="packed" />
+
+                    <TextView
+                        android:id="@+id/title_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="Agency Order"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                        android:textColor="@color/colorPrimaryDark"
+                        app:layout_constraintTop_toTopOf="@+id/avatar_image"
+                        app:layout_constraintStart_toEndOf="@+id/avatar_image"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <TextView
+                        android:id="@+id/subtitle_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="place your order now"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                        android:textColor="@color/carbon_red_500"
+                        app:layout_constraintStart_toEndOf="@+id/avatar_image"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@+id/avatar_image" />
+
+                    <pl.droidsonroids.gif.GifImageView
+                        android:id="@+id/media_image"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="12dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/vn"
+                        app:layout_constraintDimensionRatio="H,16:9"
+                        app:layout_constraintTop_toBottomOf="@+id/avatar_image"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/supporting_text"/>
+
+                    <TextView
+                        android:id="@+id/supporting_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:lineSpacingExtra="8dp"
+                        android:text="Your Order Will be directly sent to golcha"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/black"
+                        app:layout_constraintTop_toBottomOf="@+id/media_image"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/agency"/>
+
+                    <Button
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:id="@+id/agency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="8dp"
+                        android:minWidth="0dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingTop="30dp"
+                        android:text="Order Now"
+                        android:textColor="@color/carbon_red_900"
+                        app:layout_constraintTop_toBottomOf="@+id/supporting_text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <Button
+                        android:id="@+id/action_button_2"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="240dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:minWidth="0dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="15dp"
+                        android:text="@string/highlight"
+                        android:textColor="@color/teal_700"
+                        app:layout_constraintStart_toEndOf="@id/agency"
+                        app:layout_constraintTop_toTopOf="@id/agency" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/cardv"
+                android:layout_marginVertical="15dp"
+                android:paddingEnd="40dp"
+                style="@style/CardView.Light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                tools:ignore="ContentDescription">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/avatar"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginStart="12dp"
+                        android:padding="4dp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/logo"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/media"
+                        app:layout_constraintVertical_chainStyle="packed" />
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="Vendor Order"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                        android:textColor="@color/colorPrimaryDark"
+                        app:layout_constraintTop_toTopOf="@+id/avatar"
+                        app:layout_constraintStart_toEndOf="@+id/avatar"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <TextView
+                        android:id="@+id/subtitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="place your order now"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                        android:textColor="@color/carbon_red_500"
+                        app:layout_constraintStart_toEndOf="@+id/avatar"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@+id/avatar" />
+
+                    <pl.droidsonroids.gif.GifImageView
+                        android:id="@+id/media"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="12dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ven"
+                        app:layout_constraintDimensionRatio="H,16:9"
+                        app:layout_constraintTop_toBottomOf="@+id/avatar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/supporting"/>
+
+                    <TextView
+                        android:id="@+id/supporting"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:lineSpacingExtra="8dp"
+                        android:text="Your Order Will be saved to your History Section"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/black"
+                        app:layout_constraintTop_toBottomOf="@+id/media"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/vendor"/>
+
+                    <Button
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:id="@+id/vendor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="8dp"
+                        android:minWidth="0dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingTop="30dp"
+                        android:text="Order Now"
+                        android:textColor="@color/carbon_red_900"
+                        app:layout_constraintTop_toBottomOf="@+id/supporting"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <Button
+                        android:id="@+id/action"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="240dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+
+                        android:minWidth="0dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="15dp"
+
+                        android:text="@string/vendorHighlight"
+                        android:textColor="@color/teal_700"
+                        app:layout_constraintStart_toEndOf="@id/vendor"
+                        app:layout_constraintTop_toTopOf="@id/vendor" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+
 
     <RelativeLayout
         android:id="@+id/a2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone">
-        <Button
-            android:id="@+id/vendor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
-            android:text="VENDOR" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -60,6 +298,10 @@
             android:text="3"
             android:paddingTop="50dp"
             android:textAlignment="center"/>
+
+
+
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -158,11 +400,12 @@
                         app:cardCornerRadius="6dp"
                         app:cardElevation="0dp">
 
-                        <ImageView
+                        <ImageButton
+                            android:id="@+id/imgButton"
                             android:layout_width="150dp"
                             android:layout_height="90dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/mypic" />
+                            android:contentDescription="TODO" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -171,21 +414,23 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
                         <TextView
+                            android:id="@+id/tvProfileNames"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/proximanovaregular"
-                            android:text="Kush Raj"
+                            android:text=""
                             android:layout_gravity="center_horizontal"
                             android:textColor="#424242"
                             android:textSize="21sp"
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tvProfileEmail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/proximanovaregular"
-                            android:text="Android Developer"
+                            android:text=""
                             android:textSize="14sp" />
 
 
@@ -256,6 +501,7 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/location"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="YOUR LOCATION"
@@ -306,7 +552,7 @@
                         android:fontFamily="@font/proximanovaregular"
                         android:gravity="center"
                         android:padding="13dp"
-                        android:text="Experience"
+                        android:text="Order History"
                         android:textAllCaps="true"
                         android:textColor="@color/lightgrey"
                         android:textSize="14sp"
@@ -358,6 +604,7 @@
                                 android:layout_height="wrap_content">
 
                                 <TextView
+                                    android:id="@+id/tvNameDown"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Name"
@@ -371,6 +618,7 @@
                                     android:layout_weight="1" />
 
                                 <TextView
+                                    android:id="@+id/tvEditNameCard"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Edit"
@@ -381,6 +629,7 @@
                             </LinearLayout>
 
                             <TextView
+                                android:id="@+id/tvAbout"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
@@ -416,6 +665,7 @@
                                 android:layout_weight="1" />
 
                             <TextView
+                                android:id="@+id/tvEditContact"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Edit"
@@ -444,10 +694,11 @@
                                     android:src="@drawable/baseline_call_24" />
 
                                 <TextView
+                                    android:id="@+id/tvNum"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="20dp"
-                                    android:text="+91 7999193854"
+                                    android:text=""
                                     android:textSize="15sp"
                                     android:textColor="@color/goodgrey"
                                     android:fontFamily="@font/proximanovaregular" />
@@ -468,11 +719,12 @@
                                     android:src="@drawable/baseline_email_24" />
 
                                 <TextView
+                                    android:id="@+id/Email"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="20dp"
                                     android:textColor="@color/goodgrey"
-                                    android:text="sanskar@theindianappguy.com"
+                                    android:text=""
                                     android:textSize="15sp"
                                     android:fontFamily="@font/proximanovaregular" />
                             </LinearLayout>
@@ -492,10 +744,11 @@
                                     android:src="@drawable/baseline_location_on_24" />
 
                                 <TextView
+                                    android:id="@+id/tvLocation"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="20dp"
-                                    android:text="Leeds, United Kingdom"
+                                    android:text=""
                                     android:textSize="15sp"
                                     android:textColor="@color/goodgrey"
                                     android:fontFamily="@font/proximanovaregular" />
@@ -510,6 +763,11 @@
                 </LinearLayout>
 
                 <!--Experience Bottom Cards-->
+                <LinearLayout
+                    android:id="@+id/experience"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"/>
 
                 <!--Review Bottom Cards-->
                 <LinearLayout
@@ -543,12 +801,12 @@
             android:textAlignment="center" />
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/card1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             app:cardElevation="10dp"
             app:cardCornerRadius="5dp"
-
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true"
             tools:ignore="MissingConstraints">
@@ -569,7 +827,7 @@
                     android:layout_marginStart="0dp"
                     android:layout_marginLeft="0dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/logo" />
+                    android:src="@drawable/logoh" />
 
                 <TextView
                     android:id="@+id/tvPlaceName"
@@ -591,7 +849,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tvPlaceName"
-                    android:letterSpacing="0.5"
+                    android:letterSpacing="0.2"
                     android:layout_alignStart="@+id/tvPlaceName"
                     android:layout_marginStart="6dp"
                     android:layout_marginTop="-24dp"
@@ -599,7 +857,14 @@
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card1"
+            android:paddingHorizontal="5dp"
+            android:text="@string/welcome"
+            android:fontFamily="@font/proximanovaregular"
+            android:textSize="15sp"/>
 
     </RelativeLayout>
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:alpha="1"
-    android:background="@drawable/backgr"
+    android:background="@drawable/backnew"
     >
 
     <TextView
@@ -48,7 +48,7 @@
                     android:layout_alignParentStart="true"
                     android:paddingHorizontal="30dp"
 
-                    android:text="Items"
+                    android:text="!Items"
                     android:textColor="@color/black"
                     android:textSize="25sp"
                     android:textStyle="italic" />
@@ -65,12 +65,12 @@
                         android:id="@+id/addItem"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
-                        android:paddingEnd="30dp"
-                        android:paddingRight="20dp"
-                        android:text="QTY/(box)  "
+                        android:paddingEnd="0dp"
+                        android:paddingRight="10dp"
+                        android:text="| qty/(box) |  "
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="25sp"
+                        android:textColor="@color/carbon_brown_900"
+                        android:textSize="20sp"
                         android:textStyle="italic"
                         tools:ignore="DuplicateIds" />
 
@@ -86,13 +86,13 @@
                         android:textStyle="italic"
                         android:textAlignment="center"
                         android:textColor="@color/black"
-                        android:textSize="25sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/Tot"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=""
+                        android:text="Total"
                         android:textAlignment="center"
                         android:textColor="@color/cardview_dark_background"
                         android:textSize="18sp"
@@ -112,14 +112,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
                     android:padding="10dp"
-                    android:text="Kaccha Mango (₹250)"
+                    android:text="Kaccha Aam (₹250)"
                     android:textColor="#007236"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -127,17 +127,18 @@
                     android:layout_alignParentRight="true"
                     android:layout_gravity="right"
                     android:orientation="horizontal">
+
                     <TextView
                         android:id="@+id/addItem"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
-                        android:paddingEnd="30dp"
+                        android:paddingEnd="15dp"
                         android:paddingRight="70dp"
                         android:text="*50"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
                     <EditText
@@ -155,16 +156,17 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvTotal1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="15dp"
                         android:paddingRight="15dp"
+
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
 
 
                 </LinearLayout>
@@ -181,14 +183,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
                     android:padding="10dp"
                     android:text="Litchi (₹250)"
                     android:textColor="#FADEDF"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
 
                 <LinearLayout
@@ -203,13 +205,13 @@
                         android:id="@+id/addItem"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
-                        android:paddingEnd="30dp"
+                        android:paddingEnd="15dp"
                         android:paddingRight="70dp"
                         android:text="*50"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
                     <EditText
@@ -226,6 +228,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvTotal2"
                         android:layout_width="wrap_content"
@@ -234,8 +237,7 @@
                         android:paddingRight="15dp"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
 
 
                 </LinearLayout>
@@ -250,14 +252,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
                     android:padding="10dp"
                     android:text="Strawberry (₹250)"
                     android:textColor="#FB2943"
                     android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -270,13 +272,13 @@
                         android:id="@+id/addItem"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
-                        android:paddingEnd="30dp"
+                        android:paddingEnd="15dp"
                         android:paddingRight="70dp"
                         android:text="*50"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
                     <EditText
@@ -293,6 +295,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvTotal3"
                         android:layout_width="wrap_content"
@@ -301,8 +304,7 @@
                         android:paddingRight="15dp"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -316,33 +318,34 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
                     android:padding="10dp"
                     android:text="Cola (₹250)"
                     android:textColor="#5E071A"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_gravity="right"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    >
 
                     <TextView
                         android:id="@+id/addItem"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
-                        android:paddingEnd="30dp"
+                        android:paddingEnd="15dp"
                         android:paddingRight="70dp"
                         android:text="*50"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
                     <EditText
@@ -359,6 +362,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvTotal4"
                         android:layout_width="wrap_content"
@@ -367,8 +371,7 @@
                         android:paddingRight="15dp"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -382,15 +385,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
 
                     android:padding="10dp"
                     android:text="Pineapple(₹250)"
                     android:textColor="#FFE12D"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -402,13 +405,13 @@
                         android:id="@+id/addItem"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
-                        android:paddingEnd="30dp"
+                        android:paddingEnd="15dp"
                         android:paddingRight="70dp"
                         android:text="*50"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
                     <EditText
@@ -425,6 +428,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvTotal5"
                         android:layout_width="wrap_content"
@@ -433,8 +437,7 @@
                         android:paddingRight="15dp"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -448,14 +451,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
                     android:padding="10dp"
                     android:text="Orange(₹250)"
                     android:textColor="#FF6600"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -469,13 +472,13 @@
                         android:id="@+id/addItem"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
-                        android:paddingEnd="30dp"
+                        android:paddingEnd="15dp"
                         android:paddingRight="70dp"
                         android:text="*50"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
                     <EditText
@@ -491,6 +494,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvTotal6"
                         android:layout_width="wrap_content"
@@ -499,8 +503,7 @@
                         android:paddingRight="15dp"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -514,14 +517,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
                     android:padding="10dp"
                     android:text="Mango Bar(₹250)"
                     android:textColor="#F4BB44"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -535,13 +538,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
 
-                        android:paddingEnd="30dp"
+                        android:paddingEnd="15dp"
                         android:paddingRight="70dp"
                         android:text="*50"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
                     <EditText
@@ -559,6 +562,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvTotal7"
                         android:layout_width="wrap_content"
@@ -567,8 +571,7 @@
                         android:paddingRight="15dp"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -582,14 +585,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
                     android:padding="10dp"
                     android:text="Cup-S(₹150)"
                     android:textColor="	#FFFAFA"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <LinearLayout
 
@@ -603,13 +606,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
 
-                        android:paddingEnd="30dp"
+                        android:paddingEnd="15dp"
                         android:paddingRight="70dp"
                         android:text="*30"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
                     <EditText
@@ -625,6 +628,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvTotal8"
                         android:layout_width="wrap_content"
@@ -633,8 +637,7 @@
                         android:paddingRight="15dp"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -648,14 +651,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
                     android:padding="10dp"
                     android:text="Cup-B(₹240)"
                     android:textColor="	#FFFAFA"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <LinearLayout
 
@@ -669,13 +672,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
 
-                        android:paddingEnd="30dp"
+                        android:paddingEnd="15dp"
                         android:paddingRight="70dp"
                         android:text="*24"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
                     <EditText
@@ -691,6 +694,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvTotal9"
                         android:layout_width="wrap_content"
@@ -699,8 +703,7 @@
                         android:paddingRight="15dp"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -715,14 +718,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
                     android:padding="10dp"
                     android:text="Chocobar-s(₹300)"
                     android:textColor="#231709"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -735,13 +738,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
 
-                        android:paddingEnd="30dp"
+                        android:paddingEnd="15dp"
                         android:paddingRight="70dp"
                         android:text="*30"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
                     <EditText
@@ -758,6 +761,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvTotal10"
                         android:layout_width="wrap_content"
@@ -766,8 +770,7 @@
                         android:paddingRight="15dp"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -781,14 +784,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
                     android:padding="10dp"
                     android:text="Chocobar-B(₹360)"
                     android:textColor="#231709"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -801,13 +804,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
 
-                        android:paddingEnd="30dp"
+                        android:paddingEnd="15dp"
                         android:paddingRight="70dp"
                         android:text="*24"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
                     <EditText
@@ -824,6 +827,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvTotal11"
                         android:layout_width="wrap_content"
@@ -832,8 +836,7 @@
                         android:paddingRight="15dp"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -847,14 +850,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
                     android:padding="10dp"
                     android:text="Matka(₹300)"
                     android:textColor="#503715"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -866,13 +869,13 @@
                         android:id="@+id/addItem"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
-                        android:paddingEnd="30dp"
+                        android:paddingEnd="15dp"
                         android:paddingRight="70dp"
                         android:text="*12"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
                     <EditText
@@ -889,6 +892,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvTotal12"
                         android:layout_width="wrap_content"
@@ -897,8 +901,7 @@
                         android:paddingRight="15dp"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -911,14 +914,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
                     android:padding="10dp"
                     android:text="King Cone-S(₹420)"
                     android:textColor="#000000"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -930,13 +933,13 @@
                         android:id="@+id/addItem"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
-                        android:paddingEnd="30dp"
+                        android:paddingEnd="15dp"
                         android:paddingRight="70dp"
                         android:text="*35"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
                     <EditText
@@ -953,6 +956,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvTotal13"
                         android:layout_width="wrap_content"
@@ -961,8 +965,7 @@
                         android:paddingRight="15dp"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -976,14 +979,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
                     android:padding="10dp"
                     android:text="King Cone-B(₹500)"
                     android:textColor="#000000"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -996,13 +999,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
 
-                        android:paddingEnd="30dp"
+                        android:paddingEnd="15dp"
                         android:paddingRight="70dp"
                         android:text="*20"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
                     <EditText
@@ -1019,6 +1022,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvTotal14"
                         android:layout_width="wrap_content"
@@ -1027,8 +1031,7 @@
                         android:paddingRight="15dp"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -1042,14 +1045,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
                     android:padding="10dp"
                     android:text="Nutty Crunch(₹400)"
                     android:textColor="#000000"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -1061,13 +1064,13 @@
                         android:id="@+id/addItem"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
-                        android:paddingEnd="30dp"
+                        android:paddingEnd="15dp"
                         android:paddingRight="70dp"
                         android:text="*20"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
                     <EditText
@@ -1084,6 +1087,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvTotal18"
                         android:layout_width="wrap_content"
@@ -1092,8 +1096,7 @@
                         android:paddingRight="15dp"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -1106,14 +1109,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
                     android:padding="10dp"
                     android:text="Keshar Pista(₹240)"
                     android:textColor="#a7b13d"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -1125,13 +1128,13 @@
                         android:id="@+id/addItem"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
-                        android:paddingEnd="30dp"
+                        android:paddingEnd="15dp"
                         android:paddingRight="70dp"
                         android:text="*12"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
                     <EditText
@@ -1148,6 +1151,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvTotal15"
                         android:layout_width="wrap_content"
@@ -1156,8 +1160,7 @@
                         android:paddingRight="15dp"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -1170,14 +1173,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
                     android:padding="10dp"
                     android:text="Bonanza(₹200)"
                     android:textColor="#000000"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -1189,13 +1192,13 @@
                         android:id="@+id/addItem"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
-                        android:paddingEnd="30dp"
+                        android:paddingEnd="15dp"
                         android:paddingRight="70dp"
                         android:text="*8"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
 
@@ -1213,6 +1216,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvTotal16"
                         android:layout_width="wrap_content"
@@ -1221,8 +1225,7 @@
                         android:paddingRight="15dp"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textColor="@color/black" />
 
 
                 </LinearLayout>
@@ -1238,14 +1241,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
                     android:padding="10dp"
                     android:text="Family Pack(₹100)"
                     android:textColor="#FFFFFF"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -1257,13 +1260,13 @@
                         android:id="@+id/addItem"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
-                        android:paddingEnd="30dp"
+                        android:paddingEnd="15dp"
                         android:paddingRight="70dp"
                         android:text="*1"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
 
@@ -1281,6 +1284,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvTotal17"
                         android:layout_width="wrap_content"
@@ -1289,8 +1293,73 @@
                         android:paddingRight="15dp"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
+                        android:textColor="@color/black" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="Family Pack(₹120)"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingEnd="15dp"
+                        android:paddingRight="70dp"
+                        android:text="*1"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+
+                    <EditText
+                        android:id="@+id/tvFamily2"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvTotal19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="15dp"
+                        android:paddingRight="15dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
 
 
                 </LinearLayout>
@@ -1301,8 +1370,8 @@
                 android:layout_height="170dp">
 
                 <EditText
-                    android:id="@+id/my_edit_text"
-                    android:layout_width="200dp"
+                    android:id="@+id/mynotes"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="1dp"
@@ -1325,7 +1394,7 @@
                         android:id="@+id/first_linear_layout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/my_edit_text"
+                        android:layout_toRightOf="@id/mynotes"
                         android:orientation="horizontal">
 
                         <TextView
@@ -1401,36 +1470,38 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@drawable/round"
-
                     android:layout_alignParentBottom="true"
-                    android:gravity="bottom">
+                    android:stretchColumns="1">
+                    <TableRow>
+                        <Button android:id="@+id/btnBill"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="10dp"
+                            android:text="Generate Bill" />
 
-                    <Button
-                        android:id="@+id/btnBill"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Generate Bill" />
+                        <Button
+                            android:id="@+id/btnHome"
+                            android:layout_width="fill_parent"
+                            android:layout_gravity="center"
+                            android:textSize="10dp"
+                            android:layout_height="wrap_content"
+                            android:text="Home" />
 
-                    <Button
-                        android:id="@+id/btnHome"
-                        android:layout_width="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="Home" />
+                        <Button android:id="@+id/btnCT"
+                            android:layout_width="fill_parent"
+                            android:layout_gravity="end"
+                            android:textSize="10dp"
+                            android:layout_height="wrap_content"
+                            android:text="Calculate Total"
+                            tools:ignore="DuplicateIds" />
 
-                    <Button
-                        android:id="@+id/btnCT"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Calculate Total" />
+                    </TableRow>
+                </TableLayout>
 
-                </LinearLayout>
+
 
 
 

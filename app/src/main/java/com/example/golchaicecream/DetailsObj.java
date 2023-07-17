@@ -1,13 +1,6 @@
 package com.example.golchaicecream;
 
 public class DetailsObj {
-    String custName;
-    long invoiceNo;
-    String address;
-
-    public DetailsObj() {
-    }
-
     int kacchaQty;
     int litchiQty;
     int strawQty;
@@ -17,6 +10,220 @@ public class DetailsObj {
     int mangoQty;
     int cupSQty;
     int cupBQty;
+    int chocoSQty;
+    int chocoBQty;
+    int matkaQty;
+    int coneSQty;
+    int coneBQty;
+    int nuttyQty;
+    int keshaerQty;
+    int bonanzaQty;
+    int familyQty;
+    int family2Qty;
+
+    String custName;
+    long invoiceNo;
+    String address;
+
+    public DetailsObj() {
+    }
+
+    int kacchaPrice;
+    int litchiPrice;
+    int strawPrice;
+    int colaPrice;
+    int pinePrice;
+    int orangePrice;
+    int mangoPrice;
+    int cupSPrice;
+    int cupBPrice;
+
+    public int getKacchaPrice() {
+        return kacchaPrice;
+    }
+
+    public void setKacchaPrice(int kacchaPrice) {
+        this.kacchaPrice = kacchaPrice;
+    }
+
+    public int getLitchiPrice() {
+        return litchiPrice;
+    }
+
+    public void setLitchiPrice(int litchiPrice) {
+        this.litchiPrice = litchiPrice;
+    }
+
+    public int getStrawPrice() {
+        return strawPrice;
+    }
+
+    public void setStrawPrice(int strawPrice) {
+        this.strawPrice = strawPrice;
+    }
+
+    public int getColaPrice() {
+        return colaPrice;
+    }
+
+    public void setColaPrice(int colaPrice) {
+        this.colaPrice = colaPrice;
+    }
+
+    public int getPinePrice() {
+        return pinePrice;
+    }
+
+    public void setPinePrice(int pinePrice) {
+        this.pinePrice = pinePrice;
+    }
+
+    public int getOrangePrice() {
+        return orangePrice;
+    }
+
+    public void setOrangePrice(int orangePrice) {
+        this.orangePrice = orangePrice;
+    }
+
+    public int getMangoPrice() {
+        return mangoPrice;
+    }
+
+    public void setMangoPrice(int mangoPrice) {
+        this.mangoPrice = mangoPrice;
+    }
+
+    public int getCupSPrice() {
+        return cupSPrice;
+    }
+
+    public void setCupSPrice(int cupSPrice) {
+        this.cupSPrice = cupSPrice;
+    }
+
+    public int getCupBPrice() {
+        return cupBPrice;
+    }
+
+    public void setCupBPrice(int cupBPrice) {
+        this.cupBPrice = cupBPrice;
+    }
+
+    public int getChocoSPrice() {
+        return chocoSPrice;
+    }
+
+    public void setChocoSPrice(int chocoSPrice) {
+        this.chocoSPrice = chocoSPrice;
+    }
+
+    public int getChocoBPrice() {
+        return chocoBPrice;
+    }
+
+    public void setChocoBPrice(int chocoBPrice) {
+        this.chocoBPrice = chocoBPrice;
+    }
+
+    public int getMatkaPrice() {
+        return matkaPrice;
+    }
+
+    public void setMatkaPrice(int matkaPrice) {
+        this.matkaPrice = matkaPrice;
+    }
+
+    public int getConeSPrice() {
+        return coneSPrice;
+    }
+
+    public void setConeSPrice(int coneSPrice) {
+        this.coneSPrice = coneSPrice;
+    }
+
+    public int getConeBPrice() {
+        return coneBPrice;
+    }
+
+    public void setConeBPrice(int coneBPrice) {
+        this.coneBPrice = coneBPrice;
+    }
+
+    public int getNuttyPrice() {
+        return nuttyPrice;
+    }
+
+    public void setNuttyPrice(int nuttyPrice) {
+        this.nuttyPrice = nuttyPrice;
+    }
+
+    public int getKeshaerPrice() {
+        return keshaerPrice;
+    }
+
+    public void setKeshaerPrice(int keshaerPrice) {
+        this.keshaerPrice = keshaerPrice;
+    }
+
+    public int getBonanzaPrice() {
+        return bonanzaPrice;
+    }
+
+    public void setBonanzaPrice(int bonanzaPrice) {
+        this.bonanzaPrice = bonanzaPrice;
+    }
+
+    public int getFamilyPrice() {
+        return familyPrice;
+    }
+
+    public void setFamilyPrice(int familyPrice) {
+        this.familyPrice = familyPrice;
+    }
+
+    int chocoSPrice;
+    int chocoBPrice;
+    int matkaPrice;
+    int coneSPrice;
+    int coneBPrice;
+    int nuttyPrice;
+    int keshaerPrice;
+    int bonanzaPrice;
+
+    public int getFamily2Qty() {
+        return family2Qty;
+    }
+
+    public void setFamily2Qty(int family2Qty) {
+        this.family2Qty = family2Qty;
+    }
+
+    public int getFamily2Price() {
+        return family2Price;
+    }
+
+    public void setFamily2Price(int family2Price) {
+        this.family2Price = family2Price;
+    }
+
+    int familyPrice;
+    int family2Price;
+
+
+
+
+    Double commision;
+    Double total;
+    Double dues;
+    long date;
+    public long getDate() {
+        return date;
+    }
+
+    public void setDate(long date) {
+        this.date = date;
+    }
 
     public String getCustName() {
         return custName;
@@ -42,6 +249,30 @@ public class DetailsObj {
         this.address = address;
     }
 
+
+    public Double getCommision() {
+        return commision;
+    }
+
+    public void setCommision(Double commision) {
+        this.commision = commision;
+    }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
+
+    public Double getDues() {
+        return dues;
+    }
+
+    public void setDues(Double dues) {
+        this.dues = dues;
+    }
     public int getKacchaQty() {
         return kacchaQty;
     }
@@ -186,42 +417,13 @@ public class DetailsObj {
         this.familyQty = familyQty;
     }
 
-    public Double getCommision() {
-        return commision;
-    }
 
-    public void setCommision(Double commision) {
-        this.commision = commision;
-    }
 
-    public Double getTotal() {
-        return total;
-    }
 
-    public void setTotal(Double total) {
-        this.total = total;
-    }
 
-    public Double getDues() {
-        return dues;
-    }
 
-    public void setDues(Double dues) {
-        this.dues = dues;
-    }
 
-    int chocoSQty;
-    int chocoBQty;
-    int matkaQty;
-    int coneSQty;
-    int coneBQty;
-    int nuttyQty;
-    int keshaerQty;
-    int bonanzaQty;
-    int familyQty;
-    Double commision;
-    Double total;
-    Double dues;
+
 
 
 }
