@@ -32,12 +32,13 @@ public class Menu_Activity extends AppCompatActivity {
 
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    FirebaseFirestore fStore = FirebaseFirestore.getInstance();
     DatabaseReference myRef = database.getReference("record/Agency/"+fAuth.getCurrentUser().getUid());
-    String userID=fAuth.getCurrentUser().getUid();;
+    FirebaseFirestore fStore = FirebaseFirestore.getInstance();
+
+    String userID=fAuth.getCurrentUser().getUid();
 
     Button btnGenerate,btnHome;
-    long invoiceNum;
+//    long invoiceNum;
 
     EditText[] editTexts = new EditText[19];
     Button Calc;
@@ -45,7 +46,7 @@ public class Menu_Activity extends AppCompatActivity {
     TextView[] textViews = new TextView[19];
     TextView tvTotal,tvCommision,tvDues,tv,tvT;
     EditText etNotes;
-    DetailsObj detailsObj = new DetailsObj();
+//    DetailsObj detailsObj = new DetailsObj();
     DecimalFormat decimalFormat = new DecimalFormat("#.##");
     @SuppressLint("SimpleDateFormat")
     SimpleDateFormat datePatternFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm a");
@@ -60,15 +61,15 @@ public class Menu_Activity extends AppCompatActivity {
         generate();
         callOnClickListeners();
 
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                invoiceNum = dataSnapshot.getChildrenCount();
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
+//        myRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                invoiceNum = dataSnapshot.getChildrenCount();
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//            }
+//        });
 
 
     }
@@ -144,7 +145,7 @@ public class Menu_Activity extends AppCompatActivity {
                                     tvDues.setText(String.valueOf(dues));
 
                                     setDetailsOfObject();
-                                    myRef.child(String.valueOf(invoiceNum+1)).setValue(detailsObj);
+//                                  myRef.child(String.valueOf(invoiceNum+1)).setValue(detailsObj);
 
                                 }
                             } else {
@@ -165,52 +166,52 @@ public class Menu_Activity extends AppCompatActivity {
     }
 
     private void setDetailsOfObject() {
-        detailsObj.invoiceNo=invoiceNum+ 1;
-        detailsObj.date = new Date().getTime();
-        detailsObj.kacchaQty = Integer.parseInt(String.valueOf(editTexts[0].getText()));
-        detailsObj.litchiQty = Integer.parseInt(String.valueOf(editTexts[1].getText()));
-        detailsObj.strawQty = Integer.parseInt(String.valueOf(editTexts[2].getText()));
-        detailsObj.colaQty = Integer.parseInt(String.valueOf(editTexts[3].getText()));
-        detailsObj.pineQty = Integer.parseInt(String.valueOf(editTexts[4].getText()));
-        detailsObj.orangeQty = Integer.parseInt(String.valueOf(editTexts[5].getText()));
-        detailsObj.mangoQty = Integer.parseInt(String.valueOf(editTexts[6].getText()));
-        detailsObj.cupSQty = Integer.parseInt(String.valueOf(editTexts[7].getText()));
-        detailsObj.cupBQty = Integer.parseInt(String.valueOf(editTexts[8].getText()));
-        detailsObj.chocoSQty = Integer.parseInt(String.valueOf(editTexts[9].getText()));
-        detailsObj.chocoBQty = Integer.parseInt(String.valueOf(editTexts[10].getText()));
-        detailsObj.matkaQty = Integer.parseInt(String.valueOf(editTexts[11].getText()));
-        detailsObj.coneSQty = Integer.parseInt(String.valueOf(editTexts[12].getText()));
-        detailsObj.coneBQty = Integer.parseInt(String.valueOf(editTexts[13].getText()));
-        detailsObj.keshaerQty = Integer.parseInt(String.valueOf(editTexts[14].getText()));
-        detailsObj.bonanzaQty = Integer.parseInt(String.valueOf(editTexts[15].getText()));
-        detailsObj.familyQty= Integer.parseInt(String.valueOf(editTexts[16].getText()));
-        detailsObj.family2Qty= Integer.parseInt(String.valueOf(editTexts[18].getText()));
-        detailsObj.nuttyQty = Integer.parseInt(String.valueOf(editTexts[17].getText()));
-
-        detailsObj.kacchaPrice = Integer.parseInt(String.valueOf(textViews[0].getText()));
-        detailsObj.litchiPrice = Integer.parseInt(String.valueOf(textViews[1].getText()));
-        detailsObj.strawPrice = Integer.parseInt(String.valueOf(textViews[2].getText()));
-        detailsObj.colaPrice = Integer.parseInt(String.valueOf(textViews[3].getText()));
-        detailsObj.pinePrice = Integer.parseInt(String.valueOf(textViews[4].getText()));
-        detailsObj.orangePrice = Integer.parseInt(String.valueOf(textViews[5].getText()));
-        detailsObj.mangoPrice = Integer.parseInt(String.valueOf(textViews[6].getText()));
-        detailsObj.cupSPrice = Integer.parseInt(String.valueOf(textViews[7].getText()));
-        detailsObj.cupBPrice = Integer.parseInt(String.valueOf(textViews[8].getText()));
-        detailsObj.chocoSPrice = Integer.parseInt(String.valueOf(textViews[9].getText()));
-        detailsObj.chocoBPrice = Integer.parseInt(String.valueOf(textViews[10].getText()));
-        detailsObj.matkaPrice = Integer.parseInt(String.valueOf(textViews[11].getText()));
-        detailsObj.coneSPrice = Integer.parseInt(String.valueOf(textViews[12].getText()));
-        detailsObj.coneBPrice = Integer.parseInt(String.valueOf(textViews[13].getText()));
-        detailsObj.keshaerPrice = Integer.parseInt(String.valueOf(textViews[14].getText()));
-        detailsObj.bonanzaPrice = Integer.parseInt(String.valueOf(textViews[15].getText()));
-        detailsObj.familyPrice = Integer.parseInt(String.valueOf(textViews[16].getText()));
-        detailsObj.family2Price = Integer.parseInt(String.valueOf(textViews[18].getText()));
-        detailsObj.nuttyPrice = Integer.parseInt(String.valueOf(textViews[17].getText()));
-
-
-        detailsObj.total = Double.parseDouble(String.valueOf(tvTotal.getText()));
-        detailsObj.dues = Double.parseDouble(String.valueOf(tvDues.getText()));
-        detailsObj.commision = Double.parseDouble(String.valueOf(tvCommision.getText()));
+//        detailsObj.invoiceNo=invoiceNum+ 1;
+//        detailsObj.date = new Date().getTime();
+//        detailsObj.kacchaQty = Integer.parseInt(String.valueOf(editTexts[0].getText()));
+//        detailsObj.litchiQty = Integer.parseInt(String.valueOf(editTexts[1].getText()));
+//        detailsObj.strawQty = Integer.parseInt(String.valueOf(editTexts[2].getText()));
+//        detailsObj.colaQty = Integer.parseInt(String.valueOf(editTexts[3].getText()));
+//        detailsObj.pineQty = Integer.parseInt(String.valueOf(editTexts[4].getText()));
+//        detailsObj.orangeQty = Integer.parseInt(String.valueOf(editTexts[5].getText()));
+//        detailsObj.mangoQty = Integer.parseInt(String.valueOf(editTexts[6].getText()));
+//        detailsObj.cupSQty = Integer.parseInt(String.valueOf(editTexts[7].getText()));
+//        detailsObj.cupBQty = Integer.parseInt(String.valueOf(editTexts[8].getText()));
+//        detailsObj.chocoSQty = Integer.parseInt(String.valueOf(editTexts[9].getText()));
+//        detailsObj.chocoBQty = Integer.parseInt(String.valueOf(editTexts[10].getText()));
+//        detailsObj.matkaQty = Integer.parseInt(String.valueOf(editTexts[11].getText()));
+//        detailsObj.coneSQty = Integer.parseInt(String.valueOf(editTexts[12].getText()));
+//        detailsObj.coneBQty = Integer.parseInt(String.valueOf(editTexts[13].getText()));
+//        detailsObj.keshaerQty = Integer.parseInt(String.valueOf(editTexts[14].getText()));
+//        detailsObj.bonanzaQty = Integer.parseInt(String.valueOf(editTexts[15].getText()));
+//        detailsObj.familyQty= Integer.parseInt(String.valueOf(editTexts[16].getText()));
+//        detailsObj.family2Qty= Integer.parseInt(String.valueOf(editTexts[18].getText()));
+//        detailsObj.nuttyQty = Integer.parseInt(String.valueOf(editTexts[17].getText()));
+//
+//        detailsObj.kacchaPrice = Integer.parseInt(String.valueOf(textViews[0].getText()));
+//        detailsObj.litchiPrice = Integer.parseInt(String.valueOf(textViews[1].getText()));
+//        detailsObj.strawPrice = Integer.parseInt(String.valueOf(textViews[2].getText()));
+//        detailsObj.colaPrice = Integer.parseInt(String.valueOf(textViews[3].getText()));
+//        detailsObj.pinePrice = Integer.parseInt(String.valueOf(textViews[4].getText()));
+//        detailsObj.orangePrice = Integer.parseInt(String.valueOf(textViews[5].getText()));
+//        detailsObj.mangoPrice = Integer.parseInt(String.valueOf(textViews[6].getText()));
+//        detailsObj.cupSPrice = Integer.parseInt(String.valueOf(textViews[7].getText()));
+//        detailsObj.cupBPrice = Integer.parseInt(String.valueOf(textViews[8].getText()));
+//        detailsObj.chocoSPrice = Integer.parseInt(String.valueOf(textViews[9].getText()));
+//        detailsObj.chocoBPrice = Integer.parseInt(String.valueOf(textViews[10].getText()));
+//        detailsObj.matkaPrice = Integer.parseInt(String.valueOf(textViews[11].getText()));
+//        detailsObj.coneSPrice = Integer.parseInt(String.valueOf(textViews[12].getText()));
+//        detailsObj.coneBPrice = Integer.parseInt(String.valueOf(textViews[13].getText()));
+//        detailsObj.keshaerPrice = Integer.parseInt(String.valueOf(textViews[14].getText()));
+//        detailsObj.bonanzaPrice = Integer.parseInt(String.valueOf(textViews[15].getText()));
+//        detailsObj.familyPrice = Integer.parseInt(String.valueOf(textViews[16].getText()));
+//        detailsObj.family2Price = Integer.parseInt(String.valueOf(textViews[18].getText()));
+//        detailsObj.nuttyPrice = Integer.parseInt(String.valueOf(textViews[17].getText()));
+//
+//
+//        detailsObj.total = Double.parseDouble(String.valueOf(tvTotal.getText()));
+//        detailsObj.dues = Double.parseDouble(String.valueOf(tvDues.getText()));
+//        detailsObj.commision = Double.parseDouble(String.valueOf(tvCommision.getText()));
 
         Intent intent = new Intent(getApplicationContext(),PDF_Activity.class);
         intent.putExtra("kacchaQty",String.valueOf(editTexts[0].getText()));

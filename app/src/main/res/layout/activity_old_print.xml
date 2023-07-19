@@ -15,6 +15,7 @@
         android:layout_toEndOf="@+id/oldPrintBtn"
         android:ems="10"
         android:importantForAutofill="no"
+        android:hint="Enter Invoice Number"
         android:inputType="number"
         app:layout_constraintEnd_toStartOf="@+id/oldPrintBtn"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,14 +25,17 @@
         android:id="@+id/oldPrintBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:text="Print"
         tools:layout_editor_absoluteX="261dp"
         tools:layout_editor_absoluteY="20dp" />
 
     <ir.androidexception.datatable.DataTable
-        android:id="@+id/data_table"
-        android:layout_width="403dp"
+        android:id="@+id/data_table_a"
+        android:layout_width="match_parent"
         android:layout_height="630dp"
         android:layout_below="@+id/oldPrintEditText"
         android:layout_marginStart="8dp"

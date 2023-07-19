@@ -287,17 +287,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="visible">
-        <Button
+
+
+        <soup.neumorphism.NeumorphButton
             android:id="@+id/pdf"
+            style="@style/Widget.Neumorph.Button"
             android:layout_width="match_parent"
+            android:layout_height="107dp"
+            android:layout_marginBottom="36dp"
+            android:drawablePadding="8dp"
+            android:text="Button"
+            app:drawableEndCompat="@drawable/logoh"
+            app:drawableStartCompat="@drawable/logoh"
+             />
+        <soup.neumorphism.NeumorphTextView
+            android:id="@+id/textview"
+            style="@style/Widget.Neumorph.TextView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="pdf" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="3"
-            android:paddingTop="50dp"
-            android:textAlignment="center"/>
+            android:layout_marginTop="48dp"
+            android:text="Neumorphism"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:textStyle="bold"
+             />
 
 
 

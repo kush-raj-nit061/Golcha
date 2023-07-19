@@ -41,11 +41,16 @@ import java.util.Map;
 
 public class PDF_Activity extends AppCompatActivity {
 
+
+
+
     FirebaseFirestore fStore = FirebaseFirestore.getInstance();
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("record/"+fAuth.getCurrentUser().getUid());
+    DatabaseReference myRef = database.getReference("record/Agency/"+fAuth.getCurrentUser().getUid());
+
+
 
     Button btnsp,btnp;
     TextView[] textViewQ = new TextView[19];
@@ -57,6 +62,7 @@ public class PDF_Activity extends AppCompatActivity {
     @SuppressLint("SimpleDateFormat")
     SimpleDateFormat datePatternFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm a");
     long invoiceNum;
+    DetailsObj detailsObj = new DetailsObj();
 
     String str[] ={"Kaccha Aaam","Litchi","Strawberry","Coca","PineApple","Orange Bar","Mango Bar","Cup-S","Cup-B","ChocoBar-S","ChocoBar-B","Matka","King Cone-S","King Cone-B","Family Pack(2 in 1)","Keshar Pista","Bonanza","Family Pack","Nutty Crunch"};
     String price[]={"250","250","250","250","250","250","250","150","240","300","360","300","420","500","120","240","200","100","400"};
@@ -100,7 +106,7 @@ public class PDF_Activity extends AppCompatActivity {
                                     String loc = document.getString("location");
 
                                     tvAddress.setText(loc);
-                                    tvName.setText("Name: "+ name);
+                                    tvName.setText(name);
 
 
                                 }
@@ -236,9 +242,11 @@ public class PDF_Activity extends AppCompatActivity {
         btnsp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dataObj.invoiceNo=invoiceNum+ 1;
-                dataObj.date = new Date().getTime();
-                myRef.child(String.valueOf(invoiceNum+1)).setValue(dataObj);
+                detailsObj.invoiceNo=invoiceNum+ 1;
+                detailsObj.date = new Date().getTime();
+
+                setDetailsOfObject();
+                myRef.child(String.valueOf(invoiceNum+1)).setValue(detailsObj);
                 printPdf();
             }
 
@@ -248,50 +256,95 @@ public class PDF_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PDF_Activity.this,MainActivity.class);
+
+
+
+
+
                 startActivity(intent);
             }
         });
     }
+
+    private void setDetailsOfObject() {
+
+        detailsObj.invoiceNo=invoiceNum+ 1;
+        detailsObj.date = new Date().getTime();
+        detailsObj.kacchaQty = Integer.parseInt(String.valueOf(textViewQ[0].getText()));
+        detailsObj.litchiQty = Integer.parseInt(String.valueOf(textViewQ[1].getText()));
+        detailsObj.strawQty = Integer.parseInt(String.valueOf(textViewQ[2].getText()));
+        detailsObj.colaQty = Integer.parseInt(String.valueOf(textViewQ[3].getText()));
+        detailsObj.pineQty = Integer.parseInt(String.valueOf(textViewQ[4].getText()));
+        detailsObj.orangeQty = Integer.parseInt(String.valueOf(textViewQ[5].getText()));
+        detailsObj.mangoQty = Integer.parseInt(String.valueOf(textViewQ[6].getText()));
+        detailsObj.cupSQty = Integer.parseInt(String.valueOf(textViewQ[7].getText()));
+        detailsObj.cupBQty = Integer.parseInt(String.valueOf(textViewQ[8].getText()));
+        detailsObj.chocoSQty = Integer.parseInt(String.valueOf(textViewQ[9].getText()));
+        detailsObj.chocoBQty = Integer.parseInt(String.valueOf(textViewQ[10].getText()));
+        detailsObj.matkaQty = Integer.parseInt(String.valueOf(textViewQ[11].getText()));
+        detailsObj.coneSQty = Integer.parseInt(String.valueOf(textViewQ[12].getText()));
+        detailsObj.coneBQty = Integer.parseInt(String.valueOf(textViewQ[13].getText()));
+        detailsObj.keshaerQty = Integer.parseInt(String.valueOf(textViewQ[15].getText()));
+        detailsObj.bonanzaQty = Integer.parseInt(String.valueOf(textViewQ[16].getText()));
+        detailsObj.familyQty= Integer.parseInt(String.valueOf(textViewQ[17].getText()));
+        detailsObj.family2Qty= Integer.parseInt(String.valueOf(textViewQ[14].getText()));
+        detailsObj.nuttyQty = Integer.parseInt(String.valueOf(textViewQ[18].getText()));
+
+        detailsObj.kacchaPrice = Integer.parseInt(String.valueOf(textViewT[0].getText()));
+        detailsObj.litchiPrice = Integer.parseInt(String.valueOf(textViewT[1].getText()));
+        detailsObj.strawPrice = Integer.parseInt(String.valueOf(textViewT[2].getText()));
+        detailsObj.colaPrice = Integer.parseInt(String.valueOf(textViewT[3].getText()));
+        detailsObj.pinePrice = Integer.parseInt(String.valueOf(textViewT[4].getText()));
+        detailsObj.orangePrice = Integer.parseInt(String.valueOf(textViewT[5].getText()));
+        detailsObj.mangoPrice = Integer.parseInt(String.valueOf(textViewT[6].getText()));
+        detailsObj.cupSPrice = Integer.parseInt(String.valueOf(textViewT[7].getText()));
+        detailsObj.cupBPrice = Integer.parseInt(String.valueOf(textViewT[8].getText()));
+        detailsObj.chocoSPrice = Integer.parseInt(String.valueOf(textViewT[9].getText()));
+        detailsObj.chocoBPrice = Integer.parseInt(String.valueOf(textViewT[10].getText()));
+        detailsObj.matkaPrice = Integer.parseInt(String.valueOf(textViewT[11].getText()));
+        detailsObj.coneSPrice = Integer.parseInt(String.valueOf(textViewT[12].getText()));
+        detailsObj.coneBPrice = Integer.parseInt(String.valueOf(textViewT[13].getText()));
+        detailsObj.keshaerPrice = Integer.parseInt(String.valueOf(textViewT[15].getText()));
+        detailsObj.bonanzaPrice = Integer.parseInt(String.valueOf(textViewT[16].getText()));
+        detailsObj.familyPrice = Integer.parseInt(String.valueOf(textViewT[17].getText()));
+        detailsObj.family2Price = Integer.parseInt(String.valueOf(textViewT[14].getText()));
+        detailsObj.nuttyPrice = Integer.parseInt(String.valueOf(textViewT[18].getText()));
+
+
+        detailsObj.total = Double.parseDouble(String.valueOf(tvTota.getText()));
+        detailsObj.dues = Double.parseDouble(String.valueOf(tvDue.getText()));
+        detailsObj.commision = Double.parseDouble(String.valueOf(tvComm.getText()));
+        detailsObj.custName = tvName.getText().toString();
+
+
+    }
+
     private void printPdf() {
-
         PdfDocument myPdfDocument = new PdfDocument();
-
         Paint paint = new Paint();
         Paint forLinePaint =new Paint();
         PdfDocument.PageInfo myPageInfo = new PdfDocument.PageInfo.Builder(1200,2600,1).create();
         PdfDocument.Page myPage = myPdfDocument.startPage(myPageInfo);
         Canvas canvas = myPage.getCanvas();
-
         paint.setTextSize(19.0f);
-
-
         Bitmap bmp = BitmapFactory.decodeResource(getResources(),R.drawable.banner);
         Bitmap scale = Bitmap.createScaledBitmap(bmp,1200,462,false);
         canvas.drawBitmap(scale,0,0,paint);
         paint.setTextSize(50);
-
         canvas.drawText("---------------------------------------------------------------------------------------------------------------------------------------",0,500,paint);
-
-
         paint.setTextAlign(Paint.Align.CENTER);
         paint.setColor(Color.rgb(0,0,0));
         paint.setTypeface(Typeface.create(Typeface.DEFAULT,Typeface.ITALIC));
         paint.setTextSize(70);
         canvas.drawText("Invoice",600,550,paint);
-
         paint.setTextSize(50);
         canvas.drawText("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",0,570,paint);
-
-
-
-
         paint.setTextSize(35);
         canvas.drawText("Date: "+datePatternFormat.format(new Date().getTime()),900,600,paint);
         canvas.drawText(tvName.getText().toString(),900,650,paint);
         canvas.drawText("Address: "+tvAddress.getText().toString(),900,700,paint);
         paint.setTextSize(70);
         canvas.drawText("---------------------------------------------------------------------------------------------------------------------------------------",0,750,paint);
-
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(2);
         canvas.drawRect(20,780,1180,860,paint);
@@ -303,14 +356,10 @@ public class PDF_Activity extends AppCompatActivity {
         canvas.drawText("Price",660,830,paint);
         canvas.drawText("Qty",900,830,paint);
         canvas.drawText("Total",1030,830,paint);
-
-
-
         canvas.drawLine(140,790,140,840,paint);
         canvas.drawLine(640,790,640,840,paint);
         canvas.drawLine(840,790,840,840,paint);
         canvas.drawLine(1000,790,1000,840,paint);
-
         int position=950;
         int num=1;
         for(int i = 0;i<19;i++){
@@ -325,19 +374,16 @@ public class PDF_Activity extends AppCompatActivity {
                 num++;
             }
         }
-
         canvas.drawLine(680,position+100,1180,position+100,paint);
         canvas.drawText("Sub-Total",700,position+150,paint);
         canvas.drawText(":",900,position+150,paint);
         paint.setTextAlign(Paint.Align.RIGHT);
         canvas.drawText(tvTota.getText().toString(),1160,position+150,paint);
-
         paint.setTextAlign(Paint.Align.LEFT);
         canvas.drawText("Commission",700,position+200,paint);
         canvas.drawText(":",900,position+200,paint);
         paint.setTextAlign(Paint.Align.RIGHT);
         canvas.drawText(tvComm.getText().toString(),1160,position+200,paint);
-
         paint.setTextAlign(Paint.Align.LEFT);
         canvas.drawText("Total",700,position+250,paint);
         canvas.drawText(":",900,position+250,paint);
@@ -347,9 +393,6 @@ public class PDF_Activity extends AppCompatActivity {
         paint.setTextSize(40);
         paint.setColor(Color.RED);
         canvas.drawText(tvNotes.getText().toString(),1160,position+15,paint);
-
-
-
         myPdfDocument.finishPage(myPage);
         String directory_path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/mypdf/";
         File file = new File(directory_path);
@@ -367,7 +410,6 @@ public class PDF_Activity extends AppCompatActivity {
             Log.e("main", "error "+e.toString());
             Toast.makeText(this, "Something wrong: " + e.toString(),  Toast.LENGTH_LONG).show();
         }
-
         myPdfDocument.close();
 
     }

@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.golchaicecream"
-        minSdk 19
+        minSdk 21
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -45,6 +45,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore-ktx:24.6.0'
     implementation 'com.google.firebase:firebase-storage-ktx:20.2.0'
     implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'com.github.fornewid:neumorphism:0.2.1'
     testImplementation 'junit:junit:4.13.2'
     implementation 'tk.zielony:carbon:0.17.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

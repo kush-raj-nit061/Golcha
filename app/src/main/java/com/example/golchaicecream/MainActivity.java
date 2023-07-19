@@ -24,6 +24,10 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -31,17 +35,35 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
+import ir.androidexception.datatable.DataTable;
+import ir.androidexception.datatable.model.DataTableHeader;
+import ir.androidexception.datatable.model.DataTableRow;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 
 public class MainActivity extends AppCompatActivity {
 
-    FirebaseFirestore fStore ;
-    FirebaseAuth fAuth;
+    FirebaseFirestore fStore = FirebaseFirestore.getInstance();
+    FirebaseAuth fAuth = FirebaseAuth.getInstance();
     String userID;
     StorageReference storageReference;
     ImageView ivPlace;
+    DataTableHeader header;
+    String customerName;
+    String loc;
+    DataTable dataTable;
 
+
+//    DatabaseReference myRef = database.getReference("record/Agency/"+fAuth.getCurrentUser().getUid());
+    SimpleDateFormat datePatternFormat = new SimpleDateFormat("dd-MM-yyyy");
+    SimpleDateFormat timePatternFormat =new SimpleDateFormat("hh:mm a");
+
+    DecimalFormat decimalFormat = new DecimalFormat("#.##");
+    ArrayList<DataTableRow> rows = new ArrayList<>();
 
     Button b2,b1,b3;
     ImageButton imgButton;
@@ -60,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        fStore = FirebaseFirestore.getInstance();
-        fAuth = FirebaseAuth.getInstance();
+
+
         userID = fAuth.getCurrentUser().getUid();
         storageReference = FirebaseStorage.getInstance().getReference();
         StorageReference profileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"profile.jpg");
@@ -135,7 +157,6 @@ public class MainActivity extends AppCompatActivity {
                 personalinfobtn.setTextColor(getResources().getColor(R.color.grey));
                 experiencebtn.setTextColor(getResources().getColor(R.color.blue));
                 reviewbtn.setTextColor(getResources().getColor(R.color.grey));
-
             }
         });
 
@@ -359,6 +380,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -392,7 +417,7 @@ public class MainActivity extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(MainActivity.this,"Failed.",Toast.LENGTH_LONG);
+                Toast.makeText(MainActivity.this,"Failed.",Toast.LENGTH_LONG).show();
             }
         });
 
