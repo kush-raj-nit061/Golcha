@@ -89,6 +89,7 @@ public class Menu_Activity extends AppCompatActivity {
                                 if (document.exists()) {
                                     String com = document.getString("commission");
                                     int commission = 0;
+                                    assert com != null;
                                     commission= Integer.parseInt(com);
                                     Toast.makeText(getApplicationContext(), "Commission = "+com+"%", Toast.LENGTH_SHORT).show();
 
@@ -335,6 +336,7 @@ public class Menu_Activity extends AppCompatActivity {
         }
         return sum;
     }
+
 
 
 

@@ -10,30 +10,36 @@
     android:alpha="0.9"
     tools:context=".SplashScreen_Activity">
 
-    <TextView
-        android:id="@+id/tvSplash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:fontFamily="@font/londrina_shadow"
-        android:text="Golcha Icecream"
-        android:textColor="@color/white"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageSplash"
-        android:layout_width="283dp"
-        android:layout_height="437dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="64dp"
+
+    <soup.neumorphism.NeumorphCardView
+        android:id="@+id/pressed_card"
+        style="@style/Widget.Neumorph.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSplash"
-        app:srcCompat="@drawable/logo" />
+        app:neumorph_shapeType="pressed">
+
+        <TextView
+            android:id="@+id/tvSplash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/londrina_shadow"
+            android:text="Golcha Icecream"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+
+             />
+
+        <soup.neumorphism.NeumorphImageView
+            android:id="@+id/imageSplash"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/logoh"/>
+    </soup.neumorphism.NeumorphCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

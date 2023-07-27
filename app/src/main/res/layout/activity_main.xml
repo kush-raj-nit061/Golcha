@@ -15,7 +15,7 @@
         <RelativeLayout
             android:id="@+id/a1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
 
             android:visibility="visible">
 
@@ -54,7 +54,7 @@
                         android:layout_marginTop="4dp"
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="16dp"
-                        android:text="Agency Order"
+                        android:text="@string/agency_order"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textColor="@color/colorPrimaryDark"
                         app:layout_constraintTop_toTopOf="@+id/avatar_image"
@@ -68,7 +68,7 @@
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="4dp"
-                        android:text="place your order now"
+                        android:text="@string/place_your_order_now"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textColor="@color/carbon_red_500"
                         app:layout_constraintStart_toEndOf="@+id/avatar_image"
@@ -96,7 +96,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
                         android:lineSpacingExtra="8dp"
-                        android:text="Your Order Will be directly sent to golcha"
+                        android:text="@string/your_order_will_be_directly_sent_to_golcha"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                         android:textColor="@color/black"
                         app:layout_constraintTop_toBottomOf="@+id/media_image"
@@ -104,8 +104,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toTopOf="@id/agency"/>
 
-                    <Button
-                        style="@style/Widget.AppCompat.Button.Borderless"
+                    <soup.neumorphism.NeumorphButton
+                        style="@style/Widget.Neumorph.Button"
                         android:id="@+id/agency"
                         android:layout_width="wrap_content"
                         android:layout_height="100dp"
@@ -114,8 +114,9 @@
                         android:minWidth="0dp"
                         android:paddingStart="8dp"
                         android:paddingEnd="8dp"
+                        android:paddingBottom="30dp"
                         android:paddingTop="30dp"
-                        android:text="Order Now"
+                        android:text="@string/order_now"
                         android:textColor="@color/carbon_red_900"
                         app:layout_constraintTop_toBottomOf="@+id/supporting_text"
                         app:layout_constraintStart_toStartOf="parent"
@@ -124,16 +125,19 @@
                     <Button
                         android:id="@+id/action_button_2"
                         style="@style/Widget.AppCompat.Button.Borderless"
-                        android:layout_width="240dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
+                        android:layout_marginStart="130dp"
                         android:minWidth="0dp"
-                        android:paddingStart="8dp"
+
                         android:paddingEnd="15dp"
                         android:text="@string/highlight"
                         android:textColor="@color/teal_700"
+                        app:layout_constraintEnd_toStartOf="@+id/agency"
+                        app:layout_constraintRight_creator="@id/agency"
                         app:layout_constraintStart_toEndOf="@id/agency"
-                        app:layout_constraintTop_toTopOf="@id/agency" />
+                        app:layout_constraintTop_toTopOf="@id/agency"
+                        tools:ignore="RtlSymmetry" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -149,7 +153,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                tools:ignore="ContentDescription">
+                tools:ignore="ContentDescription,RtlSymmetry">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -176,7 +180,7 @@
                         android:layout_marginTop="4dp"
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="16dp"
-                        android:text="Vendor Order"
+                        android:text="@string/vendor_order"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textColor="@color/colorPrimaryDark"
                         app:layout_constraintTop_toTopOf="@+id/avatar"
@@ -190,7 +194,7 @@
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="4dp"
-                        android:text="place your order now"
+                        android:text="@string/place_your_order"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textColor="@color/carbon_red_500"
                         app:layout_constraintStart_toEndOf="@+id/avatar"
@@ -218,7 +222,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
                         android:lineSpacingExtra="8dp"
-                        android:text="Your Order Will be saved to your History Section"
+                        android:text="@string/his"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                         android:textColor="@color/black"
                         app:layout_constraintTop_toBottomOf="@+id/media"
@@ -226,8 +230,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toTopOf="@id/vendor"/>
 
-                    <Button
-                        style="@style/Widget.AppCompat.Button.Borderless"
+                    <soup.neumorphism.NeumorphButton
+                        style="@style/Widget.Neumorph.Button"
                         android:id="@+id/vendor"
                         android:layout_width="wrap_content"
                         android:layout_height="100dp"
@@ -237,7 +241,8 @@
                         android:paddingStart="8dp"
                         android:paddingEnd="8dp"
                         android:paddingTop="30dp"
-                        android:text="Order Now"
+                        android:paddingBottom="30dp"
+                        android:text="@string/order_now"
                         android:textColor="@color/carbon_red_900"
                         app:layout_constraintTop_toBottomOf="@+id/supporting"
                         app:layout_constraintStart_toStartOf="parent"
@@ -246,12 +251,12 @@
                     <Button
                         android:id="@+id/action"
                         style="@style/Widget.AppCompat.Button.Borderless"
-                        android:layout_width="240dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
+                        android:layout_marginStart="130dp"
 
                         android:minWidth="0dp"
-                        android:paddingStart="8dp"
+
                         android:paddingEnd="15dp"
 
                         android:text="@string/vendorHighlight"
@@ -277,7 +282,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="2"
+            android:text="@string/_2"
             android:paddingTop="50dp"
             android:textAlignment="center"/>
     </RelativeLayout>
@@ -286,31 +291,87 @@
         android:id="@+id/a3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible">
-
-
+        android:visibility="visible"
+        android:layout_above="@+id/bottomNavigation"
+        >
         <soup.neumorphism.NeumorphButton
             android:id="@+id/pdf"
             style="@style/Widget.Neumorph.Button"
             android:layout_width="match_parent"
-            android:layout_height="107dp"
-            android:layout_marginBottom="36dp"
-            android:drawablePadding="8dp"
-            android:text="Button"
-            app:drawableEndCompat="@drawable/logoh"
-            app:drawableStartCompat="@drawable/logoh"
-             />
-        <soup.neumorphism.NeumorphTextView
-            android:id="@+id/textview"
-            style="@style/Widget.Neumorph.TextView"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:text="Neumorphism"
-            android:textColor="@color/black"
-            android:textSize="40sp"
-            android:textStyle="bold"
-             />
+            android:layout_marginBottom="5dp"
+            android:drawablePadding="8dp"
+            android:text="@string/old_invoice"
+            app:drawableEndCompat="@drawable/invoice"
+            android:textSize="20sp"
+            android:textColor="@color/carbon_red_900"
+            android:layout_alignParentBottom="true"
+            />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="80dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <soup.neumorphism.NeumorphCardView
+                    android:id="@+id/pressed_card"
+                    style="@style/Widget.Neumorph.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:layout_marginTop="48dp"
+                    app:neumorph_shapeType="basin" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:padding="18dp"
+                            android:text="@string/get_invoice"
+                            android:gravity="center"
+                            app:neumorph_shadowElevation="6dp"
+                            app:neumorph_shadowColorLight="@color/black"
+                            app:neumorph_shadowColorDark="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:id="@+id/textviews"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:paddingHorizontal="10dp"
+                            android:paddingBottom="20dp"
+                            android:text="@string/invoiceDes"
+                            android:gravity="center"
+                            app:neumorph_shadowElevation="6dp"
+                            app:neumorph_shadowColorLight="@color/black"
+                            app:neumorph_shadowColorDark="@color/white"
+                            android:textSize="14sp"
+                            />
+                    </LinearLayout>
+
+                </soup.neumorphism.NeumorphCardView>
+            </LinearLayout>
+
+        </ScrollView>
+
+
+
+
+
 
 
 
@@ -325,8 +386,8 @@
         android:visibility="gone">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:background="#293859" />
+            android:layout_height="125dp"
+            android:background="@drawable/banner" />
 
         <!--Top Header Layout-->
         <LinearLayout
@@ -351,7 +412,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Profile"
+                android:text="@string/profile"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -392,7 +453,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
@@ -418,7 +479,7 @@
                             android:layout_width="150dp"
                             android:layout_height="90dp"
                             android:scaleType="centerCrop"
-                            android:contentDescription="TODO" />
+                            android:contentDescription="@string/todo" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -479,16 +540,17 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Number of Orders"
+                                    android:text="@string/number_of_orders"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
                                 <TextView
+                                    android:id="@+id/invoiceNum"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dp"
                                     android:layout_gravity="center_horizontal"
-                                    android:text="0"
+                                    android:text="@string/_0"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </LinearLayout>
@@ -510,14 +572,14 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:id="@+id/location"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="YOUR LOCATION"
+                                    android:text="@string/your_location"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -546,7 +608,7 @@
                         android:fontFamily="@font/proximanovaregular"
                         android:gravity="center"
                         android:padding="13dp"
-                        android:text="User Info"
+                        android:text="@string/user_info"
                         android:textAllCaps="true"
                         android:textColor="@color/blue"
                         android:textSize="14sp"
@@ -565,7 +627,7 @@
                         android:fontFamily="@font/proximanovaregular"
                         android:gravity="center"
                         android:padding="13dp"
-                        android:text="Order History"
+                        android:text="@string/order_history"
                         android:textAllCaps="true"
                         android:textColor="@color/lightgrey"
                         android:textSize="14sp"
@@ -584,7 +646,7 @@
                         android:fontFamily="@font/proximanovaregular"
                         android:gravity="center"
                         android:padding="13dp"
-                        android:text="Review"
+                        android:text="@string/review"
                         android:textAllCaps="true"
                         android:textColor="@color/lightgrey"
                         android:textSize="14sp"
@@ -620,13 +682,13 @@
                                     android:id="@+id/tvNameDown"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Name"
+                                    android:text="@string/name"
                                     android:fontFamily="@font/proximanovaregular"
                                     android:textSize="17sp"
                                     android:textStyle="bold" />
 
                                 <Space
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1" />
 
@@ -634,7 +696,7 @@
                                     android:id="@+id/tvEditNameCard"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Edit"
+                                    android:text="@string/edit"
                                     android:fontFamily="@font/proximanovaregular"
                                     android:textColor="#FFCF66"
                                     android:layout_marginEnd="10dp"
@@ -646,7 +708,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
-                                android:text="about" />
+                                android:text="@string/about" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -667,13 +729,13 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Contact info"
+                                android:text="@string/contact_info"
                                 android:textSize="17sp"
                                 android:fontFamily="@font/proximanovaregular"
                                 android:textStyle="bold" />
 
                             <Space
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1" />
 
@@ -681,7 +743,7 @@
                                 android:id="@+id/tvEditContact"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Edit"
+                                android:text="@string/edits"
                                 android:textColor="#FFCF66"
                                 android:layout_marginEnd="10dp"
                                 android:textSize="14sp" />
@@ -697,7 +759,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical"
-                                android:paddingRight="8dp">
+                                android:paddingEnd="8dp">
 
                                 <ImageView
                                     android:layout_width="40dp"
@@ -710,7 +772,7 @@
                                     android:id="@+id/tvNum"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginStart="20dp"
                                     android:text=""
                                     android:textSize="15sp"
                                     android:textColor="@color/goodgrey"
@@ -722,7 +784,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:gravity="center_vertical"
-                                android:paddingRight="8dp">
+                                android:paddingEnd="8dp">
 
                                 <ImageView
                                     android:layout_width="40dp"
@@ -735,7 +797,7 @@
                                     android:id="@+id/Email"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginStart="20dp"
                                     android:textColor="@color/goodgrey"
                                     android:text=""
                                     android:textSize="15sp"
@@ -747,7 +809,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:gravity="center_vertical"
-                                android:paddingRight="8dp">
+                                android:paddingEnd="8dp">
 
                                 <ImageView
                                     android:layout_width="40dp"
@@ -760,7 +822,7 @@
                                     android:id="@+id/tvLocation"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginStart="20dp"
                                     android:text=""
                                     android:textSize="15sp"
                                     android:textColor="@color/goodgrey"
@@ -796,90 +858,99 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/a5"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingHorizontal="10dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="1dp"
         android:layout_above="@+id/bottomNavigation"
-        android:visibility="gone">
+        >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:textSize="30dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="casual"
-            android:text="From our family to yours,\n The taste of happiness."
-            android:textAlignment="center" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card1"
+        <RelativeLayout
+            android:id="@+id/a5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            app:cardElevation="10dp"
-            app:cardCornerRadius="5dp"
-            app:cardPreventCornerOverlap="true"
-            app:cardUseCompatPadding="true"
-            tools:ignore="MissingConstraints">
+            android:paddingHorizontal="10dp"
+
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:textSize="30sp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="casual"
+                android:text="@string/from_our_family_to_yours_n_the_taste_of_happiness"
+                android:textAlignment="center" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="5dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                tools:ignore="MissingConstraints">
 
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                >
-
-                <ImageView
-                    android:id="@+id/ivPlace"
+                <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="320dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginLeft="0dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/logoh" />
+                    android:layout_height="match_parent"
+                    >
 
-                <TextView
-                    android:id="@+id/tvPlaceName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/ivPlace"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="20dp"
-                    android:padding="5dp"
-                    android:letterSpacing="0.2"
-                    android:text="Username"
-                    android:textColor="@color/black"
-                    android:textSize="25sp"
-                    android:textStyle="bold|italic" />
+                    <ImageView
+                        android:id="@+id/ivPlace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="320dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="0dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/logoh" />
+
+                    <TextView
+                        android:id="@+id/tvPlaceName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ivPlace"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:padding="5dp"
+                        android:letterSpacing="0.2"
+                        android:text="@string/usernamess"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:textStyle="bold|italic" />
 
 
-                <TextView
-                    android:id="@+id/tvEmail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvPlaceName"
-                    android:letterSpacing="0.2"
-                    android:layout_alignStart="@+id/tvPlaceName"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginTop="-24dp"
-                    android:text="Your Email" />
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:id="@+id/tvEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvPlaceName"
+                        android:letterSpacing="0.2"
+                        android:layout_alignStart="@+id/tvPlaceName"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="-24dp"
+                        android:text="@string/your_email" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/card1"
-            android:paddingHorizontal="5dp"
-            android:text="@string/welcome"
-            android:fontFamily="@font/proximanovaregular"
-            android:textSize="15sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card1"
+                android:paddingHorizontal="5dp"
+                android:text="@string/welcome"
+                android:fontFamily="@font/proximanovaregular"
+                android:textSize="15sp"/>
 
-    </RelativeLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
+
 
 
 

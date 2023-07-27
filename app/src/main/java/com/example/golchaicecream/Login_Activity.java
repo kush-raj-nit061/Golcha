@@ -15,12 +15,15 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.AuthResult;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Login_Activity extends AppCompatActivity {
 
     private EditText emailTextView, passwordTextView;
     private Button Btn;
-//    private TextView tvLogin;
+    FirebaseFirestore fStore = FirebaseFirestore.getInstance();
+    //    private TextView tvLogin;
     TextView tvForgot;
     private ProgressBar progressbar;
 
@@ -103,20 +106,51 @@ public class Login_Activity extends AppCompatActivity {
                                     @NonNull Task<AuthResult> task)
                             {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(getApplicationContext(),
-                                                    "Login successful!!",
-                                                    Toast.LENGTH_LONG)
-                                            .show();
+//                                    Toast.makeText(getApplicationContext(),
+//                                                    "Login successful!!",
+//                                                    Toast.LENGTH_LONG)
+//                                            .show();
 
                                     // hide the progress bar
                                     progressbar.setVisibility(View.GONE);
 
+                                    String uid = mAuth.getCurrentUser().getUid();
+
+
+                                    fStore.collection("users").document(uid)
+                                            .get().addOnCompleteListener(tasks -> {
+                                                if (tasks.isSuccessful()) {
+                                                    DocumentSnapshot document = tasks.getResult();
+                                                    if (document.exists()) {
+                                                        String ut = document.getString("userType");
+                                                        assert ut != null;
+                                                        if(ut.equals("1")){
+                                                            Intent intent
+                                                                    = new Intent(Login_Activity.this,
+                                                                    MainActivity.class);
+                                                            startActivity(intent);
+
+
+                                                        }else{
+                                                            Toast.makeText(getApplicationContext(),"UserAccount",Toast.LENGTH_LONG).show();
+
+                                                        }
+
+
+
+                                                    }
+                                                }else {
+
+                                                }
+                                            });
+
+
+
+
+
                                     // if sign-in is successful
                                     // intent to home activity
-                                    Intent intent
-                                            = new Intent(Login_Activity.this,
-                                            MainActivity.class);
-                                    startActivity(intent);
+
                                 }
 
                                 else {

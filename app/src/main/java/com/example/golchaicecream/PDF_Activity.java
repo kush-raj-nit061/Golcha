@@ -57,7 +57,6 @@ public class PDF_Activity extends AppCompatActivity {
     TextView[] textViewT = new TextView[19];
     TextView tvName,tvAddress,tvDate,tvComm,tvTota,tvDue,tvNotes;
     String userID = fAuth.getCurrentUser().getUid();;
-    DataObj dataObj = new DataObj();
     DecimalFormat decimalFormat = new DecimalFormat("#.##");
     @SuppressLint("SimpleDateFormat")
     SimpleDateFormat datePatternFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm a");

@@ -27,6 +27,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -56,9 +57,10 @@ public class MainActivity extends AppCompatActivity {
     String customerName;
     String loc;
     DataTable dataTable;
+    long invoice;
 
 
-//    DatabaseReference myRef = database.getReference("record/Agency/"+fAuth.getCurrentUser().getUid());
+
     SimpleDateFormat datePatternFormat = new SimpleDateFormat("dd-MM-yyyy");
     SimpleDateFormat timePatternFormat =new SimpleDateFormat("hh:mm a");
 
@@ -68,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
     Button b2,b1,b3;
     ImageButton imgButton;
     RelativeLayout a4,a1,a2,a3,a5;
-    TextView textView,location;
+    TextView textView,location,invoiceNum;
     LinearLayout personalinfo,review,experience;
     TextView personalinfobtn, experiencebtn, reviewbtn;
     TextView tvEmail,tvProfileEmail,tvProfileN,tvEditContact,tvNum,tvEmails,tvLocation,tvAbout,tvEditNameCard,tvNameDown;
@@ -87,6 +89,22 @@ public class MainActivity extends AppCompatActivity {
         userID = fAuth.getCurrentUser().getUid();
         storageReference = FirebaseStorage.getInstance().getReference();
         StorageReference profileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"profile.jpg");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("record/Agency/"+fAuth.getCurrentUser().getUid());
+
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                invoice = dataSnapshot.getChildrenCount();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        invoiceNum = findViewById(R.id.invoiceNum);
 
 
 
@@ -341,6 +359,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                 }
+                invoiceNum.setText(String.valueOf(invoice));
                 return null;
             }
         });

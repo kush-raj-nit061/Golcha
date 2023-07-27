@@ -3,14 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
-
 
     <application
         android:allowBackup="true"
@@ -18,13 +19,13 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:requestLegacyExternalStorage="true"
         android:theme="@style/Theme.GolchaIcecream"
         tools:targetApi="31">
         <activity
-            android:name=".UserDetails"
+            android:name=".ToDoApp.MainActivity"
             android:exported="false" />
         <activity
             android:name=".ForgotActivity"
@@ -34,53 +35,25 @@
             android:exported="false" />
         <activity
             android:name=".PDF_Activity"
-            android:exported="true" >
-
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".Vendor_Activity"
             android:exported="false" />
         <activity
             android:name=".Menu_Activity"
-            android:exported="true">
-
-
-        </activity>
-
-
+            android:exported="true" />
         <activity
             android:name=".SplashScreen_Activity"
-            android:exported="true">
-
-
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".Login_Activity"
-            android:exported="true" >
-
-
-        </activity>
-
+            android:exported="true" />
         <activity
             android:name=".Registration_Activity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-
-
-
-        </activity>
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"

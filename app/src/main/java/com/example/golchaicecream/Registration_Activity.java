@@ -21,6 +21,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -33,10 +34,11 @@ public class Registration_Activity extends AppCompatActivity {
     private Button Btn;
 
 
-    private Button b;
-    private ProgressBar progressbar;
 
-    FirebaseFirestore fStore;
+    private Button b;
+
+
+    FirebaseFirestore fStore = FirebaseFirestore.getInstance();
    public String userID;
     private FirebaseAuth mAuth;
 
@@ -56,10 +58,10 @@ public class Registration_Activity extends AppCompatActivity {
         Btn = findViewById(R.id.btnregister);
         phone = findViewById(R.id.PhoneNum);
         fullname = findViewById(R.id.fullName);
-        fStore = FirebaseFirestore.getInstance();
 
 
-        progressbar = findViewById(R.id.progressbar);
+
+
         b = findViewById(R.id.button);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +87,7 @@ public class Registration_Activity extends AppCompatActivity {
     {
 
         // show the visibility of progress bar to show loading
-        progressbar.setVisibility(View.VISIBLE);
+
 
         // Take the value of two edit texts in Strings
         String email, password,name,call;
@@ -130,6 +132,7 @@ public class Registration_Activity extends AppCompatActivity {
                             user.put("password",password);
                             user.put("commission","0");
                             user.put("location","YOUR LOCATION");
+                            user.put("userType","0");
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
@@ -139,12 +142,12 @@ public class Registration_Activity extends AppCompatActivity {
                             });
 
                             // hide the progress bar
-                            progressbar.setVisibility(View.GONE);
+
 
                             // if the user created intent to login activity
                             Intent intent
                                     = new Intent(Registration_Activity.this,
-                                    Login_Activity.class);
+                                    MainActivity.class);
                             startActivity(intent);
                         }
                         else {
@@ -158,11 +161,47 @@ public class Registration_Activity extends AppCompatActivity {
                                     .show();
 
                             // hide the progress bar
-                            progressbar.setVisibility(View.GONE);
+
                         }
                     }
                 });
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(mAuth.getCurrentUser() != null){
+            fStore.collection("users").document(mAuth.getCurrentUser().getUid())
+                    .get().addOnCompleteListener(tasks -> {
+                        if (tasks.isSuccessful()) {
+                            DocumentSnapshot document = tasks.getResult();
+                            if (document.exists()) {
+                                String ut = document.getString("userType");
+                                assert ut != null;
+                                if(ut.equals("1")){
+                                    Intent intent
+                                            = new Intent(Registration_Activity.this,
+                                            MainActivity.class);
+                                    startActivity(intent);
+
+
+                                }else{
+                                    Toast.makeText(getApplicationContext(),"UserAccount",Toast.LENGTH_LONG).show();
+
+                                }
+
+
+
+                            }
+                        }else {
+
+                        }
+                    });
+
+        }
+    }
+
+
 
 }
 
