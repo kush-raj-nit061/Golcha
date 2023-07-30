@@ -1,0 +1,1221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:alpha="1"
+    tools:context=".AgencyMenu"
+    android:background="@drawable/backnew"
+    >
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="MENU"
+        android:textStyle="bold"
+        android:textColor="#000000"
+
+        />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView3"
+        android:padding="15dp"
+
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="false"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:paddingHorizontal="30dp"
+
+                    android:text="!Items"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="italic" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+
+                    android:layout_gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingEnd="0dp"
+                        android:paddingRight="10dp"
+                        android:text="| qty/(box) |  "
+                        android:textAlignment="center"
+                        android:textColor="@color/carbon_brown_900"
+                        android:textSize="20sp"
+                        android:textStyle="italic"
+                        tools:ignore="DuplicateIds" />
+
+
+
+                    <TextView
+                        android:id="@+id/quantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingRight="20dp"
+                        android:text="BOX"
+                        android:textStyle="italic"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="Kaccha Aam (₹250)"
+                    android:textColor="#007236"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*50"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+                    <EditText
+                        android:id="@+id/tvKaccha"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingHorizontal="@dimen/default_gap"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="Litchi (₹250)"
+                    android:textColor="#FADEDF"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*50"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+                    <EditText
+                        android:id="@+id/tvLitchi"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="Strawberry (₹250)"
+                    android:textColor="#FB2943"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*50"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+                    <EditText
+                        android:id="@+id/tvStraw"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="Cola (₹250)"
+                    android:textColor="#5E071A"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="right"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*50"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+                    <EditText
+                        android:id="@+id/tvCola"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+
+                    android:padding="10dp"
+                    android:text="Pineapple(₹250)"
+                    android:textColor="#FFE12D"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*50"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+                    <EditText
+                        android:id="@+id/tvPine"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="Orange(₹250)"
+                    android:textColor="#FF6600"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*50"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+                    <EditText
+                        android:id="@+id/tvOrang"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="Mango Bar(₹250)"
+                    android:textColor="#F4BB44"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*50"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+                    <EditText
+
+                        android:id="@+id/tvMango"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="Cup-S(₹150)"
+                    android:textColor="	#FFFAFA"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*30"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+                    <EditText
+                        android:id="@+id/tvCups"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="Cup-B(₹240)"
+                    android:textColor="	#FFFAFA"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*24"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+                    <EditText
+                        android:id="@+id/tvCupb"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="Chocobar-s(₹300)"
+                    android:textColor="#231709"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*30"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+                    <EditText
+                        android:id="@+id/tvChocos"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="Chocobar-B(₹360)"
+                    android:textColor="#231709"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*24"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+                    <EditText
+                        android:id="@+id/choco"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="Matka(₹300)"
+                    android:textColor="#503715"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*12"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+                    <EditText
+                        android:id="@+id/tvMatka"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="King Cone-S(₹420)"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*35"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+                    <EditText
+                        android:id="@+id/tvCones"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="King Cone-B(₹500)"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*20"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+                    <EditText
+                        android:id="@+id/tvConeb"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="Nutty Crunch(₹400)"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*20"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+                    <EditText
+                        android:id="@+id/tvNutty"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="Keshar Pista(₹240)"
+                    android:textColor="#a7b13d"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*12"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+                    <EditText
+                        android:id="@+id/tvPista"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="Bonanza(₹200)"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*8"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+
+                    <EditText
+                        android:id="@+id/tvBonanza"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="Family Pack(₹100)"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*1"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+
+                    <EditText
+                        android:id="@+id/tvFamily"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="Family Pack(₹120)"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingEnd="30dp"
+                        android:paddingRight="90dp"
+                        android:text="*1"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        tools:ignore="DuplicateIds" />
+
+
+                    <EditText
+                        android:id="@+id/tvFamily2"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/username_box"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:paddingBottom="10dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="170dp">
+
+                <EditText
+                    android:id="@+id/mynotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="1dp"
+                    android:background="@drawable/username_box"
+                    android:backgroundTint="#80000000"
+                    android:hint="Enter Note Here"
+                    android:inputType="textMultiLine"
+                    android:lines="5"
+                    android:maxLines="10"
+                    android:textAlignment="center"
+                    android:textColor="@color/carbon_white" />
+
+
+
+
+
+
+
+
+
+
+
+
+            </RelativeLayout>
+
+            <soup.neumorphism.NeumorphButton
+                android:id="@+id/btnOrder"
+                style="@style/Widget.Neumorph.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:drawablePadding="8dp"
+                android:text="@string/review_order"
+                android:paddingTop="10dp"
+                android:textSize="20sp"
+                android:textColor="@color/carbon_red_900"
+
+                />
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
+
