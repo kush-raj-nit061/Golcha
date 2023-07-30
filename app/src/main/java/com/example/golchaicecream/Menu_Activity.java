@@ -34,14 +34,18 @@ public class Menu_Activity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("record/Agency/"+fAuth.getCurrentUser().getUid());
     FirebaseFirestore fStore = FirebaseFirestore.getInstance();
+    DatabaseReference retriveRef;
+
 
     String userID=fAuth.getCurrentUser().getUid();
+    String user;
 
     Button btnGenerate,btnHome;
 //    long invoiceNum;
 
     EditText[] editTexts = new EditText[19];
     Button Calc;
+    String invoice,invoices,ids;
 
     TextView[] textViews = new TextView[19];
     TextView tvTotal,tvCommision,tvDues,tv,tvT;
@@ -57,6 +61,14 @@ public class Menu_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        Intent i = getIntent();
+        invoice = i.getStringExtra("inv");
+
+
+
+
+        retriveRef = FirebaseDatabase.getInstance().getReference().child("record/AgencyLatest").child(invoice);
 
         generate();
         callOnClickListeners();
@@ -75,6 +87,40 @@ public class Menu_Activity extends AppCompatActivity {
     }
 
     private void callOnClickListeners() {
+
+        retriveRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                invoices = String.valueOf((long) snapshot.child("invoiceNo").getValue());
+                ids = String.valueOf(snapshot.child("userId").getValue());
+
+                editTexts[0].setText(String.valueOf(snapshot.child("kacchaQty").getValue()));
+                editTexts[1].setText(String.valueOf(snapshot.child("litchiQty").getValue()));
+                editTexts[2].setText(String.valueOf(snapshot.child("strawQty").getValue()));
+                editTexts[3].setText(String.valueOf(snapshot.child("colaQty").getValue()));
+                editTexts[4].setText(String.valueOf(snapshot.child("pineQty").getValue()));
+                editTexts[5].setText(String.valueOf(snapshot.child("orangeQty").getValue()));
+                editTexts[6].setText(String.valueOf(snapshot.child("mangoQty").getValue()));
+                editTexts[7].setText(String.valueOf(snapshot.child("cupSQty").getValue()));
+                editTexts[8].setText(String.valueOf(snapshot.child("cupBQty").getValue()));
+                editTexts[9].setText(String.valueOf(snapshot.child("chocoSQty").getValue()));
+                editTexts[10].setText(String.valueOf(snapshot.child("chocoBQty").getValue()));
+                editTexts[11].setText(String.valueOf(snapshot.child("matkaQty").getValue()));
+                editTexts[12].setText(String.valueOf(snapshot.child("coneSQty").getValue()));
+                editTexts[13].setText(String.valueOf(snapshot.child("coneBQty").getValue()));
+                editTexts[14].setText(String.valueOf(snapshot.child("keshaerQty").getValue()));
+                editTexts[15].setText(String.valueOf(snapshot.child("bonanzaQty").getValue()));
+                editTexts[16].setText(String.valueOf(snapshot.child("familyQty").getValue()));
+                editTexts[17].setText(String.valueOf(snapshot.child("nuttyQty").getValue()));
+                editTexts[18].setText(String.valueOf(snapshot.child("family2Qty").getValue()));
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         Calc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -259,6 +305,8 @@ public class Menu_Activity extends AppCompatActivity {
         intent.putExtra("Total",String.valueOf(tvTotal.getText()));
         intent.putExtra("Commission",String.valueOf(tvCommision.getText()));
         intent.putExtra("Dues",String.valueOf(tvDues.getText()));
+        intent.putExtra("inv",invoices);
+        intent.putExtra("userids",ids);
 
         startActivity(intent);
     }

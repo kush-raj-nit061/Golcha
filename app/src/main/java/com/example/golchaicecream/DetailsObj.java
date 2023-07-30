@@ -25,6 +25,16 @@ public class DetailsObj {
     long invoiceNo;
     String address;
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    String userId;
+
     public DetailsObj() {
     }
 

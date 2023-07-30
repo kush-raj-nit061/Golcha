@@ -39,7 +39,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
-public class PDF_Activity extends AppCompatActivity {
+public class AgencyPDF extends AppCompatActivity {
 
 
 
@@ -48,21 +48,22 @@ public class PDF_Activity extends AppCompatActivity {
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    String ids,inv;
     DatabaseReference myRef = database.getReference("record/Agency/"+fAuth.getCurrentUser().getUid());
-    DatabaseReference mRef;
+    DatabaseReference mRef = database.getReference("record/AgencyLatest/");
 
 
 
     Button btnsp,btnp;
     TextView[] textViewQ = new TextView[19];
-    TextView[] textViewT = new TextView[19];
-    TextView tvName,tvAddress,tvDate,tvComm,tvTota,tvDue,tvNotes;
+//    TextView[] textViewT = new TextView[19];
+    TextView tvName,tvAddress,tvDate,tvNotes;
     String userID = fAuth.getCurrentUser().getUid();;
     DecimalFormat decimalFormat = new DecimalFormat("#.##");
     @SuppressLint("SimpleDateFormat")
     SimpleDateFormat datePatternFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm a");
     long invoiceNum;
+    long invoice;
+    String commision,total,dues;
     DetailsObj detailsObj = new DetailsObj();
 
     String str[] ={"Kaccha Aaam","Litchi","Strawberry","Coca","PineApple","Orange Bar","Mango Bar","Cup-S","Cup-B","ChocoBar-S","ChocoBar-B","Matka","King Cone-S","King Cone-B","Family Pack(2 in 1)","Keshar Pista","Bonanza","Family Pack","Nutty Crunch"};
@@ -78,7 +79,7 @@ public class PDF_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pdf);
+        setContentView(R.layout.activity_agency_pdf);
 
         btnp = findViewById(R.id.btnp);
         btnsp = findViewById(R.id.btnsp);
@@ -98,32 +99,41 @@ public class PDF_Activity extends AppCompatActivity {
 
         fStore.collection("users").document(userID)
                 .get().addOnCompleteListener(task -> {
-                            if (task.isSuccessful()) {
-                                DocumentSnapshot document = task.getResult();
-                                if (document.exists()) {
-                                    String name = document.getString("fName");
-                                    String email = document.getString("email");
-                                    String num = document.getString("phone");
-                                    String loc = document.getString("location");
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            String name = document.getString("fName");
+                            String email = document.getString("email");
+                            String num = document.getString("phone");
+                            String loc = document.getString("location");
 
-                                    tvAddress.setText(loc);
-                                    tvName.setText(name);
+                            tvAddress.setText(loc);
+                            tvName.setText(name);
 
 
-                                }
-                            }else {
+                        }
+                    }else {
 
-                            }
-                        });
+                    }
+                });
 
 
         callOnClickListener();
-        mRef = database.getReference("record/Agency/"+ids);
 
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                invoiceNum = dataSnapshot.getChildrenCount();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               invoiceNum = dataSnapshot.getChildrenCount();
+                invoice = dataSnapshot.getChildrenCount();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -156,30 +166,30 @@ public class PDF_Activity extends AppCompatActivity {
         textViewQ[18]= findViewById(R.id.tvQuantity19);
         textViewQ[17]= findViewById(R.id.tvQuantity18);
 
-        textViewT[0] = findViewById(R.id.tvTota1);
-        textViewT[1]= findViewById(R.id.tvTota2);
-        textViewT[2] = findViewById(R.id.tvTota3);
-        textViewT[3]= findViewById(R.id.tvTota4);
-        textViewT[4] = findViewById(R.id.tvTota5);
-        textViewT[5] = findViewById(R.id.tvTota6);
-        textViewT[6]= findViewById(R.id.tvTota7);
-        textViewT[7]= findViewById(R.id.tvTota8);
-        textViewT[8] = findViewById(R.id.tvTota9);
-        textViewT[9]= findViewById(R.id.tvTota10);
-        textViewT[10]= findViewById(R.id.tvTota11);
-        textViewT[11]= findViewById(R.id.tvTota12);
-        textViewT[12]= findViewById(R.id.tvTota13);
-        textViewT[13]= findViewById(R.id.tvTota14);
-        textViewT[14]= findViewById(R.id.tvTota15);
-        textViewT[15]= findViewById(R.id.tvTota16);
-        textViewT[16]= findViewById(R.id.tvTota17);
-        textViewT[18]= findViewById(R.id.tvTota19);
-        textViewT[17]= findViewById(R.id.tvTota18);
+//        textViewT[0] = findViewById(R.id.tvTota1);
+//        textViewT[1]= findViewById(R.id.tvTota2);
+//        textViewT[2] = findViewById(R.id.tvTota3);
+//        textViewT[3]= findViewById(R.id.tvTota4);
+//        textViewT[4] = findViewById(R.id.tvTota5);
+//        textViewT[5] = findViewById(R.id.tvTota6);
+//        textViewT[6]= findViewById(R.id.tvTota7);
+//        textViewT[7]= findViewById(R.id.tvTota8);
+//        textViewT[8] = findViewById(R.id.tvTota9);
+//        textViewT[9]= findViewById(R.id.tvTota10);
+//        textViewT[10]= findViewById(R.id.tvTota11);
+//        textViewT[11]= findViewById(R.id.tvTota12);
+//        textViewT[12]= findViewById(R.id.tvTota13);
+//        textViewT[13]= findViewById(R.id.tvTota14);
+//        textViewT[14]= findViewById(R.id.tvTota15);
+//        textViewT[15]= findViewById(R.id.tvTota16);
+//        textViewT[16]= findViewById(R.id.tvTota17);
+//        textViewT[18]= findViewById(R.id.tvTota19);
+//        textViewT[17]= findViewById(R.id.tvTota18);
 
 
-        tvDue = findViewById(R.id.tvDue);
-        tvComm= findViewById(R.id.tvComm);
-        tvTota = findViewById(R.id.tvTota);
+//        tvDue = findViewById(R.id.tvDue);
+//        tvComm= findViewById(R.id.tvComm);
+//        tvTota = findViewById(R.id.tvTota);
         tvNotes = findViewById(R.id.notes);
 
 
@@ -208,37 +218,35 @@ public class PDF_Activity extends AppCompatActivity {
         textViewQ[15].setText(i.getStringExtra("keshaerQty"));
         textViewQ[16].setText(i.getStringExtra("bonanzaQty"));
         textViewQ[17].setText(i.getStringExtra("familyQty"));
-        textViewQ[14].setText(i.getStringExtra("family2Qty"));
-        textViewQ[18].setText(i.getStringExtra("nuttyQty"));
+        textViewQ[14].setText(i.getStringExtra("nuttyQty"));
+        textViewQ[18].setText(i.getStringExtra("family2Qty"));
 
-        textViewT[0].setText(i.getStringExtra("kacchaPrice"));
-        textViewT[1].setText(i.getStringExtra("litchiPrice"));
-        textViewT[2].setText(i.getStringExtra("strawPrice"));
-        textViewT[3].setText(i.getStringExtra("colaPrice"));
-        textViewT[4].setText(i.getStringExtra("pinePrice"));
-        textViewT[5].setText(i.getStringExtra("orangePrice"));
-        textViewT[6].setText(i.getStringExtra("mangoPrice"));
-        textViewT[7].setText(i.getStringExtra("cupSPrice"));
-        textViewT[8].setText(i.getStringExtra("cupBPrice"));
-        textViewT[9].setText(i.getStringExtra("chocoSPrice"));
-        textViewT[10].setText(i.getStringExtra("chocoBPrice"));
-        textViewT[11].setText(i.getStringExtra("matkaPrice"));
-        textViewT[12].setText(i.getStringExtra("coneSPrice"));
-        textViewT[13].setText(i.getStringExtra("coneBPrice"));
-        textViewT[15].setText(i.getStringExtra("keshaerPrice"));
-        textViewT[16].setText(i.getStringExtra("bonanzaPrice"));
-        textViewT[17].setText(i.getStringExtra("familyPrice"));
-        textViewT[14].setText(i.getStringExtra("family2Price"));
-        textViewT[18].setText(i.getStringExtra("nuttyPrice"));
+//        textViewT[0].setText(i.getStringExtra("kacchaPrice"));
+//        textViewT[1].setText(i.getStringExtra("litchiPrice"));
+//        textViewT[2].setText(i.getStringExtra("strawPrice"));
+//        textViewT[3].setText(i.getStringExtra("colaPrice"));
+//        textViewT[4].setText(i.getStringExtra("pinePrice"));
+//        textViewT[5].setText(i.getStringExtra("orangePrice"));
+//        textViewT[6].setText(i.getStringExtra("mangoPrice"));
+//        textViewT[7].setText(i.getStringExtra("cupSPrice"));
+//        textViewT[8].setText(i.getStringExtra("cupBPrice"));
+//        textViewT[9].setText(i.getStringExtra("chocoSPrice"));
+//        textViewT[10].setText(i.getStringExtra("chocoBPrice"));
+//        textViewT[11].setText(i.getStringExtra("matkaPrice"));
+//        textViewT[12].setText(i.getStringExtra("coneSPrice"));
+//        textViewT[13].setText(i.getStringExtra("coneBPrice"));
+//        textViewT[15].setText(i.getStringExtra("keshaerPrice"));
+//        textViewT[16].setText(i.getStringExtra("bonanzaPrice"));
+//        textViewT[17].setText(i.getStringExtra("familyPrice"));
+//        textViewT[14].setText(i.getStringExtra("family2Price"));
+//        textViewT[18].setText(i.getStringExtra("nuttyPrice"));
 
         tvNotes.setText("Notes: "+ i.getStringExtra("Notes"));
 
 
-        tvTota.setText(i.getStringExtra("Total"));
-        tvComm.setText(i.getStringExtra("Commission"));
-        tvDue.setText(i.getStringExtra("Dues"));
-        ids = String.valueOf(i.getStringExtra("userids"));
-        inv = i.getStringExtra( "inv");
+//        tvTota.setText(i.getStringExtra("Total"));
+//        tvComm.setText(i.getStringExtra("Commission"));
+//        tvDue.setText(i.getStringExtra("Dues"));
 
     }
 
@@ -250,32 +258,30 @@ public class PDF_Activity extends AppCompatActivity {
                 detailsObj.date = new Date().getTime();
 
                 setDetailsOfObject();
-//                mRef = database.getReference("record/Agency/"+ids);
-
-                mRef.child(String.valueOf(invoiceNum+1)).setValue(detailsObj);
-                printPdf();
-            }
-
-
-        });
-        btnp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(PDF_Activity.this,MainActivity.class);
-
-
-
-
-
+                mRef.child(String.valueOf(invoice+1)).setValue(detailsObj);
+                Intent intent = new Intent(AgencyPDF.this,MainActivity.class);
                 startActivity(intent);
+                Toast.makeText(getApplicationContext(),"Order Placed Successfully",Toast.LENGTH_LONG).show();
+
+//                printPdf();
             }
+
+
         });
+//        btnp.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(AgencyPDF.this,MainActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     private void setDetailsOfObject() {
 
         detailsObj.invoiceNo=invoiceNum+ 1;
         detailsObj.date = new Date().getTime();
+        detailsObj.userId = userID;
         detailsObj.kacchaQty = Integer.parseInt(String.valueOf(textViewQ[0].getText()));
         detailsObj.litchiQty = Integer.parseInt(String.valueOf(textViewQ[1].getText()));
         detailsObj.strawQty = Integer.parseInt(String.valueOf(textViewQ[2].getText()));
@@ -293,33 +299,34 @@ public class PDF_Activity extends AppCompatActivity {
         detailsObj.keshaerQty = Integer.parseInt(String.valueOf(textViewQ[15].getText()));
         detailsObj.bonanzaQty = Integer.parseInt(String.valueOf(textViewQ[16].getText()));
         detailsObj.familyQty= Integer.parseInt(String.valueOf(textViewQ[17].getText()));
-        detailsObj.family2Qty= Integer.parseInt(String.valueOf(textViewQ[14].getText()));
-        detailsObj.nuttyQty = Integer.parseInt(String.valueOf(textViewQ[18].getText()));
+        detailsObj.family2Qty= Integer.parseInt(String.valueOf(textViewQ[18].getText()));
+        detailsObj.nuttyQty = Integer.parseInt(String.valueOf(textViewQ[14].getText()));
 
-        detailsObj.kacchaPrice = Integer.parseInt(String.valueOf(textViewT[0].getText()));
-        detailsObj.litchiPrice = Integer.parseInt(String.valueOf(textViewT[1].getText()));
-        detailsObj.strawPrice = Integer.parseInt(String.valueOf(textViewT[2].getText()));
-        detailsObj.colaPrice = Integer.parseInt(String.valueOf(textViewT[3].getText()));
-        detailsObj.pinePrice = Integer.parseInt(String.valueOf(textViewT[4].getText()));
-        detailsObj.orangePrice = Integer.parseInt(String.valueOf(textViewT[5].getText()));
-        detailsObj.mangoPrice = Integer.parseInt(String.valueOf(textViewT[6].getText()));
-        detailsObj.cupSPrice = Integer.parseInt(String.valueOf(textViewT[7].getText()));
-        detailsObj.cupBPrice = Integer.parseInt(String.valueOf(textViewT[8].getText()));
-        detailsObj.chocoSPrice = Integer.parseInt(String.valueOf(textViewT[9].getText()));
-        detailsObj.chocoBPrice = Integer.parseInt(String.valueOf(textViewT[10].getText()));
-        detailsObj.matkaPrice = Integer.parseInt(String.valueOf(textViewT[11].getText()));
-        detailsObj.coneSPrice = Integer.parseInt(String.valueOf(textViewT[12].getText()));
-        detailsObj.coneBPrice = Integer.parseInt(String.valueOf(textViewT[13].getText()));
-        detailsObj.keshaerPrice = Integer.parseInt(String.valueOf(textViewT[15].getText()));
-        detailsObj.bonanzaPrice = Integer.parseInt(String.valueOf(textViewT[16].getText()));
-        detailsObj.familyPrice = Integer.parseInt(String.valueOf(textViewT[17].getText()));
-        detailsObj.family2Price = Integer.parseInt(String.valueOf(textViewT[14].getText()));
-        detailsObj.nuttyPrice = Integer.parseInt(String.valueOf(textViewT[18].getText()));
+//        detailsObj.kacchaPrice = Integer.parseInt(String.valueOf(textViewT[0].getText()));
+//        detailsObj.litchiPrice = Integer.parseInt(String.valueOf(textViewT[1].getText()));
+//        detailsObj.strawPrice = Integer.parseInt(String.valueOf(textViewT[2].getText()));
+//        detailsObj.colaPrice = Integer.parseInt(String.valueOf(textViewT[3].getText()));
+//        detailsObj.pinePrice = Integer.parseInt(String.valueOf(textViewT[4].getText()));
+//        detailsObj.orangePrice = Integer.parseInt(String.valueOf(textViewT[5].getText()));
+//        detailsObj.mangoPrice = Integer.parseInt(String.valueOf(textViewT[6].getText()));
+//        detailsObj.cupSPrice = Integer.parseInt(String.valueOf(textViewT[7].getText()));
+//        detailsObj.cupBPrice = Integer.parseInt(String.valueOf(textViewT[8].getText()));
+//        detailsObj.chocoSPrice = Integer.parseInt(String.valueOf(textViewT[9].getText()));
+//        detailsObj.chocoBPrice = Integer.parseInt(String.valueOf(textViewT[10].getText()));
+//        detailsObj.matkaPrice = Integer.parseInt(String.valueOf(textViewT[11].getText()));
+//        detailsObj.coneSPrice = Integer.parseInt(String.valueOf(textViewT[12].getText()));
+//        detailsObj.coneBPrice = Integer.parseInt(String.valueOf(textViewT[13].getText()));
+//        detailsObj.keshaerPrice = Integer.parseInt(String.valueOf(textViewT[15].getText()));
+//        detailsObj.bonanzaPrice = Integer.parseInt(String.valueOf(textViewT[16].getText()));
+//        detailsObj.familyPrice = Integer.parseInt(String.valueOf(textViewT[17].getText()));
+//        detailsObj.family2Price = Integer.parseInt(String.valueOf(textViewT[14].getText()));
+//        detailsObj.nuttyPrice = Integer.parseInt(String.valueOf(textViewT[18].getText()));
+        String d = "0.0";
 
 
-        detailsObj.total = Double.parseDouble(String.valueOf(tvTota.getText()));
-        detailsObj.dues = Double.parseDouble(String.valueOf(tvDue.getText()));
-        detailsObj.commision = Double.parseDouble(String.valueOf(tvComm.getText()));
+        detailsObj.total = Double.parseDouble(d);
+        detailsObj.dues = Double.parseDouble(d);
+        detailsObj.commision = Double.parseDouble(d);
         detailsObj.custName = tvName.getText().toString();
 
 
@@ -369,32 +376,32 @@ public class PDF_Activity extends AppCompatActivity {
         int position=950;
         int num=1;
         for(int i = 0;i<19;i++){
-            if(!textViewT[i].getText().toString().equals("0")){
-                canvas.drawText(String.valueOf(num),40,position,paint);
-                canvas.drawText(str[i],160,position,paint);
-                canvas.drawText(price[i],670,position,paint);
-                canvas.drawText(textViewQ[i].getText().toString(),900,position,paint);
-                canvas.drawText(textViewT[i].getText().toString(),1040,position,paint);
-
-                position+=60;
-                num++;
-            }
+//            if(!textViewT[i].getText().toString().equals("0")){
+//                canvas.drawText(String.valueOf(num),40,position,paint);
+//                canvas.drawText(str[i],160,position,paint);
+//                canvas.drawText(price[i],670,position,paint);
+//                canvas.drawText(textViewQ[i].getText().toString(),900,position,paint);
+//                canvas.drawText(textViewT[i].getText().toString(),1040,position,paint);
+//
+//                position+=60;
+//                num++;
+//            }
         }
         canvas.drawLine(680,position+100,1180,position+100,paint);
         canvas.drawText("Sub-Total",700,position+150,paint);
         canvas.drawText(":",900,position+150,paint);
         paint.setTextAlign(Paint.Align.RIGHT);
-        canvas.drawText(tvTota.getText().toString(),1160,position+150,paint);
+//        canvas.drawText(tvTota.getText().toString(),1160,position+150,paint);
         paint.setTextAlign(Paint.Align.LEFT);
         canvas.drawText("Commission",700,position+200,paint);
         canvas.drawText(":",900,position+200,paint);
         paint.setTextAlign(Paint.Align.RIGHT);
-        canvas.drawText(tvComm.getText().toString(),1160,position+200,paint);
+//        canvas.drawText(tvComm.getText().toString(),1160,position+200,paint);
         paint.setTextAlign(Paint.Align.LEFT);
         canvas.drawText("Total",700,position+250,paint);
         canvas.drawText(":",900,position+250,paint);
         paint.setTextAlign(Paint.Align.RIGHT);
-        canvas.drawText(tvDue.getText().toString(),1160,position+250,paint);
+//        canvas.drawText(tvDue.getText().toString(),1160,position+250,paint);
         canvas.drawLine(680,position+300,1180,position+300,paint);
         paint.setTextSize(40);
         paint.setColor(Color.RED);
@@ -410,7 +417,7 @@ public class PDF_Activity extends AppCompatActivity {
         try {
             myPdfDocument.writeTo(new FileOutputStream(filePath));
             Toast.makeText(this, "Done", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(PDF_Activity.this,MainActivity.class);
+            Intent intent = new Intent(AgencyPDF.this,MainActivity.class);
             startActivity(intent);
         } catch (IOException e) {
             Log.e("main", "error "+e.toString());

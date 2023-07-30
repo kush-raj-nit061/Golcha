@@ -51,6 +51,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 import ir.androidexception.datatable.DataTable;
 import ir.androidexception.datatable.model.DataTableHeader;
@@ -67,7 +68,10 @@ public class OldPrintActivity extends AppCompatActivity {
     EditText oldPrintEt;
     DataTable dataTable;
     DataTableHeader header;
+    Intent in = null;
+    @SuppressLint("SimpleDateFormat")
     SimpleDateFormat datePatternFormat = new SimpleDateFormat("dd-MM-yyyy");
+    @SuppressLint("SimpleDateFormat")
     SimpleDateFormat timePatternFormat =new SimpleDateFormat("hh:mm a");
 
     DecimalFormat decimalFormat = new DecimalFormat("#.##");
@@ -88,8 +92,10 @@ public class OldPrintActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_old_print);
 
+
+
         storageReference = FirebaseStorage.getInstance().getReference();
-        StorageReference profileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"recent.pdf");
+        StorageReference profileRef = storageReference.child("users/"+ Objects.requireNonNull(fAuth.getCurrentUser()).getUid()+"recent.pdf");
 
         oldPrintBtn = findViewById(R.id.oldPrintBtn);
         oldPrintEt = findViewById(R.id.oldPrintEditText);
@@ -287,16 +293,15 @@ public class OldPrintActivity extends AppCompatActivity {
                 canvas.drawLine(680,position+300,1180,position+300,paint);
                 paint.setTextSize(40);
                 paint.setColor(Color.RED);
-//                canvas.drawText(tvNotes.getText().toString(),1160,position+15,paint);
+
                 myPdfDocument.finishPage(myPage);
                 String directory_path = Environment.getExternalStorageDirectory() + "/Golcha/mypdf/";
-//                String directory_paths = Environment.DIRECTORY_DOWNLOADS + "/";
+
 
                 File file = new File(directory_path);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-
                 String targetPdf = directory_path+invoice+".pdf";
                 File filePath = new File(targetPdf);
                 Uri uri = Uri.fromFile(filePath);
@@ -307,29 +312,17 @@ public class OldPrintActivity extends AppCompatActivity {
                             intent.addCategory("android.intent.category.DEFAULT");
                             intent.setData(Uri.parse(String.format("package:%s",getApplicationContext().getPackageName())));
                             startActivityIfNeeded(intent,101);
-
-
                         }catch (Exception e){
                             Intent intent = new Intent();
                             intent.setAction(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
                             startActivityIfNeeded(intent,101);
-
                             Toast.makeText(OldPrintActivity.this, "Something wrong: " + e.toString(),  Toast.LENGTH_LONG).show();
-
                         }
                     }else {
                         try {
                             myPdfDocument.writeTo(new FileOutputStream(filePath));
                             Toast.makeText(OldPrintActivity.this, "File Request is on way :)", Toast.LENGTH_SHORT).show();
-
                             uploadPDFtoFirebase(uri);
-
-
-
-//                            Intent i = new Intent(Intent.ACTION_VIEW);
-//                            Uri u = Uri.parse(directory_paths);
-//                            i.setDataAndType(u,"*/*");
-//                            startActivity(i);
                         } catch (IOException e) {
                             Toast.makeText(OldPrintActivity.this, "Something wrong: " + e.toString(),  Toast.LENGTH_LONG).show();
                         }
@@ -367,8 +360,14 @@ public class OldPrintActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Uri uri) {
                         String url = uri.toString();
+
+
                         downloadFile(OldPrintActivity.this,"Golcha",".pdf",Environment.getExternalStorageDirectory()+"/",url);
-                        Toast.makeText(getApplicationContext(),"Downloaded",Toast.LENGTH_LONG).show();
+                        in = new Intent(getApplicationContext(),MainActivity.class);
+                        in.putExtra("url",url);
+                        startActivity(in);
+                        Toast.makeText(getApplicationContext(),"Downloaded",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"⬇Requested PDF",Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -388,7 +387,7 @@ public class OldPrintActivity extends AppCompatActivity {
         DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         Uri uri =Uri.parse(url);
         DownloadManager.Request request = new DownloadManager.Request(uri);
-        Toast.makeText(getApplicationContext(),"Invoice Downloading.....",Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"Invoice Downloading.....",Toast.LENGTH_SHORT).show();
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
         request.setDestinationInExternalFilesDir(context,destinationDirectory,fileName+fileExtension);
         downloadManager.enqueue(request);

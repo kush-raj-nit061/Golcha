@@ -31,7 +31,7 @@
 
         >
         <EditText
-            android:id="@+id/item"
+            android:id="@+id/itemName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="5dp"
@@ -61,7 +61,7 @@
 
         >
         <EditText
-            android:id="@+id/itemQtyBox"
+            android:id="@+id/itemBoxQty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="5dp"

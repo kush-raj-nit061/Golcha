@@ -25,8 +25,20 @@
         android:theme="@style/Theme.GolchaIcecream"
         tools:targetApi="31">
         <activity
-            android:name=".ToDoApp.MainActivity"
+            android:name=".AdminMainActivity"
+            android:exported="true" >
+
+
+        </activity>
+        <activity
+            android:name=".AgencyPDF"
             android:exported="false" />
+        <activity
+            android:name=".AgencyMenu"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity2"
+            android:exported="true"></activity>
         <activity
             android:name=".ForgotActivity"
             android:exported="false" />
@@ -44,7 +56,14 @@
             android:exported="true" />
         <activity
             android:name=".SplashScreen_Activity"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".Login_Activity"
             android:exported="true" />

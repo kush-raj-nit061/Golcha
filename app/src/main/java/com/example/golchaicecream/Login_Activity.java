@@ -127,12 +127,15 @@ public class Login_Activity extends AppCompatActivity {
                                                         if(ut.equals("1")){
                                                             Intent intent
                                                                     = new Intent(Login_Activity.this,
-                                                                    MainActivity.class);
+                                                                    AdminMainActivity.class);
                                                             startActivity(intent);
 
 
                                                         }else{
-                                                            Toast.makeText(getApplicationContext(),"UserAccount",Toast.LENGTH_LONG).show();
+                                                            Intent intent
+                                                                    = new Intent(Login_Activity.this,
+                                                                    MainActivity.class);
+                                                            startActivity(intent);
 
                                                         }
 

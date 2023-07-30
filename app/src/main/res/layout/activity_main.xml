@@ -274,17 +274,29 @@
 
 
 
+
+
     <RelativeLayout
         android:id="@+id/a2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone">
-        <TextView
+        <com.github.barteksc.pdfviewer.PDFView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/_2"
-            android:paddingTop="50dp"
-            android:textAlignment="center"/>
+            android:id="@+id/pdfview"
+
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="70dp"
+            android:textAlignment="center"
+            android:id="@+id/text1"/>
+
     </RelativeLayout>
 
     <RelativeLayout

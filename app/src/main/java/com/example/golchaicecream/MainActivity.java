@@ -9,6 +9,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.github.barteksc.pdfviewer.PDFView;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,6 +38,11 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -47,7 +54,8 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 
 public class MainActivity extends AppCompatActivity {
-
+    private TextView text1;
+    private PDFView pdfview;
     FirebaseFirestore fStore = FirebaseFirestore.getInstance();
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
     String userID;
@@ -82,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        pdfview = findViewById(R.id.pdfview);
+        text1 =findViewById(R.id.text1);
 
 
 
@@ -91,6 +101,31 @@ public class MainActivity extends AppCompatActivity {
         StorageReference profileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"profile.jpg");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("record/Agency/"+fAuth.getCurrentUser().getUid());
+        DatabaseReference mRef=database.getReference("url");
+
+        mRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                String value = snapshot.getValue(String.class);
+//                text1.setText(value);
+
+                Intent in = getIntent();
+                text1.setText(in.getStringExtra("url"));
+                String url =text1.getText().toString();
+                text1.setText("REQUESTED PDF");
+                new RetrivePdfStream().execute(url);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MainActivity.this,"Failed To Load", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+
 
 
         myRef.addValueEventListener(new ValueEventListener() {
@@ -319,6 +354,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                 }
+                final StorageReference pdfRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"recent.pdf");
+
+
+
+
                 return null;
             }
         });
@@ -369,7 +409,7 @@ public class MainActivity extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,Menu_Activity.class);
+                Intent i = new Intent(MainActivity.this, AgencyMenu.class);
                 startActivity(i);
             }
         });
@@ -397,6 +437,34 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(openGallInt,1000);
             }
         });
+
+
+
+
+
+    }
+    class  RetrivePdfStream extends AsyncTask<String,Void, InputStream>{
+
+
+        @Override
+        protected InputStream doInBackground(String... strings) {
+            InputStream inputStream = null;
+            try {
+                URL url = new URL (strings[0]);
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                if(urlConnection.getResponseCode()== 200){
+                    inputStream = new BufferedInputStream(urlConnection.getInputStream());
+                }
+            }catch (IOException e){
+                return null;
+            }
+            return inputStream;
+        }
+
+        @Override
+        protected void onPostExecute(InputStream inputStream) {
+            pdfview.fromStream(inputStream).load();
+        }
     }
 
 
@@ -443,3 +511,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
+

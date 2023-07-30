@@ -181,12 +181,18 @@ public class Registration_Activity extends AppCompatActivity {
                                 if(ut.equals("1")){
                                     Intent intent
                                             = new Intent(Registration_Activity.this,
-                                            MainActivity.class);
+                                            AdminMainActivity.class);
+                                    Toast.makeText(getApplicationContext(),"ADMIN 🙏",Toast.LENGTH_LONG).show();
                                     startActivity(intent);
 
 
+
                                 }else{
-                                    Toast.makeText(getApplicationContext(),"UserAccount",Toast.LENGTH_LONG).show();
+                                    Intent intent
+                                            = new Intent(Registration_Activity.this,
+                                            MainActivity.class);
+                                    startActivity(intent);
+
 
                                 }
 

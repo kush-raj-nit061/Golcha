@@ -102,5 +102,8 @@
     <string name="update_details">Update Details</string>
     <string name="item_price">Item Price</string>
     <string name="update">Update</string>
+    <string name="place_order">Place Order</string>
+    <string name="review_order">Review Order</string>
+    <string name="the_actual_order_might_get_varied_to_your_original_order_according_to_the_availability_of_products_once_order_will_be_shipped_you_will_get_invoice_on_notification_panel">The actual order might get varied to your original order, According to the availability of products. Once Order will be shipped you will get Invoice On Notification panel</string>
 
 </resources>
