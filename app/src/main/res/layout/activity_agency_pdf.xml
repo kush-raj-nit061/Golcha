@@ -104,7 +104,7 @@
                     android:layout_width="350px"
                     android:layout_height="wrap_content"
                     android:padding="3dip"
-                    android:text="Kaccha Mango (₹250)"
+                    android:text="Kaccha Mango"
                     android:textSize="30px" />
 
                 <TextView

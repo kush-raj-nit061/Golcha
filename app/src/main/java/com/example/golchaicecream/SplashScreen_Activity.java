@@ -18,10 +18,7 @@ public class SplashScreen_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        tv1 = findViewById(R.id.tvSplash);
-        iv1 = findViewById(R.id.imageSplash);
 
-        // Delay for 3 seconds before launching the main activity
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -31,7 +31,7 @@ public class MainActivity2 extends AppCompatActivity {
     DatabaseReference databaseReference;
 
     RecyclerView recyclerView;
-    int invoiceNo= 1;
+
     ArrayList<UsersItem> usersItemArrayList;
     UserRecyclerAdapter adapter;
 
@@ -43,7 +43,6 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-//        Objects.requireNonNull(getSupportActionBar()).hide();
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Items");
 

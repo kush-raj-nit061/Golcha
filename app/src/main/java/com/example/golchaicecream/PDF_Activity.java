@@ -14,8 +14,11 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.pdf.PdfDocument;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -64,6 +67,7 @@ public class PDF_Activity extends AppCompatActivity {
     SimpleDateFormat datePatternFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm a");
     long invoiceNum;
     DetailsObj detailsObj = new DetailsObj();
+    String custName;
 
     String str[] ={"Kaccha Aaam","Litchi","Strawberry","Coca","PineApple","Orange Bar","Mango Bar","Cup-S","Cup-B","ChocoBar-S","ChocoBar-B","Matka","King Cone-S","King Cone-B","Family Pack(2 in 1)","Keshar Pista","Bonanza","Family Pack","Nutty Crunch"};
     String price[]={"250","250","250","250","250","250","250","150","240","300","360","300","420","500","120","240","200","100","400"};
@@ -96,7 +100,7 @@ public class PDF_Activity extends AppCompatActivity {
 
 
 
-        fStore.collection("users").document(userID)
+        fStore.collection("users").document(ids)
                 .get().addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
                                 DocumentSnapshot document = task.getResult();
@@ -239,6 +243,7 @@ public class PDF_Activity extends AppCompatActivity {
         tvDue.setText(i.getStringExtra("Dues"));
         ids = String.valueOf(i.getStringExtra("userids"));
         inv = i.getStringExtra( "inv");
+        custName = i.getStringExtra( "custName");
 
     }
 
@@ -250,7 +255,7 @@ public class PDF_Activity extends AppCompatActivity {
                 detailsObj.date = new Date().getTime();
 
                 setDetailsOfObject();
-//                mRef = database.getReference("record/Agency/"+ids);
+
 
                 mRef.child(String.valueOf(invoiceNum+1)).setValue(detailsObj);
                 printPdf();
@@ -293,8 +298,8 @@ public class PDF_Activity extends AppCompatActivity {
         detailsObj.keshaerQty = Integer.parseInt(String.valueOf(textViewQ[15].getText()));
         detailsObj.bonanzaQty = Integer.parseInt(String.valueOf(textViewQ[16].getText()));
         detailsObj.familyQty= Integer.parseInt(String.valueOf(textViewQ[17].getText()));
-        detailsObj.family2Qty= Integer.parseInt(String.valueOf(textViewQ[14].getText()));
-        detailsObj.nuttyQty = Integer.parseInt(String.valueOf(textViewQ[18].getText()));
+        detailsObj.family2Qty= Integer.parseInt(String.valueOf(textViewQ[18].getText()));
+        detailsObj.nuttyQty = Integer.parseInt(String.valueOf(textViewQ[14].getText()));
 
         detailsObj.kacchaPrice = Integer.parseInt(String.valueOf(textViewT[0].getText()));
         detailsObj.litchiPrice = Integer.parseInt(String.valueOf(textViewT[1].getText()));
@@ -313,8 +318,8 @@ public class PDF_Activity extends AppCompatActivity {
         detailsObj.keshaerPrice = Integer.parseInt(String.valueOf(textViewT[15].getText()));
         detailsObj.bonanzaPrice = Integer.parseInt(String.valueOf(textViewT[16].getText()));
         detailsObj.familyPrice = Integer.parseInt(String.valueOf(textViewT[17].getText()));
-        detailsObj.family2Price = Integer.parseInt(String.valueOf(textViewT[14].getText()));
-        detailsObj.nuttyPrice = Integer.parseInt(String.valueOf(textViewT[18].getText()));
+        detailsObj.family2Price = Integer.parseInt(String.valueOf(textViewT[18].getText()));
+        detailsObj.nuttyPrice = Integer.parseInt(String.valueOf(textViewT[14].getText()));
 
 
         detailsObj.total = Double.parseDouble(String.valueOf(tvTota.getText()));
@@ -400,21 +405,39 @@ public class PDF_Activity extends AppCompatActivity {
         paint.setColor(Color.RED);
         canvas.drawText(tvNotes.getText().toString(),1160,position+15,paint);
         myPdfDocument.finishPage(myPage);
-        String directory_path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/mypdf/";
+        String directory_path = Environment.getExternalStorageDirectory() + "/Golcha/mypdf/"+custName+"/";
+
+
         File file = new File(directory_path);
         if (!file.exists()) {
             file.mkdirs();
         }
-        String targetPdf = directory_path+Long.toString(invoiceNum)+".pdf";
+        String targetPdf = directory_path+inv+".pdf";
         File filePath = new File(targetPdf);
-        try {
-            myPdfDocument.writeTo(new FileOutputStream(filePath));
-            Toast.makeText(this, "Done", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(PDF_Activity.this,MainActivity.class);
-            startActivity(intent);
-        } catch (IOException e) {
-            Log.e("main", "error "+e.toString());
-            Toast.makeText(this, "Something wrong: " + e.toString(),  Toast.LENGTH_LONG).show();
+        Uri uri = Uri.fromFile(filePath);
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.R){
+            if(!Environment.isExternalStorageManager()){
+                try {
+                    Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                    intent.addCategory("android.intent.category.DEFAULT");
+                    intent.setData(Uri.parse(String.format("package:%s",getApplicationContext().getPackageName())));
+                    startActivityIfNeeded(intent,101);
+                }catch (Exception e){
+                    Intent intent = new Intent();
+                    intent.setAction(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                    startActivityIfNeeded(intent,101);
+                    Toast.makeText(this, "Something wrong: " + e.toString(),  Toast.LENGTH_LONG).show();
+                }
+            }else {
+                try {
+                    myPdfDocument.writeTo(new FileOutputStream(filePath));
+                    Toast.makeText(this, "File Saved(Golcha/mypdf/"+custName+")", Toast.LENGTH_SHORT).show();
+
+                } catch (IOException e) {
+                    Toast.makeText(this, "Something wrong: " + e.toString(),  Toast.LENGTH_LONG).show();
+                }
+
+            }
         }
         myPdfDocument.close();
 

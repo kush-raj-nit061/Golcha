@@ -330,17 +330,6 @@ public class OldPrintActivity extends AppCompatActivity {
                     }
                 }
 
-
-
-
-
-//                    Intent intent = new Intent(OldPrintActivity.this,MainActivity.class);
-//                    startActivity(intent);
-
-//                catch (IOException e) {
-//                    Log.e("main", "error "+e.toString());
-//                    Toast.makeText(OldPrintActivity.this, "Something wrong: " + e.toString(),  Toast.LENGTH_LONG).show();
-//                }
                 myPdfDocument.close();
             }
 

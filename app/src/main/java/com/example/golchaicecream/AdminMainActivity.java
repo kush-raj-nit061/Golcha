@@ -30,17 +30,18 @@ import ir.androidexception.datatable.model.DataTableHeader;
 import ir.androidexception.datatable.model.DataTableRow;
 
 public class AdminMainActivity extends AppCompatActivity {
-    FirebaseFirestore fStore = FirebaseFirestore.getInstance();
+
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    FirebaseAuth fAuth = FirebaseAuth.getInstance();
+
     DatabaseReference myRef = database.getReference("record/AgencyLatest/");;
-    DatabaseReference retriveRef;
+
     StorageReference storageReference;
     Button reviewInvoices;
     EditText invoiceNumber;
     DataTable dataTable;
     DataTableHeader header;
     int invoice;
+
     Intent in = null;
     @SuppressLint("SimpleDateFormat")
     SimpleDateFormat datePatternFormats = new SimpleDateFormat("dd-MM-yyyy");
@@ -104,32 +105,16 @@ public class AdminMainActivity extends AppCompatActivity {
     }
 
     private void listeners() {
-//        fStore.collection("users").document(userID)
-//                .get().addOnCompleteListener(task -> {
-//                    if (task.isSuccessful()) {
-//                        DocumentSnapshot document = task.getResult();
-//                        if (document.exists()) {
-////                            customerName = document.getString("fName");
-//                            String email = document.getString("email");
-//                            String num = document.getString("phone");
-////                            loc = document.getString("location");
-//
-//
-//                        }
-//                    }else {
-//
-//                    }
-//                });
+
 
         reviewInvoices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String s = invoiceNumber.getText().toString();
-                Intent i = new Intent(AdminMainActivity.this,Menu_Activity.class);
+
                 Intent intent = new Intent(getApplicationContext(),Menu_Activity.class);
                 intent.putExtra("inv",s);
                 startActivity(intent);
-//                startActivity(i);
             }
         });
     }

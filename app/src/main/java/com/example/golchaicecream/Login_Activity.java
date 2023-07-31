@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.EditText;
 import android.widget.Button;
+
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.AuthResult;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,12 +20,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Login_Activity extends AppCompatActivity {
 
     private EditText emailTextView, passwordTextView;
     private Button Btn;
     FirebaseFirestore fStore = FirebaseFirestore.getInstance();
-    //    private TextView tvLogin;
+
     TextView tvForgot;
     private ProgressBar progressbar;
 
@@ -34,13 +39,11 @@ public class Login_Activity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        // taking instance of FirebaseAuth
+
         mAuth = FirebaseAuth.getInstance();
 
-        // initialising all views through id defined above
         emailTextView = findViewById(R.id.email);
         passwordTextView = findViewById(R.id.password);
-//        tvLogin.findViewById(R.id.tvLogin);
         Btn = findViewById(R.id.login);
         tvForgot = findViewById(R.id.tvForgot);
 
@@ -48,7 +51,6 @@ public class Login_Activity extends AppCompatActivity {
 
         progressbar = findViewById(R.id.progressbar);
 
-        // Set on Click Listener on Sign-in button
         Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -72,15 +74,11 @@ public class Login_Activity extends AppCompatActivity {
     private void loginUserAccount()
     {
 
-        // show the visibility of progress bar to show loading
         progressbar.setVisibility(View.VISIBLE);
-//
-        // Take the value of two edit texts in Strings
         String email, password;
         email = emailTextView.getText().toString();
         password = passwordTextView.getText().toString();
 
-        // validations for input email and password
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(),
                             "Please enter email!!",
@@ -106,15 +104,14 @@ public class Login_Activity extends AppCompatActivity {
                                     @NonNull Task<AuthResult> task)
                             {
                                 if (task.isSuccessful()) {
-//                                    Toast.makeText(getApplicationContext(),
-//                                                    "Login successful!!",
-//                                                    Toast.LENGTH_LONG)
-//                                            .show();
 
-                                    // hide the progress bar
                                     progressbar.setVisibility(View.GONE);
 
                                     String uid = mAuth.getCurrentUser().getUid();
+                                    Map<String,Object> user =new HashMap<>();
+                                    user.put("password",password);
+
+                                    fStore.collection("users").document(uid).update(user);
 
 
                                     fStore.collection("users").document(uid)
@@ -127,8 +124,10 @@ public class Login_Activity extends AppCompatActivity {
                                                         if(ut.equals("1")){
                                                             Intent intent
                                                                     = new Intent(Login_Activity.this,
-                                                                    AdminMainActivity.class);
+                                                                    AdminLanding.class);
                                                             startActivity(intent);
+                                                            finish();
+
 
 
                                                         }else{
@@ -136,6 +135,7 @@ public class Login_Activity extends AppCompatActivity {
                                                                     = new Intent(Login_Activity.this,
                                                                     MainActivity.class);
                                                             startActivity(intent);
+                                                            finish();
 
                                                         }
 
@@ -146,13 +146,6 @@ public class Login_Activity extends AppCompatActivity {
 
                                                 }
                                             });
-
-
-
-
-
-                                    // if sign-in is successful
-                                    // intent to home activity
 
                                 }
 

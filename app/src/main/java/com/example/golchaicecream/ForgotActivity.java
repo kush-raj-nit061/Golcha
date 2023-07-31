@@ -28,8 +28,6 @@ public class ForgotActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot);
-//        Objects.requireNonNull(getSupportActionBar()).hide();
-
         etMailForgot = findViewById(R.id.etMailForgot);
         btnReset = findViewById(R.id.btnReset);
         firebaseAuth = FirebaseAuth.getInstance();

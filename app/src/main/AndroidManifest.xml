@@ -25,11 +25,18 @@
         android:theme="@style/Theme.GolchaIcecream"
         tools:targetApi="31">
         <activity
-            android:name=".AdminMainActivity"
+            android:name=".AdminPriceManagement"
             android:exported="true" >
 
 
+
         </activity>
+        <activity
+            android:name=".AdminLanding"
+            android:exported="true"></activity>
+        <activity
+            android:name=".AdminMainActivity"
+            android:exported="true" />
         <activity
             android:name=".AgencyPDF"
             android:exported="false" />
@@ -38,7 +45,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity2"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ForgotActivity"
             android:exported="false" />

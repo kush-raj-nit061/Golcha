@@ -128,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:drawablePadding="8dp"
-                android:text="Register"
+                android:text="@string/register"
                 android:paddingTop="10dp"
                 android:textSize="20dp"
                 android:textColor="@color/carbon_red_900"

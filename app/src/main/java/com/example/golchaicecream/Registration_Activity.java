@@ -96,6 +96,28 @@ public class Registration_Activity extends AppCompatActivity {
         name = fullname.getText().toString();
         call = phone.getText().toString();
 
+        if (TextUtils.isEmpty(call)) {
+            Toast.makeText(getApplicationContext(),
+                            "Please enter Phone Number!!",
+                            Toast.LENGTH_LONG)
+                    .show();
+            return;
+        }else if(phone.getText().toString().trim().length() != 10){
+            Toast.makeText(getApplicationContext(),
+                            "Please Enter Valid Phone Number",
+                            Toast.LENGTH_LONG)
+                    .show();
+            return;
+
+        }
+        if (TextUtils.isEmpty(name)) {
+            Toast.makeText(getApplicationContext(),
+                            "Please enter Your Name",
+                            Toast.LENGTH_LONG)
+                    .show();
+            return;
+        }
+
 
         // Validations for input email and password
         if (TextUtils.isEmpty(email)) {
@@ -112,6 +134,8 @@ public class Registration_Activity extends AppCompatActivity {
                     .show();
             return;
         }
+
+
 
         // create new user or register new user
         mAuth
@@ -181,9 +205,10 @@ public class Registration_Activity extends AppCompatActivity {
                                 if(ut.equals("1")){
                                     Intent intent
                                             = new Intent(Registration_Activity.this,
-                                            AdminMainActivity.class);
+                                            AdminLanding.class);
                                     Toast.makeText(getApplicationContext(),"ADMIN 🙏",Toast.LENGTH_LONG).show();
                                     startActivity(intent);
+                                    finish();
 
 
 
@@ -192,6 +217,7 @@ public class Registration_Activity extends AppCompatActivity {
                                             = new Intent(Registration_Activity.this,
                                             MainActivity.class);
                                     startActivity(intent);
+                                    finish();
 
 
                                 }
@@ -205,6 +231,9 @@ public class Registration_Activity extends AppCompatActivity {
                     });
 
         }
+
+
+
     }
 
 

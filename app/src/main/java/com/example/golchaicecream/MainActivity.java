@@ -60,20 +60,10 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
     String userID;
     StorageReference storageReference;
-    ImageView ivPlace;
-    DataTableHeader header;
-    String customerName;
-    String loc;
-    DataTable dataTable;
+    ImageView ivPlace,logOut;
+
     long invoice;
 
-
-
-    SimpleDateFormat datePatternFormat = new SimpleDateFormat("dd-MM-yyyy");
-    SimpleDateFormat timePatternFormat =new SimpleDateFormat("hh:mm a");
-
-    DecimalFormat decimalFormat = new DecimalFormat("#.##");
-    ArrayList<DataTableRow> rows = new ArrayList<>();
 
     Button b2,b1,b3;
     ImageButton imgButton;
@@ -106,8 +96,6 @@ public class MainActivity extends AppCompatActivity {
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                String value = snapshot.getValue(String.class);
-//                text1.setText(value);
 
                 Intent in = getIntent();
                 text1.setText(in.getStringExtra("url"));
@@ -175,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
         tvAbout = findViewById(R.id.tvAbout);
         tvEditNameCard = findViewById(R.id.tvEditNameCard);
         tvNameDown = findViewById(R.id.tvNameDown);
+        logOut =findViewById(R.id.logOut);
 
 
         a5.setVisibility(View.VISIBLE);
@@ -182,6 +171,17 @@ public class MainActivity extends AppCompatActivity {
         a1.setVisibility(View.GONE);
         a2.setVisibility(View.GONE);
         a3.setVisibility(View.GONE);
+
+
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Signed Out",Toast.LENGTH_SHORT).show();
+                fAuth.signOut();
+                signOutUser();
+
+            }
+        });
 
 
 
@@ -443,6 +443,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    private void signOutUser() {
+
+        Intent intent = new Intent(MainActivity.this,Registration_Activity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
+
     class  RetrivePdfStream extends AsyncTask<String,Void, InputStream>{
 
 
