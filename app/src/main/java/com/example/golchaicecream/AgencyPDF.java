@@ -19,8 +19,12 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -50,6 +54,7 @@ public class AgencyPDF extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("record/Agency/"+fAuth.getCurrentUser().getUid());
     DatabaseReference mRef = database.getReference("record/AgencyLatest/");
+    ProgressBar progressBar ;
 
 
 
@@ -62,6 +67,7 @@ public class AgencyPDF extends AppCompatActivity {
     @SuppressLint("SimpleDateFormat")
     SimpleDateFormat datePatternFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm a");
     long invoiceNum;
+
     long invoice;
     String commision,total,dues;
     DetailsObj detailsObj = new DetailsObj();
@@ -81,12 +87,19 @@ public class AgencyPDF extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agency_pdf);
 
+        this.progressBar = findViewById(R.id.progressa);
+        progressBar.setVisibility(View.GONE);
+
+
+
+
         btnp = findViewById(R.id.btnp);
         btnsp = findViewById(R.id.btnsp);
         tvName=findViewById(R.id.invoice_name);
         tvAddress = findViewById(R.id.invoice_address);
         tvDate = findViewById(R.id.invoice_date);
         tvDate.setText(datePatternFormat.format(new Date().getTime()));
+
 
         initialisation();
 
@@ -210,10 +223,23 @@ public class AgencyPDF extends AppCompatActivity {
                 detailsObj.date = new Date().getTime();
 
                 setDetailsOfObject();
-                mRef.child(String.valueOf(invoice+1)).setValue(detailsObj);
-                Intent intent = new Intent(AgencyPDF.this,MainActivity.class);
-                startActivity(intent);
-                Toast.makeText(getApplicationContext(),"Order Placed Successfully",Toast.LENGTH_LONG).show();
+                mRef.child(String.valueOf(invoice+1)).setValue(detailsObj).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(getApplicationContext(),"Order Placed Successfully",Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(AgencyPDF.this,MainActivity.class);
+                        startActivity(intent);
+                        progressBar.setVisibility(View.GONE);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getApplicationContext(),"Check your network connection",Toast.LENGTH_LONG).show();
+
+                    }
+                });
+
+
 
             }
 
@@ -223,6 +249,8 @@ public class AgencyPDF extends AppCompatActivity {
     }
 
     private void setDetailsOfObject() {
+
+        progressBar.setVisibility(View.VISIBLE);
 
         detailsObj.invoiceNo=invoiceNum+ 1;
         detailsObj.date = new Date().getTime();

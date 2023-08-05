@@ -5,10 +5,12 @@ import androidx.annotation.NonNull;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,11 +42,21 @@ public class AgencyMenu extends AppCompatActivity {
 
 
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "UseCompatLoadingForDrawables"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agency_menu);
+        RelativeLayout relativeLayout = findViewById(R.id.rel);
+        AnimationDrawable animationDrawable = (AnimationDrawable) relativeLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2500);
+        animationDrawable.setExitFadeDuration(5000);
+        try {
+            animationDrawable.start();
+        }catch (Exception e){
+            relativeLayout.setBackground(getResources().getDrawable(R.drawable.background_2));
+        }
+
 
         generate();
         callOnClickListeners();

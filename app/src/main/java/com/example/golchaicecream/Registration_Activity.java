@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -32,6 +33,7 @@ public class Registration_Activity extends AppCompatActivity {
     public static final String TAG = "TAG";
     private EditText emailTextView, passwordTextView,fullname,phone;
     private Button Btn;
+    ProgressBar progressBar ;
 
 
 
@@ -48,6 +50,9 @@ public class Registration_Activity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+        this.progressBar = findViewById(R.id.progresss);
+        progressBar.setVisibility(View.GONE);
+
 
         // taking FirebaseAuth instance
         mAuth = FirebaseAuth.getInstance();
@@ -75,9 +80,11 @@ public class Registration_Activity extends AppCompatActivity {
 
         // Set on Click Listener on Registration button
         Btn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v)
             {
+
                 registerNewUser();
             }
         });
@@ -134,6 +141,7 @@ public class Registration_Activity extends AppCompatActivity {
                     .show();
             return;
         }
+        progressBar.setVisibility(View.VISIBLE);
 
 
 
@@ -145,6 +153,7 @@ public class Registration_Activity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task)
                     {
+
                         if (task.isSuccessful()) {Toast.makeText(getApplicationContext(),"Registration successful!", Toast.LENGTH_LONG).show();
                             userID = mAuth.getCurrentUser().getUid();
 
@@ -155,12 +164,13 @@ public class Registration_Activity extends AppCompatActivity {
                             user.put("phone",call);
                             user.put("password",password);
                             user.put("commission","0");
-                            user.put("location","YOUR LOCATION");
+                            user.put("location","");
                             user.put("userType","0");
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
                                     Log.d(TAG,"onSuccess: user Profile is created for "+ userID);
+                                    progressBar.setVisibility(View.GONE);
 
                                 }
                             });
@@ -193,8 +203,10 @@ public class Registration_Activity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+
         super.onStart();
         if(mAuth.getCurrentUser() != null){
+            progressBar.setVisibility(View.VISIBLE);
             fStore.collection("users").document(mAuth.getCurrentUser().getUid())
                     .get().addOnCompleteListener(tasks -> {
                         if (tasks.isSuccessful()) {
@@ -224,8 +236,10 @@ public class Registration_Activity extends AppCompatActivity {
 
 
 
+
                             }
                         }else {
+                            progressBar.setVisibility(View.GONE);
 
                         }
                     });

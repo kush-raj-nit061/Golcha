@@ -1,6 +1,7 @@
 package com.example.golchaicecream;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -12,12 +13,18 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.annotations.NotNull;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -25,18 +32,20 @@ import ir.androidexception.datatable.DataTable;
 import ir.androidexception.datatable.model.DataTableHeader;
 import ir.androidexception.datatable.model.DataTableRow;
 
-public class AdminPriceManagement extends AppCompatActivity {
+public class UserManagement extends AppCompatActivity {
 
-    DocumentReference fStore = FirebaseFirestore.getInstance().collection("itemDetails").document("AgencyPrices");
+    FirebaseFirestore fStore = FirebaseFirestore.getInstance();
+
+
     DataTable dataTable;
     DataTableHeader header;
     ProgressBar progressBar ;
 
-    Button priceChange;
+    Button btnUserDetails;
     ArrayList<DataTableRow> rows = new ArrayList<>();
     EditText etSrNo;
     int invoice;
-    String str[] ={"Kaccha Aaam","Litchi","Strawberry","Coca","PineApple","Orange Bar","Mango Bar","Cup-S","Cup-B","ChocoBar-S","ChocoBar-B","Matka","King Cone-S","King Cone-B","Keshar Pista","Bonanza","Family Pack","Nutty Crunch","Family Pack(2 in 1)"};
+    ArrayList<String> arrayList = new ArrayList<>();
 
 
 
@@ -44,19 +53,20 @@ public class AdminPriceManagement extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_price_management);
-        this.progressBar = findViewById(R.id.progressw);
+        setContentView(R.layout.activity_user_management);
+        this.progressBar = findViewById(R.id.progressq);
         progressBar.setVisibility(View.VISIBLE);
 
-        dataTable = findViewById(R.id.data_table_a);
+        dataTable = findViewById(R.id.data_table_as);
         etSrNo = findViewById(R.id.etSrNo);
-        priceChange = findViewById(R.id.priceChange);
+        btnUserDetails = findViewById(R.id.btnManagement);
 
 
         header = new DataTableHeader.Builder()
                 .item("Sr No",2)
-                .item("Item Names", 5)
-                .item("Price",3)
+                .item("Name", 4)
+                .item("Location",3)
+                .item("Commission",3)
                 .build();
         loadTable();
         listeners();
@@ -65,56 +75,68 @@ public class AdminPriceManagement extends AppCompatActivity {
 
     private void loadTable() {
 
-        fStore.get().addOnCompleteListener(task -> {
-
-            if(task.isSuccessful()){
-                DocumentSnapshot documentSnapshot = task.getResult();
-                if(documentSnapshot.exists()){
-                    for (int i = 0;i<19;i++){
+        fStore.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    invoice = 1;
+                    for (QueryDocumentSnapshot document : task.getResult()){
+                        arrayList.add(document.getId());
                         DataTableRow row = new DataTableRow.Builder()
-                                .value(String.valueOf(i+1))
-                                .value(str[i])
-                                .value(documentSnapshot.getString(String.valueOf(i+1)))
-                                .build();
-                        rows.add(row);
+                                .value(String.valueOf(invoice))
+                                .value(document.getString("fName"))
+                                .value(document.getString("location"))
+                                .value(document.getString("commission"))
+                                        .build();
 
+                        rows.add(row);
+                        invoice++;
                     }
                     dataTable.setHeader(header);
                     dataTable.setRows(rows);
-                    dataTable.inflate(AdminPriceManagement.this);
+                    dataTable.inflate(UserManagement.this);
                     progressBar.setVisibility(View.GONE);
 
-                }else {}
-            }else{}
 
+                }
+            }
         });
+
+
+
+
+
+
+
+
+
 
     }
 
     private void listeners() {
 
 
-        priceChange.setOnClickListener(new View.OnClickListener() {
+        btnUserDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String s = etSrNo.getText().toString();
 
                 if(s.isEmpty()){
                     Toast.makeText(getApplicationContext(),
-                                    "Please enter Sr. N0.",
+                                    "Please enter Sr. No.",
                                     Toast.LENGTH_SHORT)
                             .show();
                 }else {
-
-                    if(Integer.parseInt(s)<=str.length && Integer.parseInt(s)>= 1){
-                        Intent intent = new Intent(getApplicationContext(),ItemDetailsUpdate.class);
+                    if(Integer.parseInt(s)<=invoice-1 && Integer.parseInt(s)>= 1){
+                        Intent intent = new Intent(getApplicationContext(),UserDetailsUpdate.class);
                         intent.putExtra("SrNo",s);
-                        intent.putExtra("ItemName",str[Integer.parseInt(s)-1]);
+                        intent.putExtra("UserID",arrayList.get(Integer.parseInt(s)-1));
                         startActivity(intent);
                         finish();
                     }else {
                         Toast.makeText(getApplicationContext(),"Enter Valid Sr No.",Toast.LENGTH_SHORT).show();
                     }
+
 
                 }
 

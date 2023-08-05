@@ -5,10 +5,13 @@ import androidx.annotation.NonNull;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +49,7 @@ public class Menu_Activity extends AppCompatActivity {
     EditText[] editTexts = new EditText[19];
     Button Calc;
     String invoice,invoices,ids;
+    ProgressBar progressBar;
 
     TextView[] textViews = new TextView[19];
     TextView tvTotal,tvCommision,tvDues,tv,tvT;
@@ -56,11 +60,22 @@ public class Menu_Activity extends AppCompatActivity {
 
     int arrr[] = new int[19];
     float total;
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "UseCompatLoadingForDrawables"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        progressBar = findViewById(R.id.progressi);
+        progressBar.setVisibility(View.GONE);
+        RelativeLayout relativeLayout = findViewById(R.id.mainLayout);
+        AnimationDrawable animationDrawable = (AnimationDrawable) relativeLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2500);
+        animationDrawable.setExitFadeDuration(5000);
+        try {
+            animationDrawable.start();
+        }catch (Exception e){
+            relativeLayout.setBackground(getResources().getDrawable(R.drawable.background_2));
+        }
 
         Intent i = getIntent();
         invoice = i.getStringExtra("inv");
@@ -151,8 +166,9 @@ public class Menu_Activity extends AppCompatActivity {
         Calc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 float result = addEditTextValues(editTexts,textViews);
-                fStore.collection("users").document(userID)
+                fStore.collection("users").document(ids)
                         .get()
                         .addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
@@ -160,10 +176,19 @@ public class Menu_Activity extends AppCompatActivity {
 
                                 if (document.exists()) {
                                     String com = document.getString("commission");
-                                    int commission = 0;
+
+                                    float commission = 0;
                                     assert com != null;
-                                    commission= Integer.parseInt(com);
-                                    Toast.makeText(getApplicationContext(), "Commission = "+com+"%", Toast.LENGTH_SHORT).show();
+                                    if(com.equals("0")){
+                                        Toast.makeText(getApplicationContext(), "Commission = "+com+"%", Toast.LENGTH_SHORT).show();
+                                    }else{
+                                        progressBar.setVisibility(View.GONE);
+                                        Toast.makeText(getApplicationContext(), "Commission = "+com+"%", Toast.LENGTH_LONG).show();
+
+                                    }
+                                    commission= Float.parseFloat(com);
+
+
 
                                     float comm = (commission * result) / 100;
                                     float dues = result-comm;
@@ -189,6 +214,9 @@ public class Menu_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Intent i = new Intent(Menu_Activity.this, AdminLanding.class);
+                startActivity(i);
+
 
 
 
@@ -207,8 +235,8 @@ public class Menu_Activity extends AppCompatActivity {
 
                                 if (document.exists()) {
                                     String com = document.getString("commission");
-                                    int commission = 0;
-                                    commission= Integer.parseInt(com);
+                                    float commission = 0;
+                                    commission= Float.parseFloat(com);
                                     Toast.makeText(getApplicationContext(), "Commission = "+com+"%", Toast.LENGTH_SHORT).show();
 
                                     float comm = (commission * result) / 100;

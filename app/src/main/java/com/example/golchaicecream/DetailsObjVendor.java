@@ -345,6 +345,16 @@ public class DetailsObjVendor {
     long invoiceNo;
     String address;
 
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    String notes;
+
     public DetailsObjVendor() {
     }
 

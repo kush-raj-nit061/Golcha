@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminPriceManagement">
+    tools:context=".UserManagement">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -25,13 +26,13 @@
 
                 <soup.neumorphism.NeumorphButton
                     style="@style/Widget.Neumorph.Button"
-                    android:id="@+id/priceChange"
+                    android:id="@+id/btnManagement"
                     android:layout_width="wrap_content"
                     android:layout_height="70dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginStart="8dp"
                     android:minWidth="0dp"
-                    android:text="Change"
+                    android:text="Details"
                     android:textColor="@color/carbon_red_900"
                     app:layout_constraintTop_toBottomOf="@+id/supporting_text"
                     app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +48,7 @@
                     android:layout_marginEnd="10dp"
                     android:textAlignment="center"
                     android:ems="10"
-                    android:hint="Enter SrNo. Of Item"
+                    android:hint="Enter SrNo. Of User"
                     android:importantForAutofill="no"
                     android:inputType="number"
                     tools:ignore="RtlCompat" />
@@ -64,7 +65,7 @@
 
 
         <ir.androidexception.datatable.DataTable
-            android:id="@+id/data_table_a"
+            android:id="@+id/data_table_as"
             android:layout_width="match_parent"
             android:layout_height="630dp"
             android:layout_below="@+id/old"
@@ -90,8 +91,9 @@
 
 
     </RelativeLayout>
+
     <ProgressBar
-        android:id="@+id/progressw"
+        android:id="@+id/progressq"
         android:layout_width="match_parent"
         style="@style/carbon_ProgressBar.Circular.Indeterminate"
         android:indeterminateDrawable="@drawable/cpb"

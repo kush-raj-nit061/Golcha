@@ -9,12 +9,16 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,78 +48,136 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
 public class Vendor_Activity extends AppCompatActivity {
-
-
-    FirebaseAuth fAuth = FirebaseAuth.getInstance();
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("record/Vendor/"+fAuth.getCurrentUser().getUid());
-
+    ProgressBar progressBar;
     EditText[] editTexts = new EditText[19];
     EditText[] editTextss = new EditText[19];
-
+    TextView[] itemPrice=new TextView[19];
+    FirebaseFirestore fsStore = FirebaseFirestore.getInstance();
     TextView[] textViews = new TextView[19];
-    EditText Comm,vendorDetails;
-    Button Calc,btnGenerate;
+    EditText Comm,vendorName,vendorAddress,vendorNotes;
+    Button btnCTs,btnBills;
     long invoiceNum;
-    TextView tvTotal,tvCommision,tvDues,tv,tvT;
-    int arr[] = {5,5,5,5,5,5,5,5,10,10,15,25,12,25,20,25,100,20,120};
+    TextView tvTotal,tvCommision,tvDues,tv;
+    int arr[] = new int[19];
     float total;
-    DetailsObjVendor detailsObj = new DetailsObjVendor();
+//    DetailsObjVendor detailsObj = new DetailsObjVendor();
     DecimalFormat decimalFormat = new DecimalFormat("#.##");
     @SuppressLint("SimpleDateFormat")
     SimpleDateFormat datePatternFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm a");
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "UseCompatLoadingForDrawables"})
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vendor);
+        progressBar=findViewById(R.id.progressu);
+        progressBar.setVisibility(View.VISIBLE);
+        RelativeLayout relativeLayout = findViewById(R.id.rele);
+        AnimationDrawable animationDrawable = (AnimationDrawable) relativeLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2500);
+        animationDrawable.setExitFadeDuration(5000);
+        try {
+            animationDrawable.start();
+        }catch (Exception e){
+            relativeLayout.setBackground(getResources().getDrawable(R.drawable.background_2));
+        }
 
         generate();
+
+
+
         callOnClickListeners();
-
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                invoiceNum = dataSnapshot.getChildrenCount();
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
-
-
-
-
 
 
     }
 
     private void callOnClickListeners() {
 
-        btnGenerate.setOnClickListener(new View.OnClickListener() {
+
+        fsStore.collection("itemDetails").document("VendorPrices")
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+
+                        if (document.exists()) {
+
+//                            Toast.makeText(getApplicationContext(), "Commission = "+com+"%", Toast.LENGTH_SHORT).show();
+                            int a =1;
+
+                            for (int i = 0;i<19;i++){
+                                arr[i]= Integer.parseInt(document.getString(String.valueOf(a)));
+                                itemPrice[i].setText(String.valueOf(arr[i]));
+                                a++;
+
+                            }
+                            progressBar.setVisibility(View.GONE);
+
+
+                        }
+                    } else {
+                        Exception exception = task.getException();
+                    }
+                });
+
+
+
+
+
+
+
+        btnBills.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if (TextUtils.isEmpty(vendorName.getText().toString())) {
+                    Toast.makeText(getApplicationContext(),
+                                    "Please enter Name",
+                                    Toast.LENGTH_SHORT)
+                            .show();
+                    return;
+                }
+                if (TextUtils.isEmpty(vendorAddress.getText().toString())) {
+                    Toast.makeText(getApplicationContext(),
+                                    "Please enter Address",
+                                    Toast.LENGTH_SHORT)
+                            .show();
+                    return;
+                }
+
+
+                float result = addEditTextValues(editTexts,editTextss,textViews);
+                String commision = "0";
+                String texts = Comm.getText().toString().trim();
+
+                if (!texts.isEmpty()) {
+                    commision=texts;
+                }
+                Comm.setText(commision);
+                float comm = (Float.parseFloat(commision) * result) / 100;
+                float dues = result-comm;
+                tvTotal.setText(String.valueOf(result));
+                tvCommision.setText(String.valueOf(comm));
+                tvDues.setText(String.valueOf(dues));
+
+
+
                 setDetailsOfObject();
-
-
-                myRef.child(String.valueOf(invoiceNum+1)).setValue(detailsObj);
-
-                Intent intent = new Intent(Vendor_Activity.this,PDF_Activity.class);
 
 
             }
         });
 
 
-        Calc.setOnClickListener(new View.OnClickListener() {
+        btnCTs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 float result = addEditTextValues(editTexts,editTextss,textViews);
@@ -129,164 +191,27 @@ public class Vendor_Activity extends AppCompatActivity {
                 tvTotal.setText(String.valueOf(result));
                 tvCommision.setText(String.valueOf(comm));
                 tvDues.setText(String.valueOf(dues));
+
+
             }
         });
     }
 
-    private void setDetailsOfObject() {
-
-        detailsObj.invoiceNo=invoiceNum+ 1;
-        detailsObj.date = new Date().getTime();
-        detailsObj.custName = vendorDetails.getText().toString();
-        detailsObj.kacchaQtyDepart = Integer.parseInt(String.valueOf(editTexts[0].getText()));
-        detailsObj.litchiQtyDepart = Integer.parseInt(String.valueOf(editTexts[1].getText()));
-        detailsObj.strawQtyDepart = Integer.parseInt(String.valueOf(editTexts[2].getText()));
-        detailsObj.colaQtyDepart = Integer.parseInt(String.valueOf(editTexts[3].getText()));
-        detailsObj.pineQtyDepart = Integer.parseInt(String.valueOf(editTexts[4].getText()));
-        detailsObj.orangeQtyDepart = Integer.parseInt(String.valueOf(editTexts[5].getText()));
-        detailsObj.mangoQtyDepart = Integer.parseInt(String.valueOf(editTexts[6].getText()));
-        detailsObj.cupSQtyDepart = Integer.parseInt(String.valueOf(editTexts[7].getText()));
-        detailsObj.cupBQtyDepart = Integer.parseInt(String.valueOf(editTexts[8].getText()));
-        detailsObj.chocoSQtyDepart = Integer.parseInt(String.valueOf(editTexts[9].getText()));
-        detailsObj.chocoBQtyDepart = Integer.parseInt(String.valueOf(editTexts[10].getText()));
-        detailsObj.matkaQtyDepart = Integer.parseInt(String.valueOf(editTexts[11].getText()));
-        detailsObj.coneSQtyDepart = Integer.parseInt(String.valueOf(editTexts[12].getText()));
-        detailsObj.coneBQtyDepart = Integer.parseInt(String.valueOf(editTexts[13].getText()));
-        detailsObj.keshaerQtyDepart = Integer.parseInt(String.valueOf(editTexts[14].getText()));
-        detailsObj.bonanzaQtyDepart = Integer.parseInt(String.valueOf(editTexts[15].getText()));
-        detailsObj.familyQtyDepart= Integer.parseInt(String.valueOf(editTexts[16].getText()));
-        detailsObj.family2QtyDepart= Integer.parseInt(String.valueOf(editTexts[18].getText()));
-        detailsObj.nuttyQtyDepart = Integer.parseInt(String.valueOf(editTexts[17].getText()));
-
-
-        detailsObj.kacchaQtyReturn = Integer.parseInt(String.valueOf(editTextss[0].getText()));
-        detailsObj.litchiQtyReturn = Integer.parseInt(String.valueOf(editTextss[1].getText()));
-        detailsObj.strawQtyReturn = Integer.parseInt(String.valueOf(editTextss[2].getText()));
-        detailsObj.colaQtyReturn = Integer.parseInt(String.valueOf(editTextss[3].getText()));
-        detailsObj.pineQtyReturn = Integer.parseInt(String.valueOf(editTextss[4].getText()));
-        detailsObj.orangeQtyReturn = Integer.parseInt(String.valueOf(editTextss[5].getText()));
-        detailsObj.mangoQtyReturn = Integer.parseInt(String.valueOf(editTextss[6].getText()));
-        detailsObj.cupSQtyReturn = Integer.parseInt(String.valueOf(editTextss[7].getText()));
-        detailsObj.cupBQtyReturn = Integer.parseInt(String.valueOf(editTextss[8].getText()));
-        detailsObj.chocoSQtyReturn = Integer.parseInt(String.valueOf(editTextss[9].getText()));
-        detailsObj.chocoBQtyReturn = Integer.parseInt(String.valueOf(editTextss[10].getText()));
-        detailsObj.matkaQtyReturn = Integer.parseInt(String.valueOf(editTextss[11].getText()));
-        detailsObj.coneSQtyReturn = Integer.parseInt(String.valueOf(editTextss[12].getText()));
-        detailsObj.coneBQtyReturn = Integer.parseInt(String.valueOf(editTextss[13].getText()));
-        detailsObj.keshaerQtyReturn = Integer.parseInt(String.valueOf(editTextss[14].getText()));
-        detailsObj.bonanzaQtyReturn = Integer.parseInt(String.valueOf(editTextss[15].getText()));
-        detailsObj.familyQtyReturn= Integer.parseInt(String.valueOf(editTextss[16].getText()));
-        detailsObj.family2QtyReturn= Integer.parseInt(String.valueOf(editTextss[18].getText()));
-        detailsObj.nuttyQtyReturn = Integer.parseInt(String.valueOf(editTextss[17].getText()));
-
-
-        detailsObj.kacchaPrice = Integer.parseInt(String.valueOf(textViews[0].getText()));
-        detailsObj.litchiPrice = Integer.parseInt(String.valueOf(textViews[1].getText()));
-        detailsObj.strawPrice = Integer.parseInt(String.valueOf(textViews[2].getText()));
-        detailsObj.colaPrice = Integer.parseInt(String.valueOf(textViews[3].getText()));
-        detailsObj.pinePrice = Integer.parseInt(String.valueOf(textViews[4].getText()));
-        detailsObj.orangePrice = Integer.parseInt(String.valueOf(textViews[5].getText()));
-        detailsObj.mangoPrice = Integer.parseInt(String.valueOf(textViews[6].getText()));
-        detailsObj.cupSPrice = Integer.parseInt(String.valueOf(textViews[7].getText()));
-        detailsObj.cupBPrice = Integer.parseInt(String.valueOf(textViews[8].getText()));
-        detailsObj.chocoSPrice = Integer.parseInt(String.valueOf(textViews[9].getText()));
-        detailsObj.chocoBPrice = Integer.parseInt(String.valueOf(textViews[10].getText()));
-        detailsObj.matkaPrice = Integer.parseInt(String.valueOf(textViews[11].getText()));
-        detailsObj.coneSPrice = Integer.parseInt(String.valueOf(textViews[12].getText()));
-        detailsObj.coneBPrice = Integer.parseInt(String.valueOf(textViews[13].getText()));
-        detailsObj.keshaerPrice = Integer.parseInt(String.valueOf(textViews[14].getText()));
-        detailsObj.bonanzaPrice = Integer.parseInt(String.valueOf(textViews[15].getText()));
-        detailsObj.familyPrice = Integer.parseInt(String.valueOf(textViews[16].getText()));
-        detailsObj.family2Price = Integer.parseInt(String.valueOf(textViews[18].getText()));
-        detailsObj.nuttyPrice = Integer.parseInt(String.valueOf(textViews[17].getText()));
-
-
-        detailsObj.total = Double.parseDouble(String.valueOf(tvTotal.getText()));
-        detailsObj.dues = Double.parseDouble(String.valueOf(tvDues.getText()));
-        detailsObj.commision = Double.parseDouble(String.valueOf(tvCommision.getText()));
-        detailsObj.commision_percentage = Integer.parseInt(String.valueOf(Comm.getText()));
-
-
-    }
-
-    private void generate() {
-        vendorDetails=findViewById(R.id.vendorDetails);
-        btnGenerate = findViewById(R.id.btnBill);
-        editTexts[0] = findViewById(R.id.tvKaccha);
-        editTexts[1]= findViewById(R.id.tvLitchi);
-        editTexts[2] = findViewById(R.id.tvStraw);
-        editTexts[3]= findViewById(R.id.tvCola);
-        editTexts[4] = findViewById(R.id.tvPine);
-        editTexts[5] = findViewById(R.id.tvOrang);
-        editTexts[6]= findViewById(R.id.tvMango);
-        editTexts[7]= findViewById(R.id.tvCups);
-        editTexts[8] = findViewById(R.id.tvCupb);
-        editTexts[9]= findViewById(R.id.tvChocos);
-        editTexts[10]= findViewById(R.id.tvChocob);
-        editTexts[11]= findViewById(R.id.tvMatka);
-        editTexts[12]= findViewById(R.id.tvCones);
-        editTexts[13]= findViewById(R.id.tvConeb);
-        editTexts[14]= findViewById(R.id.tvPista);
-        editTexts[15]= findViewById(R.id.tvBonanza);
-        editTexts[16]= findViewById(R.id.tvFamily);
-        editTexts[18]= findViewById(R.id.tvFamily2);
-        editTexts[17]= findViewById(R.id.tvNutty);
-
-        editTextss[0] = findViewById(R.id.tvKacchas);
-        editTextss[1]= findViewById(R.id.tvLitchis);
-        editTextss[2] = findViewById(R.id.tvStraws);
-        editTextss[3]= findViewById(R.id.tvColas);
-        editTextss[4] = findViewById(R.id.tvPines);
-        editTextss[5] = findViewById(R.id.tvOrangs);
-        editTextss[6]= findViewById(R.id.tvMangos);
-        editTextss[7]= findViewById(R.id.tvCupss);
-        editTextss[8] = findViewById(R.id.tvCupbs);
-        editTextss[9]= findViewById(R.id.tvChocoss);
-        editTextss[10]= findViewById(R.id.tvChocobs);
-        editTextss[11]= findViewById(R.id.tvMatkas);
-        editTextss[12]= findViewById(R.id.tvConess);
-        editTextss[13]= findViewById(R.id.tvConebs);
-        editTextss[14]= findViewById(R.id.tvPistas);
-        editTextss[15]= findViewById(R.id.tvBonanzas);
-        editTextss[16]= findViewById(R.id.tvFamilys);
-        editTextss[18]= findViewById(R.id.tvFamily2s);
-        editTextss[17]= findViewById(R.id.tvNuttys);
-
-
-        textViews[0] = findViewById(R.id.tvTotal1);
-        textViews[1]= findViewById(R.id.tvTotal2);
-        textViews[2] = findViewById(R.id.tvTotal3);
-        textViews[3]= findViewById(R.id.tvTotal4);
-        textViews[4] = findViewById(R.id.tvTotal5);
-        textViews[5] = findViewById(R.id.tvTotal6);
-        textViews[6]= findViewById(R.id.tvTotal7);
-        textViews[7]= findViewById(R.id.tvTotal8);
-        textViews[8] = findViewById(R.id.tvTotal9);
-        textViews[9]= findViewById(R.id.tvTotal10);
-        textViews[10]= findViewById(R.id.tvTotal11);
-        textViews[11]= findViewById(R.id.tvTotal12);
-        textViews[12]= findViewById(R.id.tvTotal13);
-        textViews[13]= findViewById(R.id.tvTotal14);
-        textViews[14]= findViewById(R.id.tvTotal15);
-        textViews[15]= findViewById(R.id.tvTotal16);
-        textViews[16]= findViewById(R.id.tvTotal17);
-        textViews[17]= findViewById(R.id.tvTotal18);
-        textViews[18]= findViewById(R.id.tvTotal19);
-        tvT =findViewById(R.id.Tot);
-        tvTotal = findViewById(R.id.tvTotal);
-        Comm = findViewById(R.id.etComm);
-        tvCommision = findViewById(R.id.tvCommision);
-        tv = findViewById(R.id.second_edit_text);
-        Calc = findViewById(R.id.btnCT);
-        tvDues = findViewById(R.id.tvDues);
-    }
-
     public int addEditTextValues(EditText[] editTexts,EditText[] editTextss,TextView[] textView) {
         int sum = 0;
-        tvT.setText("Total");
+
         for (int i = 0; i < editTexts.length; i++) {
             String text = editTexts[i].getText().toString().trim();
             String texts = editTextss[i].getText().toString().trim();
+
+            if(text.isEmpty()){
+                editTexts[i].setText("0");
+                text = "0";
+            }
+            if(texts.isEmpty()){
+                editTextss[i].setText("0");
+                texts = "0";
+            }
 
             if (!text.isEmpty()) {
                 try {
@@ -301,4 +226,208 @@ public class Vendor_Activity extends AppCompatActivity {
         }
         return sum;
     }
+
+
+    private void setDetailsOfObject() {
+
+
+        Intent intent = new Intent(getApplicationContext(), VendorPDF.class);
+
+
+        intent.putExtra("price1",String.valueOf(arr[0]));
+        intent.putExtra("price2",String.valueOf(arr[1]));
+        intent.putExtra("price3",String.valueOf(arr[2]));
+        intent.putExtra("price4",String.valueOf(arr[3]));
+        intent.putExtra("price5",String.valueOf(arr[4]));
+        intent.putExtra("price6",String.valueOf(arr[5]));
+        intent.putExtra("price7",String.valueOf(arr[6]));
+        intent.putExtra("price8",String.valueOf(arr[7]));
+        intent.putExtra("price9",String.valueOf(arr[8]));
+        intent.putExtra("price10",String.valueOf(arr[9]));
+        intent.putExtra("price11",String.valueOf(arr[10]));
+        intent.putExtra("price12",String.valueOf(arr[11]));
+        intent.putExtra("price13",String.valueOf(arr[12]));
+        intent.putExtra("price14",String.valueOf(arr[13]));
+        intent.putExtra("price15",String.valueOf(arr[14]));
+        intent.putExtra("price16",String.valueOf(arr[15]));
+        intent.putExtra("price17",String.valueOf(arr[16]));
+        intent.putExtra("price18",String.valueOf(arr[17]));
+        intent.putExtra("price19",String.valueOf(arr[18]));
+
+        intent.putExtra("kacchaQty",String.valueOf(editTexts[0].getText()));
+        intent.putExtra("litchiQty",String.valueOf(editTexts[1].getText()));
+        intent.putExtra("strawQty",String.valueOf(editTexts[2].getText()));
+        intent.putExtra("colaQty",String.valueOf(editTexts[3].getText()));
+        intent.putExtra("pineQty",String.valueOf(editTexts[4].getText()));
+        intent.putExtra("orangeQty",String.valueOf(editTexts[5].getText()));
+        intent.putExtra("mangoQty",String.valueOf(editTexts[6].getText()));
+        intent.putExtra("cupSQty",String.valueOf(editTexts[7].getText()));
+        intent.putExtra("cupBQty",String.valueOf(editTexts[8].getText()));
+        intent.putExtra("chocoSQty",String.valueOf(editTexts[9].getText()));
+        intent.putExtra("chocoBQty",String.valueOf(editTexts[10].getText()));
+        intent.putExtra("matkaQty",String.valueOf(editTexts[11].getText()));
+        intent.putExtra("coneSQty",String.valueOf(editTexts[12].getText()));
+        intent.putExtra("coneBQty",String.valueOf(editTexts[13].getText()));
+        intent.putExtra("keshaerQty",String.valueOf(editTexts[15].getText()));
+        intent.putExtra("bonanzaQty",String.valueOf(editTexts[16].getText()));
+        intent.putExtra("familyQty",String.valueOf(editTexts[17].getText()));
+        intent.putExtra("family2Qty",String.valueOf(editTexts[18].getText()));
+        intent.putExtra("nuttyQty",String.valueOf(editTexts[14].getText()));
+
+        intent.putExtra("kacchaQtyR",String.valueOf(editTextss[0].getText()));
+        intent.putExtra("litchiQtyR",String.valueOf(editTextss[1].getText()));
+        intent.putExtra("strawQtyR",String.valueOf(editTextss[2].getText()));
+        intent.putExtra("colaQtyR",String.valueOf(editTextss[3].getText()));
+        intent.putExtra("pineQtyR",String.valueOf(editTextss[4].getText()));
+        intent.putExtra("orangeQtyR",String.valueOf(editTextss[5].getText()));
+        intent.putExtra("mangoQtyR",String.valueOf(editTextss[6].getText()));
+        intent.putExtra("cupSQtyR",String.valueOf(editTextss[7].getText()));
+        intent.putExtra("cupBQtyR",String.valueOf(editTextss[8].getText()));
+        intent.putExtra("chocoSQtyR",String.valueOf(editTextss[9].getText()));
+        intent.putExtra("chocoBQtyR",String.valueOf(editTextss[10].getText()));
+        intent.putExtra("matkaQtyR",String.valueOf(editTextss[11].getText()));
+        intent.putExtra("coneSQtyR",String.valueOf(editTextss[12].getText()));
+        intent.putExtra("coneBQtyR",String.valueOf(editTextss[13].getText()));
+        intent.putExtra("keshaerQtyR",String.valueOf(editTextss[15].getText()));
+        intent.putExtra("bonanzaQtyR",String.valueOf(editTextss[16].getText()));
+        intent.putExtra("familyQtyR",String.valueOf(editTextss[17].getText()));
+        intent.putExtra("family2QtyR",String.valueOf(editTextss[18].getText()));
+        intent.putExtra("nuttyQtyR",String.valueOf(editTextss[14].getText()));
+
+        intent.putExtra("Notes",vendorNotes.getText().toString());
+
+        intent.putExtra("kacchaPrice",String.valueOf(textViews[0].getText()));
+        intent.putExtra("litchiPrice",String.valueOf(textViews[1].getText()));
+        intent.putExtra("strawPrice",String.valueOf(textViews[2].getText()));
+        intent.putExtra("colaPrice",String.valueOf(textViews[3].getText()));
+        intent.putExtra("pinePrice",String.valueOf(textViews[4].getText()));
+        intent.putExtra("orangePrice",String.valueOf(textViews[5].getText()));
+        intent.putExtra("mangoPrice",String.valueOf(textViews[6].getText()));
+        intent.putExtra("cupSPrice",String.valueOf(textViews[7].getText()));
+        intent.putExtra("cupBPrice",String.valueOf(textViews[8].getText()));
+        intent.putExtra("chocoSPrice",String.valueOf(textViews[9].getText()));
+        intent.putExtra("chocoBPrice",String.valueOf(textViews[10].getText()));
+        intent.putExtra("matkaPrice",String.valueOf(textViews[11].getText()));
+        intent.putExtra("coneSPrice",String.valueOf(textViews[12].getText()));
+        intent.putExtra("coneBPrice",String.valueOf(textViews[13].getText()));
+        intent.putExtra("keshaerPrice",String.valueOf(textViews[15].getText()));
+        intent.putExtra("bonanzaPrice",String.valueOf(textViews[16].getText()));
+        intent.putExtra("familyPrice",String.valueOf(textViews[17].getText()));
+        intent.putExtra("family2Price",String.valueOf(textViews[18].getText()));
+        intent.putExtra("nuttyPrice",String.valueOf(textViews[14].getText()));
+
+        intent.putExtra("Total",String.valueOf(tvTotal.getText()));
+        intent.putExtra("Commission",String.valueOf(tvCommision.getText()));
+        intent.putExtra("Dues",String.valueOf(tvDues.getText()));
+
+
+        intent.putExtra("custName",String.valueOf(vendorName.getText()));
+        intent.putExtra("custAddress",String.valueOf(vendorAddress.getText()));
+
+
+
+        startActivity(intent);
+    }
+
+
+
+
+
+    private void generate() {
+
+        itemPrice[0] = findViewById(R.id.itemPrice1);
+        itemPrice[1] = findViewById(R.id.itemPrice2);
+        itemPrice[2] = findViewById(R.id.itemPrice3);
+        itemPrice[3] = findViewById(R.id.itemPrice4);
+        itemPrice[4] = findViewById(R.id.itemPrice5);
+        itemPrice[5] = findViewById(R.id.itemPrice6);
+        itemPrice[6] = findViewById(R.id.itemPrice7);
+        itemPrice[7] = findViewById(R.id.itemPrice8);
+        itemPrice[8] = findViewById(R.id.itemPrice9);
+        itemPrice[9] = findViewById(R.id.itemPrice10);
+        itemPrice[10] = findViewById(R.id.itemPrice11);
+        itemPrice[11] = findViewById(R.id.itemPrice12);
+        itemPrice[12] = findViewById(R.id.itemPrice13);
+        itemPrice[13] = findViewById(R.id.itemPrice14);
+        itemPrice[14] = findViewById(R.id.itemPrice15);
+        itemPrice[15] = findViewById(R.id.itemPrice16);
+        itemPrice[16] = findViewById(R.id.itemPrice17);
+        itemPrice[17] = findViewById(R.id.itemPrice18);
+        itemPrice[18] = findViewById(R.id.itemPrice19);
+
+
+
+        vendorName=findViewById(R.id.vendorName);
+        vendorAddress = findViewById(R.id.vendorAddress);
+        vendorNotes = findViewById(R.id.vendorDetails);
+        editTexts[0] = findViewById(R.id.tvKacchaDep);
+        editTexts[1]= findViewById(R.id.tvLitchiDep);
+        editTexts[2] = findViewById(R.id.tvStrawDep);
+        editTexts[3]= findViewById(R.id.tvColaDep);
+        editTexts[4] = findViewById(R.id.tvPineDep);
+        editTexts[5] = findViewById(R.id.tvOrangDep);
+        editTexts[6]= findViewById(R.id.tvMangoDep);
+        editTexts[7]= findViewById(R.id.tvCupsDep);
+        editTexts[8] = findViewById(R.id.tvCupbDep);
+        editTexts[9]= findViewById(R.id.tvChocosDep);
+        editTexts[10]= findViewById(R.id.tvChocobDep);
+        editTexts[11]= findViewById(R.id.tvMatkaDep);
+        editTexts[12]= findViewById(R.id.tvConesDep);
+        editTexts[13]= findViewById(R.id.tvConebDep);
+        editTexts[15]= findViewById(R.id.tvPistaDep);
+        editTexts[16]= findViewById(R.id.tvBonanzaDep);
+        editTexts[17]= findViewById(R.id.tvFamilyDep);
+        editTexts[18]= findViewById(R.id.tvFamily2Dep);
+        editTexts[14]= findViewById(R.id.tvNuttyDep);
+
+        editTextss[0] = findViewById(R.id.tvKacchasRet);
+        editTextss[1]= findViewById(R.id.tvLitchisRet);
+        editTextss[2] = findViewById(R.id.tvStrawsRet);
+        editTextss[3]= findViewById(R.id.tvColasRet);
+        editTextss[4] = findViewById(R.id.tvPinesRet);
+        editTextss[5] = findViewById(R.id.tvOrangsRet);
+        editTextss[6]= findViewById(R.id.tvMangosRet);
+        editTextss[7]= findViewById(R.id.tvCupssRet);
+        editTextss[8] = findViewById(R.id.tvCupbsRet);
+        editTextss[9]= findViewById(R.id.tvChocossRet);
+        editTextss[10]= findViewById(R.id.tvChocobsRet);
+        editTextss[11]= findViewById(R.id.tvMatkasRet);
+        editTextss[12]= findViewById(R.id.tvConessRet);
+        editTextss[13]= findViewById(R.id.tvConebsRet);
+        editTextss[15]= findViewById(R.id.tvPistasRet);
+        editTextss[16]= findViewById(R.id.tvBonanzasRet);
+        editTextss[17]= findViewById(R.id.tvFamilysRet);
+        editTextss[18]= findViewById(R.id.tvFamily2sRet);
+        editTextss[14]= findViewById(R.id.tvNuttysRet);
+
+
+        textViews[0] = findViewById(R.id.tvTotal1s);
+        textViews[1]= findViewById(R.id.tvTotal2s);
+        textViews[2] = findViewById(R.id.tvTotal3s);
+        textViews[3]= findViewById(R.id.tvTotal4s);
+        textViews[4] = findViewById(R.id.tvTotal5s);
+        textViews[5] = findViewById(R.id.tvTotal6s);
+        textViews[6]= findViewById(R.id.tvTotal7s);
+        textViews[7]= findViewById(R.id.tvTotal8s);
+        textViews[8] = findViewById(R.id.tvTotal9s);
+        textViews[9]= findViewById(R.id.tvTotal10s);
+        textViews[10]= findViewById(R.id.tvTotal11s);
+        textViews[11]= findViewById(R.id.tvTotal12s);
+        textViews[12]= findViewById(R.id.tvTotal13s);
+        textViews[13]= findViewById(R.id.tvTotal14s);
+        textViews[14]= findViewById(R.id.tvTotal15s);
+        textViews[15]= findViewById(R.id.tvTotal16s);
+        textViews[16]= findViewById(R.id.tvTotal17s);
+        textViews[17]= findViewById(R.id.tvTotal18s);
+        textViews[18]= findViewById(R.id.tvTotal19s);
+        tvTotal = findViewById(R.id.tvTot);
+        Comm = findViewById(R.id.etComms);
+        tvCommision = findViewById(R.id.tvCommisi);
+        btnBills = findViewById(R.id.btnBills);
+        tv = findViewById(R.id.second_edit_text);
+        btnCTs = findViewById(R.id.btnCTs);
+        tvDues = findViewById(R.id.tvDuess);
+    }
+
+
 }

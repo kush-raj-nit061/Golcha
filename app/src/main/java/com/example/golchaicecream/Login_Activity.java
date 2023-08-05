@@ -30,7 +30,7 @@ public class Login_Activity extends AppCompatActivity {
     FirebaseFirestore fStore = FirebaseFirestore.getInstance();
 
     TextView tvForgot;
-    private ProgressBar progressbar;
+    ProgressBar progressbar;
 
     private FirebaseAuth mAuth;
     @SuppressLint("MissingInflatedId")
@@ -39,6 +39,8 @@ public class Login_Activity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -49,7 +51,8 @@ public class Login_Activity extends AppCompatActivity {
 
 
 
-        progressbar = findViewById(R.id.progressbar);
+        progressbar = findViewById(R.id.progressr);
+        progressbar.setVisibility(View.GONE);
 
         Btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +77,7 @@ public class Login_Activity extends AppCompatActivity {
     private void loginUserAccount()
     {
 
-        progressbar.setVisibility(View.VISIBLE);
+
         String email, password;
         email = emailTextView.getText().toString();
         password = passwordTextView.getText().toString();
@@ -94,6 +97,7 @@ public class Login_Activity extends AppCompatActivity {
                     .show();
             return;
         }
+        progressbar.setVisibility(View.VISIBLE);
 
         // signin existing user
         mAuth.signInWithEmailAndPassword(email, password)

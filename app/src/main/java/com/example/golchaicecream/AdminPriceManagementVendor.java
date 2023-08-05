@@ -25,9 +25,9 @@ import ir.androidexception.datatable.DataTable;
 import ir.androidexception.datatable.model.DataTableHeader;
 import ir.androidexception.datatable.model.DataTableRow;
 
-public class AdminPriceManagement extends AppCompatActivity {
+public class AdminPriceManagementVendor extends AppCompatActivity {
 
-    DocumentReference fStore = FirebaseFirestore.getInstance().collection("itemDetails").document("AgencyPrices");
+    DocumentReference fStore = FirebaseFirestore.getInstance().collection("itemDetails").document("VendorPrices");
     DataTable dataTable;
     DataTableHeader header;
     ProgressBar progressBar ;
@@ -36,7 +36,7 @@ public class AdminPriceManagement extends AppCompatActivity {
     ArrayList<DataTableRow> rows = new ArrayList<>();
     EditText etSrNo;
     int invoice;
-    String str[] ={"Kaccha Aaam","Litchi","Strawberry","Coca","PineApple","Orange Bar","Mango Bar","Cup-S","Cup-B","ChocoBar-S","ChocoBar-B","Matka","King Cone-S","King Cone-B","Keshar Pista","Bonanza","Family Pack","Nutty Crunch","Family Pack(2 in 1)"};
+    String str[] ={"Kaccha Aaam","Litchi","Strawberry","Coca","PineApple","Orange Bar","Mango Bar","Cup-S","Cup-B","ChocoBar-S","ChocoBar-B","Matka","King Cone-S","King Cone-B","Nutty Crunch","Keshar Pista","Bonanza","Family Pack","Family Pack(2 in 1)"};
 
 
 
@@ -44,8 +44,8 @@ public class AdminPriceManagement extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_price_management);
-        this.progressBar = findViewById(R.id.progressw);
+        setContentView(R.layout.activity_admin_price_management_vendor);
+        this.progressBar = findViewById(R.id.progresse);
         progressBar.setVisibility(View.VISIBLE);
 
         dataTable = findViewById(R.id.data_table_a);
@@ -81,7 +81,7 @@ public class AdminPriceManagement extends AppCompatActivity {
                     }
                     dataTable.setHeader(header);
                     dataTable.setRows(rows);
-                    dataTable.inflate(AdminPriceManagement.this);
+                    dataTable.inflate(AdminPriceManagementVendor.this);
                     progressBar.setVisibility(View.GONE);
 
                 }else {}
@@ -107,7 +107,7 @@ public class AdminPriceManagement extends AppCompatActivity {
                 }else {
 
                     if(Integer.parseInt(s)<=str.length && Integer.parseInt(s)>= 1){
-                        Intent intent = new Intent(getApplicationContext(),ItemDetailsUpdate.class);
+                        Intent intent = new Intent(getApplicationContext(),ItemDetailsUpdateVendor.class);
                         intent.putExtra("SrNo",s);
                         intent.putExtra("ItemName",str[Integer.parseInt(s)-1]);
                         startActivity(intent);

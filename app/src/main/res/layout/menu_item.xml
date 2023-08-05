@@ -68,6 +68,25 @@
                 tools:ignore="LabelFor,RtlCompat,RtlHardcoded"
                 android:autofillHints="" />
 
+            <EditText
+                android:id="@+id/qtyr"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/username_box"
+                android:ems="10"
+                android:inputType="number"
+                android:padding="5dp"
+                android:layout_weight="0.8"
+                android:layout_gravity="right"
+                android:paddingBottom="10dp"
+                android:text="@string/zero"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="LabelFor,RtlCompat,RtlHardcoded"
+                android:autofillHints="" />
+
             <TextView
                 android:id="@+id/total"
                 android:layout_width="0dp"

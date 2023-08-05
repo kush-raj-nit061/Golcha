@@ -259,6 +259,10 @@ public class PDF_Activity extends AppCompatActivity {
 
                 mRef.child(String.valueOf(invoiceNum+1)).setValue(detailsObj);
                 printPdf();
+                Intent intent = new Intent(PDF_Activity.this,AdminLanding.class);
+                Toast.makeText(getApplicationContext(),"Order Updated Sucessfully",Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+
             }
 
 
@@ -266,13 +270,9 @@ public class PDF_Activity extends AppCompatActivity {
         btnp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PDF_Activity.this,MainActivity.class);
-
-
-
-
-
-                startActivity(intent);
+                Toast.makeText(getApplicationContext(),"Payment Not Available",Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(PDF_Activity.this,MainActivity.class);
+//                startActivity(intent);
             }
         });
     }

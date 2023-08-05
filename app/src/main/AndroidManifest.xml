@@ -25,15 +25,32 @@
         android:theme="@style/Theme.GolchaIcecream"
         tools:targetApi="31">
         <activity
+            android:name=".ItemDetailsUpdateVendor"
+            android:exported="false" />
+        <activity
+            android:name=".AdminPriceManagementVendor"
+            android:exported="false" />
+        <activity
+            android:name=".AdminPriceManagementRedirect"
+            android:exported="false" />
+        <activity
+            android:name=".VendorPDF"
+            android:exported="false" />
+        <activity
+            android:name=".UserDetailsUpdate"
+            android:exported="false" />
+        <activity
+            android:name=".UserManagement"
+            android:exported="true" />
+        <activity
+            android:name=".ItemDetailsUpdate"
+            android:exported="false" />
+        <activity
             android:name=".AdminPriceManagement"
-            android:exported="true" >
-
-
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".AdminLanding"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".AdminMainActivity"
             android:exported="true" />
@@ -57,7 +74,7 @@
             android:exported="true" />
         <activity
             android:name=".Vendor_Activity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Menu_Activity"
             android:exported="true" />
@@ -69,7 +86,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".Login_Activity"

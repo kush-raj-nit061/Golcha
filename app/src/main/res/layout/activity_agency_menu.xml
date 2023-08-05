@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:alpha="1"
     tools:context=".AgencyMenu"
-    android:background="@drawable/backnew"
+    android:id="@+id/rel"
+    android:background="@drawable/gradient_list"
     >
 
     <TextView
@@ -128,7 +129,7 @@
                         android:text="*50"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
@@ -190,7 +191,7 @@
                         android:text="*50"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
@@ -247,7 +248,7 @@
                         android:text="*50"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
@@ -304,7 +305,7 @@
                         android:text="*50"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
@@ -360,7 +361,7 @@
                         android:text="*50"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
@@ -417,7 +418,7 @@
                         android:text="*50"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
@@ -473,7 +474,7 @@
                         android:text="*50"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
@@ -531,7 +532,7 @@
                         android:text="*30"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
@@ -587,7 +588,7 @@
                         android:text="*24"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
@@ -643,7 +644,7 @@
                         android:text="*30"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
@@ -699,7 +700,7 @@
                         android:text="*24"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
@@ -754,7 +755,7 @@
                         android:text="*12"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
@@ -808,7 +809,7 @@
                         android:text="*35"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
@@ -864,7 +865,7 @@
                         android:text="*20"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
@@ -919,7 +920,7 @@
                         android:text="*20"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
@@ -973,7 +974,7 @@
                         android:text="*12"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
@@ -1027,7 +1028,7 @@
                         android:text="*8"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
@@ -1085,7 +1086,7 @@
                         android:text="*1"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 
@@ -1141,7 +1142,7 @@
                         android:text="*1"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="DuplicateIds" />
 

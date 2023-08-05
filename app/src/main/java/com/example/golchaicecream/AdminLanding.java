@@ -5,12 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Matrix;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.github.sshadkany.neo;
@@ -20,22 +25,54 @@ public class AdminLanding extends AppCompatActivity {
 
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     Button signOut;
+    ProgressBar progressBar ;
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "UseCompatLoadingForDrawables"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_landing);
 
+        RelativeLayout relativeLayout = findViewById(R.id.scrolls);
+        AnimationDrawable animationDrawable = (AnimationDrawable) relativeLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2500);
+        animationDrawable.setExitFadeDuration(5000);
+        try {
+            animationDrawable.start();
+        }catch (Exception e){
+            relativeLayout.setBackground(getResources().getDrawable(R.drawable.background_2));
+        }
+
+        this.progressBar = findViewById(R.id.progress);
+        progressBar.setVisibility(View.GONE);
+
+
         final neo mybtn = findViewById(R.id.rec_text_button);
         signOut = findViewById(R.id.btnSignout);
         final neo manageItems = findViewById(R.id.manageItems);
+        final neo manageUsers = findViewById(R.id.manageUsers);
+
+        manageUsers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
+                Intent i = new Intent(AdminLanding.this,UserManagement.class);
+                startActivity(i);
+                progressBar.setVisibility(View.GONE);
+
+
+            }
+        });
+
 
         manageItems.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(AdminLanding.this,AdminPriceManagement.class);
+
+                progressBar.setVisibility(View.VISIBLE);
+                Intent i = new Intent(AdminLanding.this,AdminPriceManagementRedirect.class);
                 startActivity(i);
+                progressBar.setVisibility(View.GONE);
             }
         });
 
@@ -43,17 +80,23 @@ public class AdminLanding extends AppCompatActivity {
         mybtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
+
                 Intent i = new Intent(AdminLanding.this,AdminMainActivity.class);
                 startActivity(i);
+                progressBar.setVisibility(View.GONE);
             }
         });
 
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Signed Out",Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.VISIBLE);
+
                 mAuth.signOut();
                 signOutUser();
+                Toast.makeText(getApplicationContext(),"Signed Out",Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.GONE);
 
             }
         });

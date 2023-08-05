@@ -26,6 +26,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -58,6 +59,7 @@ import ir.androidexception.datatable.model.DataTableHeader;
 import ir.androidexception.datatable.model.DataTableRow;
 
 public class OldPrintActivity extends AppCompatActivity {
+    ProgressBar progressBar ;
     FirebaseFirestore fStore = FirebaseFirestore.getInstance();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
@@ -77,6 +79,10 @@ public class OldPrintActivity extends AppCompatActivity {
     DecimalFormat decimalFormat = new DecimalFormat("#.##");
     ArrayList<DataTableRow> rows = new ArrayList<>();
 
+    long invoice;
+    FirebaseDatabase datasbase = FirebaseDatabase.getInstance();
+    DatabaseReference mysRef = datasbase.getReference("record/Agency/"+fAuth.getCurrentUser().getUid());
+
 
     String customerName;
     String loc;
@@ -91,6 +97,8 @@ public class OldPrintActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_old_print);
+        this.progressBar = findViewById(R.id.progresst);
+        progressBar.setVisibility(View.VISIBLE);
 
 
 
@@ -102,10 +110,10 @@ public class OldPrintActivity extends AppCompatActivity {
         dataTable = findViewById(R.id.data_table_a);
 
         header = new DataTableHeader.Builder()
-                .item("Invoice No",5)
-                .item("Customer Name", 8)
+                .item("Inv.No",3)
+                .item("Name", 7)
                 .item("Date",5)
-                .item("Time",5)
+                .item("Time",4)
                 .item("Amount",5)
                 .build();
         loadTable();
@@ -113,6 +121,18 @@ public class OldPrintActivity extends AppCompatActivity {
     }
 
     private void listeners() {
+        mysRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                invoice = dataSnapshot.getChildrenCount();
+                progressBar.setVisibility(View.GONE);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         fStore.collection("users").document(userID)
                 .get().addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
@@ -134,7 +154,11 @@ public class OldPrintActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                printPdf(oldPrintEt.getText().toString());
+                if(Integer.parseInt(oldPrintEt.getText().toString())<=invoice && Integer.parseInt(oldPrintEt.getText().toString())>=1){
+                    printPdf(oldPrintEt.getText().toString());
+                }else {
+                    Toast.makeText(getApplicationContext(),"Please Enter Correct Invoice No.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -166,6 +190,9 @@ public class OldPrintActivity extends AppCompatActivity {
     }
 
     private void printPdf(String invoice) {
+
+        progressBar.setVisibility(View.VISIBLE);
+
         //ambiguity chance
         retriveRef = FirebaseDatabase.getInstance().getReference().child("record/Agency/"+fAuth.getCurrentUser().getUid()).child(invoice);
         retriveRef.addValueEventListener(new ValueEventListener() {
@@ -353,6 +380,7 @@ public class OldPrintActivity extends AppCompatActivity {
 
                         downloadFile(OldPrintActivity.this,"Golcha",".pdf",Environment.getExternalStorageDirectory()+"/",url);
                         in = new Intent(getApplicationContext(),MainActivity.class);
+                        progressBar.setVisibility(View.GONE);
                         in.putExtra("url",url);
                         startActivity(in);
                         Toast.makeText(getApplicationContext(),"Downloaded",Toast.LENGTH_SHORT).show();

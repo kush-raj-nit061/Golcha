@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,6 +56,7 @@ import kotlin.jvm.functions.Function1;
 
 public class MainActivity extends AppCompatActivity {
     private TextView text1;
+    ImageView arrow;
     private PDFView pdfview;
     FirebaseFirestore fStore = FirebaseFirestore.getInstance();
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
@@ -63,14 +65,16 @@ public class MainActivity extends AppCompatActivity {
     ImageView ivPlace,logOut;
 
     long invoice;
+    ProgressBar progressBar ;
+
 
 
     Button b2,b1,b3;
     ImageButton imgButton;
     RelativeLayout a4,a1,a2,a3,a5;
     TextView textView,location,invoiceNum;
-    LinearLayout personalinfo,review,experience;
-    TextView personalinfobtn, experiencebtn, reviewbtn;
+    LinearLayout personalinfo;
+    TextView personalinfobtn;
     TextView tvEmail,tvProfileEmail,tvProfileN,tvEditContact,tvNum,tvEmails,tvLocation,tvAbout,tvEditNameCard,tvNameDown;
 
     private MeowBottomNavigation bottomNavigation;
@@ -81,7 +85,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         pdfview = findViewById(R.id.pdfview);
+
+        this.progressBar = findViewById(R.id.progressy);
+        progressBar.setVisibility(View.GONE);
+
+
         text1 =findViewById(R.id.text1);
+        arrow = findViewById(R.id.arrow);
+
 
 
 
@@ -100,8 +111,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent in = getIntent();
                 text1.setText(in.getStringExtra("url"));
                 String url =text1.getText().toString();
-                text1.setText("REQUESTED PDF");
                 new RetrivePdfStream().execute(url);
+                text1.setText("RETRIVE PDF");
 
             }
 
@@ -144,11 +155,8 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.tvPlaceName);
         tvEmail = findViewById(R.id.tvEmail);
         personalinfo = findViewById(R.id.personalinfo);
-        experience = findViewById(R.id.experience);
-        review = findViewById(R.id.review);
         personalinfobtn = findViewById(R.id.personalinfobtn);
-        experiencebtn = findViewById(R.id.experiencebtn);
-        reviewbtn = findViewById(R.id.reviewbtn);
+
 
         tvProfileEmail = findViewById(R.id.tvProfileEmail);
         tvProfileN = findViewById(R.id.tvProfileNames);
@@ -190,42 +198,27 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 personalinfo.setVisibility(View.VISIBLE);
-                experience.setVisibility(View.GONE);
-                review.setVisibility(View.GONE);
+
 
                 personalinfobtn.setTextColor(getResources().getColor(R.color.blue));
-                experiencebtn.setTextColor(getResources().getColor(R.color.grey));
-                reviewbtn.setTextColor(getResources().getColor(R.color.grey));
+
 
             }
         });
-
-        experiencebtn.setOnClickListener(new View.OnClickListener() {
+        arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                personalinfo.setVisibility(View.GONE);
-                experience.setVisibility(View.VISIBLE);
-                review.setVisibility(View.GONE);
-                personalinfobtn.setTextColor(getResources().getColor(R.color.grey));
-                experiencebtn.setTextColor(getResources().getColor(R.color.blue));
-                reviewbtn.setTextColor(getResources().getColor(R.color.grey));
-            }
-        });
-
-        reviewbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                personalinfo.setVisibility(View.GONE);
-                experience.setVisibility(View.GONE);
-                review.setVisibility(View.VISIBLE);
-                personalinfobtn.setTextColor(getResources().getColor(R.color.grey));
-                experiencebtn.setTextColor(getResources().getColor(R.color.grey));
-                reviewbtn.setTextColor(getResources().getColor(R.color.blue));
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
+                finish();
 
             }
         });
+
+
+
+
 
         fStore.collection("users").document(userID)
                 .get()
@@ -248,11 +241,19 @@ public class MainActivity extends AppCompatActivity {
 
                             tvEmail.setText(email);
                             textView.setText(name);
+                            progressBar.setVisibility(View.VISIBLE);
                             profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
+
+
                                     Picasso.get().load(uri).into(imgButton);
+
                                     Picasso.get().load(uri).into(ivPlace);
+                                    progressBar.setVisibility(View.GONE);
+
+
+
                                 }
                             });
 
@@ -459,12 +460,14 @@ public class MainActivity extends AppCompatActivity {
         protected InputStream doInBackground(String... strings) {
             InputStream inputStream = null;
             try {
+
                 URL url = new URL (strings[0]);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                 if(urlConnection.getResponseCode()== 200){
                     inputStream = new BufferedInputStream(urlConnection.getInputStream());
                 }
             }catch (IOException e){
+
                 return null;
             }
             return inputStream;
@@ -487,6 +490,7 @@ public class MainActivity extends AppCompatActivity {
             if(resultCode == Activity.RESULT_OK){
                 Uri imageUri =data.getData();
 //                imgButton.setImageURI(imageUri);
+                progressBar.setVisibility(View.VISIBLE);
                 
                 uploadImageToFirebase(imageUri);
             }
@@ -501,10 +505,13 @@ public class MainActivity extends AppCompatActivity {
         fileRef.putFile((imageUri)).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
                 fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
+
                         Picasso.get().load(uri).into(imgButton);
+                        progressBar.setVisibility(View.GONE);
                     }
                 });
 

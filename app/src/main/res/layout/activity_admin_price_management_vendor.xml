@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminPriceManagement">
+    tools:context=".AdminPriceManagementVendor">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -89,9 +89,10 @@
             app:shadow="8dp" />
 
 
+
     </RelativeLayout>
     <ProgressBar
-        android:id="@+id/progressw"
+        android:id="@+id/progresse"
         android:layout_width="match_parent"
         style="@style/carbon_ProgressBar.Circular.Indeterminate"
         android:indeterminateDrawable="@drawable/cpb"

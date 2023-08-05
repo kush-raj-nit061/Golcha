@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -40,7 +42,16 @@ public class AdminMainActivity extends AppCompatActivity {
     EditText invoiceNumber;
     DataTable dataTable;
     DataTableHeader header;
+    ProgressBar progressBar ;
     int invoice;
+    String uid;
+
+    FirebaseDatabase databases = FirebaseDatabase.getInstance();
+    DatabaseReference myRefs = databases.getReference("record/AgencyLatest");
+
+    int noOfOrders;
+
+
 
     Intent in = null;
     @SuppressLint("SimpleDateFormat")
@@ -57,6 +68,8 @@ public class AdminMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_main);
 
         storageReference = FirebaseStorage.getInstance().getReference();
+        this.progressBar = findViewById(R.id.progresswa);
+        progressBar.setVisibility(View.VISIBLE);
 
 
 
@@ -66,10 +79,10 @@ public class AdminMainActivity extends AppCompatActivity {
         dataTable = findViewById(R.id.data_table_a);
 
         header = new DataTableHeader.Builder()
-                .item("Invoice No",5)
-                .item("Customer Name", 8)
+                .item("InvNo.",3)
+                .item("Name", 7)
                 .item("Date",5)
-                .item("Time",5)
+                .item("Time",4)
                 .item("UserId",5)
                 .build();
         loadTable();
@@ -82,12 +95,13 @@ public class AdminMainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 invoice = 0;
                 for (DataSnapshot myDataSnapshot : snapshot.getChildren()) {
+                    String str = String.valueOf(myDataSnapshot.child("userId").getValue());
                     DataTableRow row = new DataTableRow.Builder()
                             .value(String.valueOf(invoice+1))
                             .value(String.valueOf(myDataSnapshot.child("custName").getValue()))
                             .value(datePatternFormats.format(myDataSnapshot.child("date").getValue()))
                             .value(timePatternFormats.format(myDataSnapshot.child("date").getValue()))
-                            .value(String.valueOf(myDataSnapshot.child("userId").getValue()))
+                            .value(str.substring(0,7))
                             .build();
                     rows.add(row);
                     invoice++;
@@ -107,14 +121,47 @@ public class AdminMainActivity extends AppCompatActivity {
     private void listeners() {
 
 
+        myRefs.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                noOfOrders = (int) dataSnapshot.getChildrenCount();
+                progressBar.setVisibility(View.GONE);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
         reviewInvoices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String s = invoiceNumber.getText().toString();
 
-                Intent intent = new Intent(getApplicationContext(),Menu_Activity.class);
-                intent.putExtra("inv",s);
-                startActivity(intent);
+                if(s.isEmpty()){
+                    Toast.makeText(getApplicationContext(),
+                                    "Please enter invoice number",
+                                    Toast.LENGTH_SHORT)
+                            .show();
+                }else {
+
+                    if(Integer.parseInt(s)<=noOfOrders && Integer.parseInt(s)>= 1){
+                        Intent intent = new Intent(getApplicationContext(),Menu_Activity.class);
+                        intent.putExtra("inv",s);
+                        startActivity(intent);
+
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Enter Valid Invoice No.",Toast.LENGTH_SHORT).show();
+                    }
+
+
+
+                }
+
+
+
             }
         });
     }

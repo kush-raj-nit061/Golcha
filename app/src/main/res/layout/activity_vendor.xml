@@ -5,1838 +5,2339 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:alpha="1"
-    android:background="@drawable/picv"
+    android:id="@+id/rele"
+    tools:context=".Vendor_Activity"
+    android:background="@drawable/gradient_list"
     >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="MENU"
-        android:textStyle="bold"
-        android:textColor="#000000"
-
-        />
-
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView3"
-        android:padding="15dp"
-
-        >
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="10dp"
+            android:text="MENU"
+            android:textStyle="bold"
+            android:textColor="#000000"
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentBottom="false"
-                    android:paddingHorizontal="30dp"
+            />
 
-                    android:text="Items/₹box"
-                    android:textColor="@color/cardview_dark_background"
-                    android:textSize="20sp"
-                    android:textStyle="italic" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
 
-                    android:layout_gravity="right"
-                    android:orientation="horizontal">
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView3"
+            android:padding="15dp"
 
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:paddingEnd="5dp"
-                        android:text="Price"
-                        android:textAlignment="center"
-                        android:textColor="@color/cardview_dark_background"
-                        android:textSize="18sp"
-                        android:textStyle="italic"
-                        tools:ignore="DuplicateIds" />
+            >
 
 
-                    <TextView
-                        android:id="@+id/quantityDep"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp"
-                        android:text="  Depart "
-                        android:textAlignment="center"
-                        android:textColor="@color/cardview_dark_background"
-                        android:textSize="18sp"
-                        android:textStyle="italic" />
 
-                    <TextView
-                        android:id="@+id/quantityRev"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:paddingEnd="15dp"
-                        android:paddingBottom="10dp"
-                        android:text="Return"
-                        android:textAlignment="center"
-                        android:textColor="@color/cardview_dark_background"
-                        android:textSize="18sp"
-                        android:textStyle="italic" />
 
-                    <TextView
-                        android:id="@+id/Tot"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Total"
-                        android:textAlignment="center"
-                        android:textColor="@color/cardview_dark_background"
-                        android:textSize="18sp"
-                        android:textStyle="italic" />
-
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:padding="10dp"
-                    android:text="Kaccha Mango (₹250)"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_gravity="right"
-
-                    android:orientation="horizontal">
-
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="20dp"
-                        android:text="₹5"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-                    <EditText
-                        android:id="@+id/tvKaccha"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <EditText
-                        android:id="@+id/tvKacchas"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-
-            <RelativeLayout
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:padding="10dp"
-                    android:text="Litchi (₹250)"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:orientation="horizontal">
-
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="20dp"
-                        android:text="₹5"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-                    <EditText
-                        android:id="@+id/tvLitchi"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <EditText
-                        android:id="@+id/tvLitchis"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:padding="10dp"
-                    android:text="Strawberry (₹250)"
-                    android:textColor="#000000"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_gravity="right"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="20dp"
-                        android:text="₹5"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-                    <EditText
-                        android:id="@+id/tvStraw"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <EditText
-                        android:id="@+id/tvStraws"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:padding="10dp"
-                    android:text="Cola (₹250)"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_gravity="right"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="20dp"
-                        android:text="₹5"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-                    <EditText
-                        android:id="@+id/tvCola"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <EditText
-                        android:id="@+id/tvColas"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-
-                    android:padding="10dp"
-                    android:text="Pineapple(₹250)"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="20dp"
-                        android:text="₹5"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-                    <EditText
-                        android:id="@+id/tvPine"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/tvPines"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:padding="10dp"
-                    android:text="Orange(₹250)"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:orientation="horizontal"
-
-                    >
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="20dp"
-                        android:text="₹5"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-                    <EditText
-                        android:id="@+id/tvOrang"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <EditText
-                        android:id="@+id/tvOrangs"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:padding="10dp"
-                    android:text="Mango Bar(₹250)"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_gravity="right"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-
-                        android:paddingEnd="5dp"
-                        android:paddingRight="20dp"
-                        android:text="₹5"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-                    <EditText
-
-                        android:id="@+id/tvMango"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <EditText
-                        android:id="@+id/tvMangos"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:padding="10dp"
-                    android:text="Cup-S(₹150)"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-
-                        android:paddingEnd="5dp"
-                        android:paddingRight="20dp"
-                        android:text="₹5"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-                    <EditText
-                        android:id="@+id/tvCups"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <EditText
-                        android:id="@+id/tvCupss"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:padding="10dp"
-                    android:text="Cup-B(₹240)"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-
-                        android:paddingEnd="5dp"
-                        android:paddingRight="20dp"
-                        android:text="₹10"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-                    <EditText
-                        android:id="@+id/tvCupb"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <EditText
-                        android:id="@+id/tvCupbs"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:padding="10dp"
-                    android:text="Chocobar-s(₹300)"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-
-                        android:paddingEnd="5dp"
-                        android:paddingRight="20dp"
-                        android:text="₹10"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-                    <EditText
-                        android:id="@+id/tvChocos"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <EditText
-                        android:id="@+id/tvChocoss"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:padding="10dp"
-                    android:text="Chocobar-B(₹360)"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-
-                        android:paddingEnd="5dp"
-                        android:paddingRight="20dp"
-                        android:text="₹15"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-                    <EditText
-                        android:id="@+id/tvChocob"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <EditText
-                        android:id="@+id/tvChocobs"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:padding="10dp"
-                    android:text="Matka(₹300)"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="20dp"
-                        android:text="₹25"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-                    <EditText
-                        android:id="@+id/tvMatka"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <EditText
-                        android:id="@+id/tvMatkas"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:padding="10dp"
-                    android:text="King Cone-S(₹420)"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="20dp"
-                        android:text="₹12"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-                    <EditText
-                        android:id="@+id/tvCones"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <EditText
-                        android:id="@+id/tvConess"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal13"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:padding="10dp"
-                    android:text="King Cone-B(₹500)"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-
-                        android:paddingEnd="5dp"
-                        android:paddingRight="20dp"
-                        android:text="₹25"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-                    <EditText
-                        android:id="@+id/tvConeb"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <EditText
-                        android:id="@+id/tvConebs"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:padding="10dp"
-                    android:text="Nutty Crunch(₹400)"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="20dp"
-                        android:text="₹20"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-                    <EditText
-                        android:id="@+id/tvNutty"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/tvNuttys"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal18"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:padding="10dp"
-                    android:text="Keshar Pista(₹240)"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="20dp"
-                        android:text="₹20"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-                    <EditText
-                        android:id="@+id/tvPista"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <EditText
-                        android:id="@+id/tvPistas"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:padding="10dp"
-                    android:text="Bonanza(₹200)"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="20dp"
-                        android:text="₹25"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-
-                    <EditText
-                        android:id="@+id/tvBonanza"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <EditText
-                        android:id="@+id/tvBonanzas"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal16"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:padding="10dp"
-                    android:text="Family Pack(₹100)"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="1dp"
-                        android:text="₹100"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-
-                    <EditText
-                        android:id="@+id/tvFamily"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <EditText
-                        android:id="@+id/tvFamilys"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal17"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:padding="10dp"
-                    android:text="Family Pack(₹120)"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/addItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="1dp"
-                        android:text="₹100"
-                        android:textAlignment="center"
-                        android:textColor="#8c2756"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
-
-
-                    <EditText
-                        android:id="@+id/tvFamily2"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                    <EditText
-                        android:id="@+id/tvFamily2s"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/username_box"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:padding="5dp"
-                        android:paddingHorizontal="@dimen/default_gap"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvTotal19"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="15dp"
-                        android:paddingRight="15dp"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-
-            </RelativeLayout>
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="170dp">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/vendorDetails"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="1dp"
-                    android:background="@drawable/username_box"
-                    android:backgroundTint="#80000000"
-                    android:hint="Enter Details Of Vendor"
-                    android:inputType="textMultiLine"
-                    android:lines="5"
-                    android:maxLines="10"
-                    android:textAlignment="center"
-                    android:textColor="@color/carbon_white" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="10dp">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:paddingTop="10dp"
-                    android:orientation="vertical"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:id="@+id/vendorName"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="1dp"
+                            android:background="@drawable/username_box"
+
+                            android:hint="Name"
+                            android:layout_marginEnd="10dp"
+                            android:inputType="textMultiLine"
+                            android:lines="5"
+                            android:maxLines="10"
+                            android:textAlignment="center"
+                            android:textColorHint="@color/goodgrey"
+                            android:textColor="@color/carbon_deepPurple_a700" />
+
+                        <EditText
+                            android:id="@+id/vendorAddress"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="1dp"
+                            android:background="@drawable/username_box"
+
+                            android:textColorHint="@color/goodgrey"
+                            android:hint="Address"
+                            android:inputType="textMultiLine"
+                            android:lines="5"
+                            android:maxLines="10"
+                            android:textAlignment="center"
+                            android:textColor="@color/carbon_deepPurple_a700" />
+
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="20dp"
                     >
-                    <LinearLayout
-                        android:id="@+id/first_linear_layout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/mynotes"
-                        android:orientation="horizontal">
 
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
                         <TextView
-                            android:id="@+id/first_edit_text"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:paddingRight="40dp"
-                            android:textColor="@color/black"
-                            android:text="Total: "
-                            android:textSize="20dp"
+                            android:text="@string/items"
+                            android:layout_gravity="right"
+                            android:textAlignment="center"
                             android:textStyle="bold"
-                            />
+                            android:layout_weight="1.7"
+                            tools:ignore="RtlCompat,RtlHardcoded" />
 
                         <TextView
-                            android:id="@+id/tvTotal"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/black"
-                            android:text="" />
+                            android:text="Price"
+                            android:textStyle="bold"
+                            android:layout_gravity="right"
+                            android:textAlignment="center"
+                            android:layout_weight="0.65"
+                            tools:ignore="RtlCompat,RtlHardcoded" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Depart"
+                            android:textStyle="bold"
+                            android:layout_gravity="right"
+                            android:textAlignment="center"
+                            android:layout_weight="0.9"
+                            tools:ignore="RtlCompat,RtlHardcoded" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Return"
+                            android:textStyle="bold"
+                            android:layout_gravity="right"
+                            android:textAlignment="center"
+                            android:layout_weight="0.9"
+                            tools:ignore="RtlCompat,RtlHardcoded" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Total"
+                            android:textAlignment="center"
+                            android:textStyle="bold"
+                            android:layout_gravity="left"
+                            android:layout_weight="0.85"
+                            tools:ignore="RtlCompat,RtlHardcoded" />
+
 
                     </LinearLayout>
+
+                </RelativeLayout>
+
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
 
                     <LinearLayout
-                        android:id="@+id/second_linear_layout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/first_linear_layout"
-                        android:orientation="horizontal">
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
 
                         <TextView
-                            android:id="@+id/second_edit_text"
-                            android:layout_width="wrap_content"
+
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Commission: "
-                            android:textColor="@color/black"
-                            android:textSize="20dp"
-                            android:textStyle="bold"/>
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="Kaccha Mango"
+                            android:textAlignment="center"
+                            android:textColor="#007236"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
 
                         <TextView
-                            android:id="@+id/tvCommision"
-                            android:layout_width="wrap_content"
-                            android:textColor="@color/black"
-                            android:textAlignment="textEnd"
+
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="" />
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.5"
+                            android:text="5"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvKacchaDep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:layout_gravity="center"
+                            android:inputType="number"
+                            android:layout_weight="0.9"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvKacchasRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:layout_gravity="center"
+                            android:inputType="number"
+                            android:layout_weight="0.9"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal1s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
 
                     </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
 
                     <LinearLayout
-                        android:id="@+id/third_linear_layout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/second_linear_layout"
-                        android:orientation="horizontal">
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
 
                         <TextView
-                            android:id="@+id/third_edit_text"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Dues: "
-                            android:textColor="@color/black"
-                            android:textSize="20dp"
-                            android:textStyle="bold"/>
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="Litchi"
+                            android:textAlignment="center"
+                            android:textColor="#FADEDF"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
 
                         <TextView
-                            android:id="@+id/tvDues"
-                            android:layout_width="wrap_content"
-                            android:textColor="@color/black"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="" />
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.5"
+                            android:text="5"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvLitchiDep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvLitchisRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal2s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
 
                     </LinearLayout>
 
-                </LinearLayout>
 
-                <LinearLayout
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="Strawberry"
+                            android:textAlignment="center"
+                            android:textColor="#FB2943"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.5"
+                            android:text="5"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvStrawDep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvStrawsRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal3s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="Cola"
+                            android:textAlignment="center"
+                            android:textColor="#5E071A"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.5"
+                            android:text="5"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvColaDep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvColasRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal4s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="Pineapple"
+                            android:textAlignment="center"
+                            android:textColor="#FFE12D"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.5"
+                            android:text="5"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvPineDep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvPinesRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal5s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="Orange"
+                            android:textAlignment="center"
+                            android:textColor="#FF6600"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice6"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.5"
+                            android:text="5"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvOrangDep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvOrangsRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal6s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="Mango Bar"
+                            android:textAlignment="center"
+                            android:textColor="#F4BB44"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice7"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.5"
+                            android:text="5"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvMangoDep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvMangosRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal7s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="Cup-S"
+                            android:textAlignment="center"
+                            android:textColor="	#FFFAFA"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice8"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.5"
+                            android:text="5"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvCupsDep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvCupssRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal8s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="Cup-B"
+                            android:textAlignment="center"
+                            android:textColor="	#FFFAFA"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice9"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.5"
+                            android:text="10"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvCupbDep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvCupbsRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal9s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="Chocobar-S"
+                            android:textAlignment="center"
+                            android:textColor="#231709"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice10"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.5"
+                            android:text="10"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvChocosDep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvChocossRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal10s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="Chocobar-B"
+                            android:textAlignment="center"
+                            android:textColor="#231709"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice11"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.5"
+                            android:text="15"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvChocobDep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvChocobsRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal11s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="Matka"
+                            android:textAlignment="center"
+                            android:textColor="#503715"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice12"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.5"
+                            android:text="25"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvMatkaDep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvMatkasRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal12s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="King Cone-S"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice13"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.5"
+                            android:text="12"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvConesDep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvConessRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal13s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="King Cone-B"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice14"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.5"
+                            android:text="25"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvConebDep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvConebsRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal14s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="Nutty Crunch"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice15"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.5"
+                            android:text="20"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvNuttyDep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvNuttysRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal15s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="Keshar Pista"
+                            android:textAlignment="center"
+                            android:textColor="#a7b13d"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice16"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.5"
+                            android:text="20"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvPistaDep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvPistasRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal16s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="Bonanza"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice17"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.5"
+                            android:text="25"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvBonanzaDep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvBonanzasRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal17s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="Family Pack"
+                            android:textAlignment="center"
+                            android:textColor="	#FFFAFA"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice18"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.55"
+                            android:text="100"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvFamilyDep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvFamilysRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal18s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.7"
+                            android:paddingStart="4dp"
+                            android:text="Family Pack (2in1)"
+                            android:textAlignment="center"
+                            android:textColor="	#FFFAFA"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:layout_weight="0.15"
+                            android:text="₹"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/itemPrice19"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart"
+                            android:layout_weight="0.55"
+                            android:text="120"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"
+                            android:textStyle="normal"
+                            tools:ignore="RtlCompat" />
+
+                        <EditText
+                            android:id="@+id/tvFamily2Dep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tvFamily2sRet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:background="@drawable/username_box"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:paddingHorizontal="@dimen/default_gap"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTotal19s"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_weight="0.85"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+                        <EditText
+                            android:id="@+id/vendorDetails"
+                            android:layout_width="150dp"
+                            android:layout_height="120dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="1dp"
+                            android:background="@drawable/username_box"
+                            android:backgroundTint="#80000000"
+                            android:hint="Enter Notes Of Vendor"
+                            android:inputType="textMultiLine"
+                            android:lines="5"
+                            android:maxLines="10"
+                            android:textAlignment="center"
+                            android:textColor="@color/carbon_white" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:paddingStart="5dp"
+                            android:paddingTop="10dp"
+                            android:orientation="vertical"
+                            >
+                            <LinearLayout
+                                android:id="@+id/first_linear_layout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@id/mynotes"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/first_edit_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="35dp"
+                                    android:paddingRight="40dp"
+                                    android:textColor="@color/black"
+                                    android:text="Total: "
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tvTot"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/black"
+                                    android:text="" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/second_linear_layout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@id/first_linear_layout"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/second_edit_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="35dp"
+                                    android:text="Comission: "
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:id="@+id/tvCommisi"
+                                    android:layout_width="wrap_content"
+                                    android:textColor="@color/black"
+                                    android:textAlignment="textEnd"
+                                    android:layout_height="wrap_content"
+                                    android:text="" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/third_linear_layout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@id/second_linear_layout"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/third_edit_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="35dp"
+                                    android:text="Dues: "
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:id="@+id/tvDuess"
+                                    android:layout_width="wrap_content"
+                                    android:textColor="@color/black"
+                                    android:layout_height="wrap_content"
+                                    android:text="" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+
+
+
+
+
+
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:background="#8c2756"
+                    android:paddingBottom="20dp">
 
-                    android:gravity="bottom"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/btnBill"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#80000000"
-                        android:textColor="#c6eaa2"
-                        android:text="Generate Bill" />
+                        android:layout_alignParentBottom="true"
+                        android:paddingTop="5dp"
+                        android:gravity="bottom"
+                        android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/etComm"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/username_box"
-                        android:hint=" Set Commission "
-                        android:padding="2dp"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textColorHint="#c6eaa2"
-                        android:textSize="15dp" />
+                        <soup.neumorphism.NeumorphButton
+                            android:id="@+id/btnBills"
+                            style="@style/Widget.Neumorph.Button"
+                            android:layout_width="0dp"
+                            android:layout_weight="1.5"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:drawablePadding="8dp"
+                            android:text="Generate Bill"
+                            android:paddingTop="10dp"
+                            android:textSize="10dp"
+                            android:textColor="@color/carbon_red_900"
 
-                    <Button
-                        android:id="@+id/btnCT"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textColor="#c6eaa2"
-                        android:backgroundTint="#80000000"
-                        android:text="Calculate Total" />
+                            />
 
-                </LinearLayout>
+                        <EditText
+                            android:id="@+id/etComms"
+                            android:layout_width="0dp"
+                            android:layout_height="60dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/username_box"
+                            android:hint=" Set Commission "
+                            android:padding="2dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textColorHint="#c6eaa2"
+                            android:textSize="10dp" />
+
+                        <soup.neumorphism.NeumorphButton
+                            android:id="@+id/btnCTs"
+                            style="@style/Widget.Neumorph.Button"
+                            android:layout_width="0dp"
+                            android:layout_weight="1.5"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:drawablePadding="8dp"
+                            android:textSize="10dp"
+                            android:text="Calculate Total"
+                            android:paddingTop="10dp"
+                            android:textColor="@color/carbon_red_900"
+
+                            />
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
 
 
 
-            </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+
+
+    </RelativeLayout>
+    <ProgressBar
+        android:id="@+id/progressu"
+        android:layout_width="match_parent"
+        style="@style/carbon_ProgressBar.Circular.Indeterminate"
+        android:indeterminateDrawable="@drawable/cpb"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        tools:ignore="NotSibling" />
 
 
 
-        </LinearLayout>
-    </ScrollView>
+
 
 
 </RelativeLayout>

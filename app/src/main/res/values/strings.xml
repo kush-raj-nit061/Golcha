@@ -2,61 +2,26 @@
     <string name="app_name">GolchaIcecream</string>
     <string name="minus">-</string>
 
-
-    <string-array name="notification_channel">
-        <item>coffee_app_channel</item>
-        <item>Coffee App Channel</item>
-        <item>A Notification Channel for Coffee App</item>
-        <item>%s, you ordered a coffee with a cost of: %.2f\n%s</item>
-    </string-array>
     <string name="username">Your Name</string>
-    <string name="coffee_price_label">Coffee:</string>
-    <string name="coffee_price_quantity">$2.50</string>
-    <string name="sweet_price_label">Sweet Coffee Toppings</string>
-    <string name="sweet_price_quantity">$1.00</string>
-    <string name="sweet_sugar">Sugar</string>
-    <string name="sweet_brown_sugar">Brown Sugar</string>
-    <string name="sweet_molasses">Molasses</string>
-    <string name="sweet_honey">Honey</string>
-    <string name="sweet_chocolate_chips">Chocolate Chips</string>
-    <string name="sweet_cocoa_powder">Cocoa Powder</string>
-    <string name="sweet_sprinkles">Sprinkles</string>
-    <string name="sweet_nutella">Nutella</string>
-    <string name="sweet_mint">Mint</string>
-    <string name="sweet_peanut_butter">Peanut Butter</string>
-    <string name="spiced_price_label">Spiced Coffee Toppings</string>
-    <string name="spiced_price_quantity">$1.25</string>
-    <string name="spiced_cinnamon">Cinnamon</string>
-    <string name="spiced_nutmeg">Nutmeg</string>
-    <string name="spiced_pumpkin">Pumpkin Spice</string>
-    <string name="spiced_cardamon">Cardamon</string>
-    <string name="spiced_lavender">Lavender</string>
-    <string name="spiced_turmeric">Turmeric</string>
-    <string name="creamy_price_label">Creamy Coffee Toppings</string>
-    <string name="creamy_price_quantity">$1.75</string>
-    <string name="creamy_sweet_cream">Sweet Cream</string>
-    <string name="creamy_butter">Butter</string>
-    <string name="creamy_marshmallows">Marshmallows</string>
-    <string name="creamy_ice_cream">Ice Cream</string>
-    <string name="creamy_whipe_cream">Whipe Cream</string>
+
     <string name="order">order</string>
 
-    <string name="invoiceDes">To get invoice of your previous orders:
-    \n {1} Click on the old invoice button below.
-        \n {2} Enter your invoice Number and click on print button.
-        \n {3} Wait for the invoice to download.
-        \n {4} Check notification menu after downloaded Toast.
-        \n \n Else you can find your invoice in Storage/Golcha/mypdf folder.
+    <string name="invoiceDes">▒To get invoice of your previous orders:
+    \n\n {1} Click on the old invoice button below.
+        \n\n {2} Enter your invoice Number and click on print button.
+        \n\n {3} Wait for the invoice to download.
+        \n\n {4} Check notification menu after downloaded Toast.
+        \n \n ➺Else you can find your invoice in \n(Storage/Golcha/mypdf) folder.
     </string>
-    <string name="vendorHighlight">Calculation of the amount is never been an easy task calculating
+    <string name="vendorHighlight">➺Calculation of the amount is never been an easy task calculating
         commission,and savings is just a single click away from you</string>
-    <string name="highlight">"Ordering ice cream has never been easier. Just enter the quantity of flavors you want, click Generate Bill, and let the deliciousness come to you!"</string>
-    <string name="welcome">Welcome to a world where happiness is served in a cone! Explore our
+    <string name="highlight">"➺Ordering ice cream has never been easier. Just enter the quantity of flavors you want, click Generate Bill, and let the deliciousness come to you!"</string>
+    <string name="welcome">卐 Welcome to a world where happiness is served in a cone! Explore our
         ice cream app and let your taste buds dance with joy.
-    \n Golcha icecream welcomes you on this application which is designed to make you comfortable in every aspects
-    \n {1} You can order online and can generate and save your bills for future.
-    \n {2} You can calculate total by setting commission of selling vendors and can generate bill too.
-    \n YOUR PROFILE ARE UNIQUE ALL THE HISTORY OF YOUR PROFILE WILL BE SAVE FOR FUTURE.</string>
+    \n\n ❀ Golcha Icecream welcomes you on this application which is designed to make you comfortable in every aspects:-
+    \n\n {1} You can order online and can generate and save your bills for future.
+    \n\n {2} You can calculate total by setting commission of selling vendors and can generate bill too.
+    \n\n ♛ YOUR PROFILE ARE UNIQUE ALL THE HISTORY OF YOUR PROFILE WILL BE SAVED FOR FUTURE.</string>
     <string name="reset">Reset</string>
     <string name="login">Login</string>
     <string name="usernames">Username</string>
@@ -64,11 +29,11 @@
     <string name="reset_password">Reset Password?</string>
     <string name="agency_order">Agency Order</string>
     <string name="place_your_order_now">place your order now</string>
-    <string name="your_order_will_be_directly_sent_to_golcha">Your Order Will be directly sent to golcha</string>
+    <string name="your_order_will_be_directly_sent_to_golcha">➠Your Order Will be directly sent to golcha</string>
     <string name="order_now">"   Order Now   "</string>
     <string name="vendor_order">Vendor Order</string>
     <string name="place_your_order">place your order now</string>
-    <string name="his">Your Order Will be saved to your History Section</string>
+    <string name="his">➠Your Order Will be saved to your History Section</string>
     <string name="_2">2</string>
     <string name="old_invoice">Old Invoice</string>
     <string name="get_invoice">Get Invoice</string>
@@ -104,11 +69,15 @@
     <string name="update">Update</string>
     <string name="place_order">Place Order</string>
     <string name="review_order">Review Order</string>
-    <string name="the_actual_order_might_get_varied_to_your_original_order_according_to_the_availability_of_products_once_order_will_be_shipped_you_will_get_invoice_on_notification_panel">The actual order might get varied to your original order, According to the availability of products. Once Order will be shipped you will get Invoice On Notification panel</string>
+    <string name="the_actual_order_might_get_varied_to_your_original_order_according_to_the_availability_of_products_once_order_will_be_shipped_you_will_get_invoice_on_notification_panel">➩The actual order might get varied to your original order, According to the availability of products. Once Order will be shipped you will get Invoice On Notification panel</string>
     <string name="admin">ADMIN</string>
     <string name="orders">Orders</string>
     <string name="user_management">User \n Management</string>
     <string name="price_management">Price \n Management</string>
     <string name="register">Register</string>
+    <string name="manage">MANAGE</string>
+    <string name="contact_golcha_for_any_kind_of_changes">➺Contact Golcha for any kind of changes</string>
+    <string name="change_details">Change Details</string>
+
 
 </resources>

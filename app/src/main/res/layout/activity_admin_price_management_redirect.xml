@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AdminPriceManagementRedirect">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="20dp"
+        android:orientation="vertical">
+
+        <com.github.sshadkany.neoText
+            android:id="@+id/neotext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:neo_shadow_type="small_inner_shadow"
+            app:neo_radius="3dp">
+
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/manage"
+                android:layout_gravity="center"
+                android:textColor="#000000"
+                android:textSize="60sp" />
+
+        </com.github.sshadkany.neoText>
+
+    </LinearLayout>
+
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/btnAgency"
+        style="@style/Widget.Neumorph.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:drawablePadding="8dp"
+        android:text="Agency Price"
+        android:paddingTop="10dp"
+        android:textSize="20dp"
+        android:textColor="@color/carbon_red_900"
+
+        />
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/btnVendor"
+        style="@style/Widget.Neumorph.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:drawablePadding="8dp"
+        android:text="Vendor price"
+        android:paddingTop="10dp"
+        android:textSize="20dp"
+        android:textColor="@color/carbon_red_900"
+
+        />
+
+
+
+
+
+</LinearLayout>
