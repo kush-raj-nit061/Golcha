@@ -6,7 +6,7 @@
     android:scrollbars="none">
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <!-- invoice status -->
@@ -15,14 +15,13 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:background="#E2E2E2"
-            android:textColor = "#28AF20"
-            android:textSize = "40px"
+            android:textColor = "@color/carbon_pink_900"
             android:textStyle="bold"
             android:padding = "10dp"
             android:text="Invoice" />
         <!-- end invoice status -->
         <!-- invoice/client data -->
-        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <TableLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:paddingTop = "3dip"
@@ -32,29 +31,30 @@
             android:stretchColumns="1">
             <TableRow>
                 <TextView android:id="@+id/invoice_name"
-                    android:text="Name:"
+                    android:text="@string/sasa"
                     android:textStyle="bold"
                     android:padding="3dip" />
                 <TextView android:id="@+id/vendorNames"
                     android:text=""
                     android:padding="3dip" />
                 <TextView android:id="@+id/invoice_date"
-                    android:text="Date: "
+                    android:text="@string/date"
                     android:textStyle="bold"
                     android:textColor="@color/purple_700"
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="3dip"
+                    tools:ignore="RtlHardcoded" />
             </TableRow>
             <TableRow>
                 <TextView android:id="@+id/invoice_client"
-                    android:text="Address:"
+                    android:text="@string/address"
                     android:textStyle="bold"
-                    android:paddingLeft="3dip"
+                    android:paddingStart="3dip"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content" />
                 <TextView android:id="@+id/vendorAddresss"
                     android:text=""
-                    android:paddingLeft="3dip"
+                    android:paddingStart="3dip"
                     android:paddingTop="5dip"
                     android:textSize = "45px"
                     android:layout_width="fill_parent"
@@ -77,12 +77,12 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:padding="3dip"
-                    android:text="Item"
+                    android:text="@string/item"
                     android:textAlignment="center"
                     android:textColor="#090909"
                     android:textSize="35px"
                     android:textStyle="bold" />
-                <TextView android:text="Cost"
+                <TextView android:text="@string/cost"
                     android:gravity="right"
                     android:padding="3dip"
                     android:textColor = "#090909"

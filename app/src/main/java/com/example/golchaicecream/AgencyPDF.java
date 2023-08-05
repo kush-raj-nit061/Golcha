@@ -43,6 +43,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
+import papaya.in.sendmail.SendMail;
+
 public class AgencyPDF extends AppCompatActivity {
 
 
@@ -54,7 +56,10 @@ public class AgencyPDF extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("record/Agency/"+fAuth.getCurrentUser().getUid());
     DatabaseReference mRef = database.getReference("record/AgencyLatest/");
+    DatabaseReference adminRef = database.getReference("Golcha/Admin/");
     ProgressBar progressBar ;
+    String loc;
+    String name;
 
 
 
@@ -70,6 +75,7 @@ public class AgencyPDF extends AppCompatActivity {
 
     long invoice;
     String commision,total,dues;
+    String senderEmail,senderPass,receiverEmail;
     DetailsObj detailsObj = new DetailsObj();
 
     String str[] ={"Kaccha Aaam","Litchi","Strawberry","Coca","PineApple","Orange Bar","Mango Bar","Cup-S","Cup-B","ChocoBar-S","ChocoBar-B","Matka","King Cone-S","King Cone-B","Family Pack(2 in 1)","Keshar Pista","Bonanza","Family Pack","Nutty Crunch"};
@@ -88,7 +94,7 @@ public class AgencyPDF extends AppCompatActivity {
         setContentView(R.layout.activity_agency_pdf);
 
         this.progressBar = findViewById(R.id.progressa);
-        progressBar.setVisibility(View.GONE);
+        progressBar.setVisibility(View.VISIBLE);
 
 
 
@@ -115,15 +121,29 @@ public class AgencyPDF extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         DocumentSnapshot document = task.getResult();
                         if (document.exists()) {
-                            String name = document.getString("fName");
+                             name= document.getString("fName");
                             String email = document.getString("email");
                             String num = document.getString("phone");
-                            String loc = document.getString("location");
+                            loc = document.getString("location");
 
                             tvAddress.setText(loc);
                             tvName.setText(name);
 
 
+                        }
+                    }else {
+
+                    }
+                });
+        fStore.collection("Golcha").document("Admin")
+                .get().addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            senderEmail = document.getString("email");
+                            senderPass = document.getString("pass");
+                            receiverEmail = document.getString("receiverEmail");
+                            progressBar.setVisibility(View.GONE);
                         }
                     }else {
 
@@ -228,6 +248,13 @@ public class AgencyPDF extends AppCompatActivity {
                     public void onSuccess(Void unused) {
                         Toast.makeText(getApplicationContext(),"Order Placed Successfully",Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(AgencyPDF.this,MainActivity.class);
+                        String s = String.valueOf(invoice+1);
+                        SendMail mail = new SendMail(senderEmail, senderPass,
+                                receiverEmail,
+                                "You have a New Order ➺"+s,
+                                "Dear Admin You have a new Order➺\n\n"+"Invoice Number➺"+s+" from\n Name➺"+name+"\nLocation➺"+loc+"\n\n☤ You can find Order Details from invoice Number➺"+s);
+
+                        mail.execute();
                         startActivity(intent);
                         progressBar.setVisibility(View.GONE);
                     }

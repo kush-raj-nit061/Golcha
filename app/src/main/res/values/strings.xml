@@ -78,6 +78,12 @@
     <string name="manage">MANAGE</string>
     <string name="contact_golcha_for_any_kind_of_changes">➺Contact Golcha for any kind of changes</string>
     <string name="change_details">Change Details</string>
+    <string name="item_name">Item Name</string>
+    <string name="sasa">Name:</string>
+    <string name="date">Date:</string>
+    <string name="address">Address:</string>
+    <string name="item">Item</string>
+    <string name="cost">Cost</string>
 
 
 </resources>

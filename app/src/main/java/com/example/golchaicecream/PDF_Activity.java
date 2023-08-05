@@ -42,6 +42,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
+import papaya.in.sendmail.SendMail;
+
 public class PDF_Activity extends AppCompatActivity {
 
 
@@ -67,7 +69,8 @@ public class PDF_Activity extends AppCompatActivity {
     SimpleDateFormat datePatternFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm a");
     long invoiceNum;
     DetailsObj detailsObj = new DetailsObj();
-    String custName;
+    String custName,email;
+    String senderEmail,senderPass;
 
     String str[] ={"Kaccha Aaam","Litchi","Strawberry","Coca","PineApple","Orange Bar","Mango Bar","Cup-S","Cup-B","ChocoBar-S","ChocoBar-B","Matka","King Cone-S","King Cone-B","Family Pack(2 in 1)","Keshar Pista","Bonanza","Family Pack","Nutty Crunch"};
     String price[]={"250","250","250","250","250","250","250","150","240","300","360","300","420","500","120","240","200","100","400"};
@@ -106,7 +109,7 @@ public class PDF_Activity extends AppCompatActivity {
                                 DocumentSnapshot document = task.getResult();
                                 if (document.exists()) {
                                     String name = document.getString("fName");
-                                    String email = document.getString("email");
+                                    email = document.getString("email");
                                     String num = document.getString("phone");
                                     String loc = document.getString("location");
 
@@ -119,6 +122,19 @@ public class PDF_Activity extends AppCompatActivity {
 
                             }
                         });
+
+        fStore.collection("Golcha").document("Admin")
+                .get().addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            senderEmail = document.getString("email");
+                            senderPass = document.getString("pass");
+                        }
+                    }else {
+
+                    }
+                });
 
 
         callOnClickListener();
@@ -259,8 +275,15 @@ public class PDF_Activity extends AppCompatActivity {
 
                 mRef.child(String.valueOf(invoiceNum+1)).setValue(detailsObj);
                 printPdf();
+                SendMail mail = new SendMail(senderEmail, senderPass,
+                        email,
+                        "Bill is Generated for your invoice ➺"+inv,
+                        "You can find your bill in old invoice section of our App. Invoice Number ➠"+inv+"\n\n\n\t\t\t Total➺"+tvTota.getText().toString()+"\n\t\t\t Commission➺"+tvComm.getText().toString()+"\n\t\t\t Dues➺"+tvDue.getText().toString()+"\n\n\n Your Order will be shipped Shortly");
+                    Toast.makeText(getApplicationContext(),"Order Sent Successfully",Toast.LENGTH_SHORT).show();
+                mail.execute();
+
                 Intent intent = new Intent(PDF_Activity.this,AdminLanding.class);
-                Toast.makeText(getApplicationContext(),"Order Updated Sucessfully",Toast.LENGTH_SHORT).show();
+
                 startActivity(intent);
 
             }
@@ -431,6 +454,7 @@ public class PDF_Activity extends AppCompatActivity {
             }else {
                 try {
                     myPdfDocument.writeTo(new FileOutputStream(filePath));
+
                     Toast.makeText(this, "File Saved(Golcha/mypdf/"+custName+")", Toast.LENGTH_SHORT).show();
 
                 } catch (IOException e) {
