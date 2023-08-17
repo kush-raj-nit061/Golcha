@@ -102,7 +102,7 @@
                                 android:layout_gravity="center"
                                 android:background="@color/carbon_blue_900"
                                 android:src="@drawable/logo"
-                                android:contentDescription="TODO" />
+                                android:contentDescription="@string/todos" />
 
 
 
@@ -181,9 +181,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:drawablePadding="8dp"
-                android:text="SignOut"
+                android:text="@string/signout"
                 android:paddingTop="10dp"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:textColor="@color/carbon_red_900"
 
                 />

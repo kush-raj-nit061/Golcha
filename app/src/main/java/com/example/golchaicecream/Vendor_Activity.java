@@ -23,6 +23,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.golchaicecream.Room.Users;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -78,6 +79,11 @@ public class Vendor_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vendor);
+        Intent i = getIntent();
+        Users users ;
+        users =(Users) getIntent().getSerializableExtra("model");
+
+
         progressBar=findViewById(R.id.progressu);
         progressBar.setVisibility(View.VISIBLE);
         RelativeLayout relativeLayout = findViewById(R.id.rele);
@@ -92,14 +98,38 @@ public class Vendor_Activity extends AppCompatActivity {
 
         generate();
 
+        vendorName.setText(String.valueOf(users.getName().toString()));
+        vendorAddress.setText(String.valueOf(users.getAddress().toString()));
+        vendorNotes.setText(String.valueOf(users.getNotes().toString()));
+        editTexts[0].setText(String.valueOf(users.getKacchaQtyDepart()));
+        editTexts[1].setText(String.valueOf(users.getLitchiQtyDepart()));
+        editTexts[2].setText(String.valueOf(users.getStrawQtyDepart()));
+        editTexts[3].setText(String.valueOf(users.getColaQtyDepart()));
+        editTexts[4].setText(String.valueOf(users.getPineQtyDepart()));
+        editTexts[5].setText(String.valueOf(users.getOrangeQtyDepart()));
+        editTexts[6].setText(String.valueOf(users.getMangoQtyDepart()));
+        editTexts[7].setText(String.valueOf(users.getCupSQtyDepart()));
+        editTexts[8].setText(String.valueOf(users.getCupBQtyDepart()));
+        editTexts[9].setText(String.valueOf(users.getChocoSQtyDepart()));
+        editTexts[10].setText(String.valueOf(users.getChocoBQtyDepart()));
+        editTexts[11].setText(String.valueOf(users.getMatkaQtyDepart()));
+        editTexts[12].setText(String.valueOf(users.getConeSQtyDepart()));
+        editTexts[13].setText(String.valueOf(users.getConeBQtyDepart()));
+        editTexts[14].setText(String.valueOf(users.getNuttyQtyDepart()));
+        editTexts[15].setText(String.valueOf(users.getKeshaerQtyDepart()));
+        editTexts[16].setText(String.valueOf(users.getBonanzaQtyDepart()));
+        editTexts[17].setText(String.valueOf(users.getFamilyQtyDepart()));
+        editTexts[18].setText(String.valueOf(users.getFamily2QtyDepart()));
 
 
-        callOnClickListeners();
+
+
+        callOnClickListeners(users);
 
 
     }
 
-    private void callOnClickListeners() {
+    private void callOnClickListeners(Users users) {
 
 
         fsStore.collection("itemDetails").document("VendorPrices")
@@ -154,6 +184,7 @@ public class Vendor_Activity extends AppCompatActivity {
                 }
 
 
+
                 float result = addEditTextValues(editTexts,editTextss,textViews);
                 String commision = "0";
                 String texts = Comm.getText().toString().trim();
@@ -197,6 +228,10 @@ public class Vendor_Activity extends AppCompatActivity {
         });
     }
 
+    private void setValuesOfDepart(Users users) {
+
+    }
+
     public int addEditTextValues(EditText[] editTexts,EditText[] editTextss,TextView[] textView) {
         int sum = 0;
 
@@ -216,9 +251,14 @@ public class Vendor_Activity extends AppCompatActivity {
             if (!text.isEmpty()) {
                 try {
                     int value = Integer.parseInt(text) - Integer.parseInt(texts);
-                    value *= arr[i];
-                    textViews[i].setText(String.valueOf(value));
-                    sum += value;
+                    if(value<0){
+                        Toast.makeText(getApplicationContext(),"Return Qty can't be greater than Depart qty",Toast.LENGTH_SHORT).show();
+                    }else {
+                        value *= arr[i];
+                        textViews[i].setText(String.valueOf(value));
+                        sum += value;
+                    }
+
                 } catch (NumberFormatException e) {
                     // Handle invalid input
                 }
@@ -229,7 +269,6 @@ public class Vendor_Activity extends AppCompatActivity {
 
 
     private void setDetailsOfObject() {
-
 
         Intent intent = new Intent(getApplicationContext(), VendorPDF.class);
 

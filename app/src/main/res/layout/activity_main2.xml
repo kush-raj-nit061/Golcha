@@ -6,8 +6,8 @@
     android:layout_height="wrap_content"
     android:alpha="1"
     android:id="@+id/rele"
-    tools:context=".Vendor_Activity"
-    android:background="@drawable/gradient_list"
+    tools:context=".MainActivity2"
+
     >
     <RelativeLayout
         android:layout_width="match_parent"
@@ -66,7 +66,6 @@
                             android:maxLines="10"
                             android:textAlignment="center"
                             android:textColorHint="@color/goodgrey"
-                            android:textColor="@color/carbon_deepPurple_a700"
                             android:autofillHints="" />
 
                         <EditText
@@ -83,7 +82,6 @@
                             android:lines="5"
                             android:maxLines="10"
                             android:textAlignment="center"
-                            android:textColor="@color/carbon_deepPurple_a700"
                             android:autofillHints="" />
 
 
@@ -125,9 +123,9 @@
                             android:text="@string/price"
                             android:textStyle="bold"
                             android:textColor="@color/black"
-                            android:layout_gravity="right"
+                            android:layout_gravity="center"
                             android:textAlignment="center"
-                            android:layout_weight="0.65"
+                            android:layout_weight="0.95"
                             tools:ignore="RtlCompat,RtlHardcoded" />
                         <TextView
                             android:layout_width="0dp"
@@ -138,28 +136,6 @@
                             android:layout_gravity="right"
                             android:textAlignment="center"
                             android:layout_weight="0.9"
-                            tools:ignore="RtlCompat,RtlHardcoded" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="@string/asdad"
-                            android:textStyle="bold"
-                            android:textColor="@color/black"
-                            android:layout_gravity="right"
-                            android:textAlignment="center"
-                            android:layout_weight="0.9"
-                            tools:ignore="RtlCompat,RtlHardcoded" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="@string/saadds"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            android:layout_gravity="left"
-                            android:layout_weight="0.85"
                             tools:ignore="RtlCompat,RtlHardcoded" />
 
 
@@ -231,7 +207,6 @@
                             android:inputType="number"
                             android:layout_weight="0.9"
                             android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:textAlignment="center"
@@ -239,36 +214,6 @@
                             android:textSize="20sp"
                             android:textStyle="bold"
                             android:autofillHints="" />
-
-                        <EditText
-                            android:id="@+id/tvKacchasRet"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:layout_gravity="center"
-                            android:inputType="number"
-                            android:layout_weight="0.9"
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:autofillHints="" />
-
-                        <TextView
-                            android:id="@+id/tvTotal1s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
 
 
                     </LinearLayout>
@@ -336,7 +281,6 @@
                             android:ems="10"
                             android:inputType="number"
                             android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:textAlignment="center"
@@ -344,36 +288,6 @@
                             android:textSize="20sp"
                             android:textStyle="bold"
                             android:autofillHints="" />
-
-                        <EditText
-                            android:id="@+id/tvLitchisRet"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="0.9"
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:autofillHints="" />
-
-                        <TextView
-                            android:id="@+id/tvTotal2s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
 
 
                     </LinearLayout>
@@ -443,7 +357,6 @@
                             android:ems="10"
                             android:inputType="number"
                             android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:textAlignment="center"
@@ -451,36 +364,6 @@
                             android:textSize="20sp"
                             android:textStyle="bold"
                             android:autofillHints="" />
-
-                        <EditText
-                            android:id="@+id/tvStrawsRet"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="0.9"
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:autofillHints="" />
-
-                        <TextView
-                            android:id="@+id/tvTotal3s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
 
 
                     </LinearLayout>
@@ -548,7 +431,6 @@
                             android:ems="10"
                             android:inputType="number"
                             android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:textAlignment="center"
@@ -556,36 +438,6 @@
                             android:textSize="20sp"
                             android:textStyle="bold"
                             android:autofillHints="" />
-
-                        <EditText
-                            android:id="@+id/tvColasRet"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="0.9"
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:autofillHints="" />
-
-                        <TextView
-                            android:id="@+id/tvTotal4s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
 
 
                     </LinearLayout>
@@ -653,7 +505,6 @@
                             android:ems="10"
                             android:inputType="number"
                             android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:textAlignment="center"
@@ -661,36 +512,6 @@
                             android:textSize="20sp"
                             android:textStyle="bold"
                             android:autofillHints="" />
-
-                        <EditText
-                            android:id="@+id/tvPinesRet"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="0.9"
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:autofillHints="" />
-
-                        <TextView
-                            android:id="@+id/tvTotal5s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
 
 
                     </LinearLayout>
@@ -757,7 +578,6 @@
                             android:ems="10"
                             android:inputType="number"
                             android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:textAlignment="center"
@@ -765,36 +585,6 @@
                             android:textSize="20sp"
                             android:textStyle="bold"
                             android:autofillHints="" />
-
-                        <EditText
-                            android:id="@+id/tvOrangsRet"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="0.9"
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:autofillHints="" />
-
-                        <TextView
-                            android:id="@+id/tvTotal6s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
 
 
                     </LinearLayout>
@@ -861,7 +651,6 @@
                             android:ems="10"
                             android:inputType="number"
                             android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:textAlignment="center"
@@ -869,36 +658,6 @@
                             android:textSize="20sp"
                             android:textStyle="bold"
                             android:autofillHints="" />
-
-                        <EditText
-                            android:id="@+id/tvMangosRet"
-                            android:layout_width="0dp"
-                            android:autofillHints=""
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="0.9"
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tvTotal7s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
 
 
                     </LinearLayout>
@@ -927,7 +686,7 @@
                             android:paddingStart="4dp"
                             android:text="@string/cup_s"
                             android:textAlignment="center"
-                            android:textColor="	#FFFAFA"
+                            android:textColor="@color/black"
                             android:textSize="15sp"
                             android:textStyle="bold"
                             tools:ignore="RtlCompat,RtlSymmetry" />
@@ -967,44 +726,12 @@
                             android:ems="10"
                             android:inputType="number"
                             android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
-
-                        <EditText
-                            android:id="@+id/tvCupssRet"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="0.9"
-                            android:autofillHints=""
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tvTotal8s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            tools:ignore="TooManyViews" />
 
 
                     </LinearLayout>
@@ -1034,7 +761,7 @@
                             android:paddingStart="4dp"
                             android:text="@string/cup_b"
                             android:textAlignment="center"
-                            android:textColor="	#FFFAFA"
+                            android:textColor="@color/black"
                             android:textSize="15sp"
                             android:textStyle="bold"
                             tools:ignore="RtlCompat,RtlSymmetry" />
@@ -1074,43 +801,12 @@
                             android:ems="10"
                             android:inputType="number"
                             android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
-
-                        <EditText
-                            android:id="@+id/tvCupbsRet"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="0.9"
-                            android:autofillHints=""
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tvTotal9s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
 
 
                     </LinearLayout>
@@ -1180,43 +876,12 @@
                             android:ems="10"
                             android:inputType="number"
                             android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
-
-                        <EditText
-                            android:id="@+id/tvChocossRet"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="0.9"
-                            android:autofillHints=""
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tvTotal10s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
 
 
                     </LinearLayout>
@@ -1285,7 +950,6 @@
                             android:ems="10"
                             android:inputType="number"
                             android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:autofillHints=""
@@ -1293,36 +957,6 @@
                             android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
-
-                        <EditText
-                            android:id="@+id/tvChocobsRet"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:autofillHints=""
-                            android:layout_weight="0.9"
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tvTotal11s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
 
 
                     </LinearLayout>
@@ -1391,43 +1025,12 @@
                             android:ems="10"
                             android:inputType="number"
                             android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
-
-                        <EditText
-                            android:id="@+id/tvMatkasRet"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="0.9"
-                            android:autofillHints=""
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tvTotal12s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
 
 
                     </LinearLayout>
@@ -1498,43 +1101,12 @@
                             android:ems="10"
                             android:inputType="number"
                             android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
-
-                        <EditText
-                            android:id="@+id/tvConessRet"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="0.9"
-                            android:autofillHints=""
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tvTotal13s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
 
 
                     </LinearLayout>
@@ -1604,43 +1176,12 @@
                             android:ems="10"
                             android:inputType="number"
                             android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
-
-                        <EditText
-                            android:id="@+id/tvConebsRet"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="0.9"
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:autofillHints=""
-                            android:inputType="number"
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tvTotal14s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
 
 
                     </LinearLayout>
@@ -1710,44 +1251,12 @@
                             android:inputType="number"
                             android:autofillHints=""
                             android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
-
-                        <EditText
-                            android:id="@+id/tvNuttysRet"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="0.9"
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:autofillHints=""
-
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tvTotal15s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
 
 
                     </LinearLayout>
@@ -1817,43 +1326,12 @@
                             android:ems="10"
                             android:inputType="number"
                             android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
-
-                        <EditText
-                            android:id="@+id/tvPistasRet"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="0.9"
-                            android:autofillHints=""
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tvTotal16s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
 
 
                     </LinearLayout>
@@ -1924,43 +1402,12 @@
                             android:inputType="number"
                             android:autofillHints=""
                             android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
-
-                        <EditText
-                            android:id="@+id/tvBonanzasRet"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="0.9"
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:autofillHints=""
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tvTotal17s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
 
 
                     </LinearLayout>
@@ -1990,7 +1437,7 @@
                             android:paddingStart="4dp"
                             android:text="@string/family_packa"
                             android:textAlignment="center"
-                            android:textColor="	#FFFAFA"
+                            android:textColor="@color/black"
                             android:textSize="15sp"
                             android:textStyle="bold"
                             tools:ignore="RtlCompat,RtlSymmetry" />
@@ -2030,43 +1477,12 @@
                             android:ems="10"
                             android:inputType="number"
                             android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
-
-                        <EditText
-                            android:id="@+id/tvFamilysRet"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:autofillHints=""
-                            android:layout_weight="0.9"
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tvTotal18s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
 
 
                     </LinearLayout>
@@ -2096,7 +1512,7 @@
                             android:paddingStart="4dp"
                             android:text="@string/family_pack_2in1"
                             android:textAlignment="center"
-                            android:textColor="	#FFFAFA"
+                            android:textColor="@color/black"
                             android:textSize="15sp"
                             android:textStyle="bold"
                             tools:ignore="RtlCompat,RtlSymmetry" />
@@ -2136,237 +1552,92 @@
                             android:inputType="number"
                             android:padding="5dp"
                             android:autofillHints=""
-                            android:paddingHorizontal="@dimen/default_gap"
                             android:paddingBottom="10dp"
                             android:text=""
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
-
-                        <EditText
-                            android:id="@+id/tvFamily2sRet"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="0.9"
-                            android:background="@drawable/username_box"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:padding="5dp"
-                            android:paddingHorizontal="@dimen/default_gap"
-                            android:paddingBottom="10dp"
-                            android:text=""
-                            android:autofillHints=""
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tvTotal19s"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:layout_weight="0.85"
-                            android:layout_gravity="center"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
 
 
                     </LinearLayout>
 
 
                 </RelativeLayout>
-
-
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="130dp">
+                    android:layout_height="170dp">
 
-                    <LinearLayout
+                    <EditText
+                        android:id="@+id/etNotes"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-                        android:orientation="horizontal"
-                        tools:ignore="UselessParent">
-
-
-                        <EditText
-                            android:id="@+id/vendorDetails"
-                            android:layout_width="150dp"
-                            android:layout_height="120dp"
-                            android:layout_marginStart="1dp"
-                            android:background="@drawable/username_box"
-                            android:backgroundTint="#80000000"
-                            android:hint="@string/enter_notes_of_vendor"
-                            android:inputType="textMultiLine"
-                            android:lines="5"
-                            android:maxLines="10"
-                            android:textAlignment="center"
-                            android:textColor="@color/carbon_white"
-                            android:autofillHints="" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingStart="5dp"
-                            android:paddingTop="10dp"
-                            android:orientation="vertical"
-                            tools:ignore="RtlSymmetry">
-                            <LinearLayout
-                                android:id="@+id/first_linear_layout"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/first_edit_text"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="35dp"
-                                    android:paddingEnd="40dp"
-                                    android:textColor="@color/black"
-                                    android:text="@string/totala"
-                                    android:textSize="20sp"
-                                    android:textStyle="bold"
-                                    />
-
-                                <TextView
-                                    android:id="@+id/tvTot"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:text="" />
-
-                            </LinearLayout>
-
-
-                            <LinearLayout
-                                android:id="@+id/second_linear_layout"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/second_edit_text"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="35dp"
-                                    android:text="@string/comission"
-                                    android:textColor="@color/black"
-                                    android:textSize="20sp"
-                                    android:textStyle="bold"/>
-
-                                <TextView
-                                    android:id="@+id/tvCommisi"
-                                    android:layout_width="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:textAlignment="textEnd"
-                                    android:layout_height="wrap_content"
-                                    android:text="" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/third_linear_layout"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/third_edit_text"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="35dp"
-                                    android:text="@string/dues"
-                                    android:textColor="@color/black"
-                                    android:textSize="20sp"
-                                    android:textStyle="bold"/>
-
-                                <TextView
-                                    android:id="@+id/tvDuess"
-                                    android:layout_width="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:layout_height="wrap_content"
-                                    android:text="" />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-
-
-                    </LinearLayout>
-
-
-
-
-
-
-
-
-
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="1dp"
+                        android:background="@drawable/username_box"
+                        android:backgroundTint="#80000000"
+                        android:hint="Enter Notes here"
+                        android:inputType="textMultiLine"
+                        android:lines="5"
+                        android:maxLines="10"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:autofillHints="" />
                 </RelativeLayout>
+
+
+
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="10dp">
+                    android:paddingTop="10dp"
+                    android:paddingBottom="20dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:paddingTop="20dp"
+                        android:paddingTop="10dp"
                         android:layout_centerVertical="true"
                         android:gravity="bottom"
-                        android:orientation="horizontal"
+                        android:orientation="vertical"
                         tools:ignore="UselessParent">
 
+
+
                         <soup.neumorphism.NeumorphButton
-                            android:id="@+id/btnBills"
+                            android:id="@+id/btnSave"
                             style="@style/Widget.Neumorph.Button"
-                            android:layout_width="0dp"
-                            android:layout_weight="1.5"
+                            android:layout_margin="10dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
                             android:drawablePadding="8dp"
-                            android:text="@string/generate_bill"
-                            android:layout_gravity="center"
-                            android:paddingTop="20dp"
-                            android:textSize="10sp"
+                            android:text="Save Vendor"
+                            android:paddingTop="10dp"
+                            android:textSize="20sp"
                             android:textColor="@color/carbon_red_900"
-                            tools:ignore="SmallSp" />
 
-                        <EditText
-                            android:id="@+id/etComms"
-                            android:layout_width="0dp"
-                            android:layout_height="60dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/username_box"
-                            android:hint="@string/set_ncomission"
-                            android:padding="2dp"
-                            android:layout_gravity="center"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textColorHint="#000000"
-                            android:textSize="15sp"
-                            android:autofillHints="" />
+
+                            />
 
                         <soup.neumorphism.NeumorphButton
-                            android:id="@+id/btnCTs"
+                            android:id="@+id/btnOld"
                             style="@style/Widget.Neumorph.Button"
-                            android:layout_width="0dp"
-                            android:layout_weight="1.5"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
                             android:drawablePadding="8dp"
-                            android:textSize="10sp"
-                            android:text="@string/calculate_total"
-                            android:paddingTop="20dp"
+                            android:text="Go To Saved Vendor"
+                            android:paddingTop="10dp"
+                            android:textSize="20sp"
                             android:textColor="@color/carbon_red_900"
 
-                            tools:ignore="SmallSp" />
+
+                            />
+
+
 
                     </LinearLayout>
 
@@ -2380,16 +1651,6 @@
 
 
     </RelativeLayout>
-    <ProgressBar
-        android:id="@+id/progressu"
-        android:layout_width="match_parent"
-        style="@style/carbon_ProgressBar.Circular.Indeterminate"
-        android:indeterminateDrawable="@drawable/cpb"
-        android:layout_height="match_parent"
-        android:background="#80000000"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        tools:ignore="NotSibling" />
 
 
 

@@ -18,7 +18,7 @@
             android:textColor = "@color/carbon_pink_900"
             android:textStyle="bold"
             android:padding = "10dp"
-            android:text="Invoice" />
+            android:text="@string/invoice" />
         <!-- end invoice status -->
         <!-- invoice/client data -->
         <TableLayout
@@ -99,7 +99,7 @@
                     android:layout_marginEnd="5dip"
                     android:gravity="right"
                     android:padding="3dip"
-                    android:text="Depart"
+                    android:text="@string/depart"
                     android:textColor="#090909"
                     android:textSize="35px"
                     android:textStyle="bold" />
@@ -110,7 +110,7 @@
                     android:layout_marginEnd="5dip"
                     android:gravity="right"
                     android:padding="3dip"
-                    android:text="Return"
+                    android:text="@string/afaf"
                     android:textColor="#090909"
                     android:textSize="35px"
                     android:textStyle="bold" />
@@ -121,7 +121,7 @@
                     android:layout_marginEnd="5dip"
                     android:gravity="right"
                     android:padding="3dip"
-                    android:text="Total"
+                    android:text="@string/asa"
                     android:textColor="#090909"
                     android:textSize="35px"
                     android:textStyle="bold" />
@@ -136,7 +136,7 @@
                     android:layout_width="350px"
                     android:layout_height="wrap_content"
                     android:padding="3dip"
-                    android:text="Kaccha Mango"
+                    android:text="@string/kaccha_mango"
                     android:textAlignment="center"
                     android:textSize="30px" />
 
@@ -182,7 +182,7 @@
                     android:gravity="right"
                     android:textAlignment="center"
                     android:padding="3dip"
-                    android:text="₹0.00"
+                    android:text="@string/_0_00"
                     android:textSize="30px"
                     tools:ignore="RtlCompat" />
 
@@ -193,7 +193,7 @@
                     android:layout_width="150px"
                     android:layout_height="wrap_content"
                     android:padding="3dip"
-                    android:text="Litchi "
+                    android:text="@string/litchi"
                     android:textAlignment="center"
                     android:textSize="30px" />
 
@@ -216,7 +216,7 @@
                     android:gravity="right"
                     android:padding="3dip"
                     tools:ignore="RtlCompat"
-                    android:text="0"
+                    android:text="@string/_00"
                     android:textAlignment="center"
                     android:textSize="30px" />
                 <TextView
@@ -248,7 +248,7 @@
                 android:layout_width="150px"
                 android:layout_height="wrap_content"
                 android:padding="3dip"
-                android:text="Strawberry"
+                android:text="@string/strawberry"
                 android:textAlignment="center"
                 android:textSize="30px" />
 
