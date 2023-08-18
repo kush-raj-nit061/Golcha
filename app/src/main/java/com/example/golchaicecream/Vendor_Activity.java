@@ -23,6 +23,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.golchaicecream.Room.UserDao;
+import com.example.golchaicecream.Room.UserDatabase;
 import com.example.golchaicecream.Room.Users;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -62,12 +64,15 @@ public class Vendor_Activity extends AppCompatActivity {
     TextView[] itemPrice=new TextView[19];
     FirebaseFirestore fsStore = FirebaseFirestore.getInstance();
     TextView[] textViews = new TextView[19];
+    Integer[] s = new Integer[19];
     EditText Comm,vendorName,vendorAddress,vendorNotes;
-    Button btnCTs,btnBills;
+    Button btnCTs,btnBills,btnUpdate;
     long invoiceNum;
     TextView tvTotal,tvCommision,tvDues,tv;
     int arr[] = new int[19];
     float total;
+    private UserDatabase userDatabase;
+    private UserDao userDao;
 //    DetailsObjVendor detailsObj = new DetailsObjVendor();
     DecimalFormat decimalFormat = new DecimalFormat("#.##");
     @SuppressLint("SimpleDateFormat")
@@ -82,6 +87,8 @@ public class Vendor_Activity extends AppCompatActivity {
         Intent i = getIntent();
         Users users ;
         users =(Users) getIntent().getSerializableExtra("model");
+        userDatabase = UserDatabase.getInstance(this);
+        userDao = userDatabase.getDao();
 
 
         progressBar=findViewById(R.id.progressu);
@@ -120,6 +127,10 @@ public class Vendor_Activity extends AppCompatActivity {
         editTexts[16].setText(String.valueOf(users.getBonanzaQtyDepart()));
         editTexts[17].setText(String.valueOf(users.getFamilyQtyDepart()));
         editTexts[18].setText(String.valueOf(users.getFamily2QtyDepart()));
+        Comm.setText(String.valueOf(users.getCommision()));
+
+
+
 
 
 
@@ -130,6 +141,28 @@ public class Vendor_Activity extends AppCompatActivity {
     }
 
     private void callOnClickListeners(Users users) {
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                for (int i = 0; i < editTexts.length; i++) {
+                    String text = editTexts[i].getText().toString().trim();
+                    if (text.isEmpty()) {
+                        editTexts[i].setText("0");
+                        text = "0";
+                    }
+                    s[i] = Integer.parseInt(editTexts[i].getText().toString().trim());
+                }
+
+                Users userModel=new Users(users.getId(),Float.parseFloat(Comm.getText().toString()), vendorName.getText().toString(),vendorAddress.getText().toString(),"",vendorNotes.getText().toString(),
+                        s[0],s[1],s[2],s[3],s[4],s[5],s[6],s[7],s[8],s[9],s[10],s[11],s[12],s[13],s[14],s[15],s[16],s[17],s[18]);
+                userDao.update(userModel);
+                Toast.makeText(getApplicationContext(),"Depart Details Updated Successfully",Toast.LENGTH_SHORT).show();
+                finish();
+
+            }
+        });
 
 
         fsStore.collection("itemDetails").document("VendorPrices")
@@ -183,9 +216,30 @@ public class Vendor_Activity extends AppCompatActivity {
                     return;
                 }
 
+                for (int i = 0; i < editTexts.length; i++) {
+                    String text = editTexts[i].getText().toString().trim();
+                    if (text.isEmpty()) {
+                        editTexts[i].setText("0");
+                        text = "0";
+                    }
+                    s[i] = Integer.parseInt(editTexts[i].getText().toString().trim());
+                }
+
+                Users userModel=new Users(users.getId(),Float.parseFloat(Comm.getText().toString()), vendorName.getText().toString(),vendorAddress.getText().toString(),"Paid",vendorNotes.getText().toString(),
+                        s[0],s[1],s[2],s[3],s[4],s[5],s[6],s[7],s[8],s[9],s[10],s[11],s[12],s[13],s[14],s[15],s[16],s[17],s[18]);
+                userDao.update(userModel);
+                Toast.makeText(getApplicationContext(),"Depart Details Updated Successfully",Toast.LENGTH_SHORT).show();
+                finish();
+
+
+
 
 
                 float result = addEditTextValues(editTexts,editTextss,textViews);
+                if(result == 0){
+                    Toast.makeText(getApplicationContext(),"Return Qty can't be greater than Depart qty",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 String commision = "0";
                 String texts = Comm.getText().toString().trim();
 
@@ -205,6 +259,7 @@ public class Vendor_Activity extends AppCompatActivity {
 
 
             }
+
         });
 
 
@@ -212,6 +267,10 @@ public class Vendor_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 float result = addEditTextValues(editTexts,editTextss,textViews);
+                if(result == 0){
+                    Toast.makeText(getApplicationContext(),"Return Qty can't be greater than Depart qty",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 String commision = "0";
                 String texts = Comm.getText().toString().trim();
                 if (!texts.isEmpty()) {
@@ -226,6 +285,7 @@ public class Vendor_Activity extends AppCompatActivity {
 
             }
         });
+
     }
 
     private void setValuesOfDepart(Users users) {
@@ -252,7 +312,8 @@ public class Vendor_Activity extends AppCompatActivity {
                 try {
                     int value = Integer.parseInt(text) - Integer.parseInt(texts);
                     if(value<0){
-                        Toast.makeText(getApplicationContext(),"Return Qty can't be greater than Depart qty",Toast.LENGTH_SHORT).show();
+
+                        return 0;
                     }else {
                         value *= arr[i];
                         textViews[i].setText(String.valueOf(value));
@@ -373,6 +434,7 @@ public class Vendor_Activity extends AppCompatActivity {
 
 
     private void generate() {
+        btnUpdate = findViewById(R.id.btnUpdate);
 
         itemPrice[0] = findViewById(R.id.itemPrice1);
         itemPrice[1] = findViewById(R.id.itemPrice2);

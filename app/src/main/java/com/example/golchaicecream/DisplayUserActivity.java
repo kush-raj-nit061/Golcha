@@ -1,9 +1,15 @@
 package com.example.golchaicecream;
 
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.DrawableRes;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,8 +17,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.golchaicecream.Room.UserDao;
 import com.example.golchaicecream.Room.UserDatabase;
 import com.example.golchaicecream.Room.Users;
+import com.github.sshadkany.CircleButton;
+import com.github.sshadkany.neo;
 
 import java.util.List;
+
+import carbon.widget.FloatingActionButton;
 
 public class DisplayUserActivity extends AppCompatActivity implements AdapterListener {
 
@@ -21,14 +31,13 @@ public class DisplayUserActivity extends AppCompatActivity implements AdapterLis
 
     RecyclerView myRecycler;
     private UserAdapter userAdapter;
+    AlertDialog.Builder builder;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_user);
-
-
-
         userDatabase= UserDatabase.getInstance(this);
         userDao =userDatabase.getDao();
 
@@ -44,6 +53,16 @@ public class DisplayUserActivity extends AppCompatActivity implements AdapterLis
         if(users!=null){
             userDao.insert(users);
         }
+
+        CircleButton btnFloating = findViewById(R.id.btnFloating);
+
+        btnFloating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DisplayUserActivity.this,MainActivity2.class);
+                startActivity(i);
+            }
+        });
 
 
     }
@@ -68,8 +87,23 @@ public class DisplayUserActivity extends AppCompatActivity implements AdapterLis
 
     @Override
     public void onDelete(int id, int pos) {
-        userDao.delete(id);
-        userAdapter.removeUser(pos);
+        builder= new AlertDialog.Builder(this);
+        builder.setTitle("Delete Vendor data").setMessage("Do you really want to delete vendor data.")
+                .setCancelable(true)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        userDao.delete(id);
+                        userAdapter.removeUser(pos);
+
+                    }
+                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                }).show();
+
 
     }
 

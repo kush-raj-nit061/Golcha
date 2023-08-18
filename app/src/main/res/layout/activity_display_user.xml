@@ -1,20 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".DisplayUserActivity">
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_margin="5dp"
-        android:padding="5dp"
-        android:layout_height="wrap_content">
-        <androidx.recyclerview.widget.RecyclerView
+        android:layout_height="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:padding="5dp">
+
+        <carbon.widget.RecyclerView
             android:id="@+id/recycler"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="match_parent"
+            android:layout_marginBottom="120dp"
+            android:orientation="vertical" />
+
+        <com.github.sshadkany.CircleButton
+            android:id="@+id/btnFloating"
+            style="@style/Widget.Neumorph.FloatingActionButton"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/baseline_add_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:padding="32dp"
+                app:srcCompat="@drawable/baseline_add_24"
+                app:tint="#100F0F" />
+
+
+        </com.github.sshadkany.CircleButton>
 
 
     </androidx.cardview.widget.CardView>
@@ -22,4 +53,10 @@
 
 
 
-</LinearLayout>
+
+
+
+
+
+
+</RelativeLayout>

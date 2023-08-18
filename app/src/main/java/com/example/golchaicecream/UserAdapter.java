@@ -2,11 +2,13 @@ package com.example.golchaicecream;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +17,8 @@ import com.example.golchaicecream.Room.Users;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import carbon.widget.FloatingActionButton;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> {
 
@@ -56,7 +60,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
         Users users = usersList.get(position);
         holder.name.setText(users.getName());
         holder.address.setText(users.getAddress());
-
+        holder.tick.setText(users.getTick());
         holder.update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +76,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
             }
         });
 
+
     }
 
     @Override
@@ -80,8 +85,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        private TextView name,address,kaccha;
+        private TextView name,address,kaccha,tick;
         private ImageView update,delete;
+
 
         public MyViewHolder (@NonNull View itemView){
             super(itemView);
@@ -89,7 +95,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
             address= itemView.findViewById(R.id.Address);
             update = itemView.findViewById(R.id.edit);
             delete = itemView.findViewById(R.id.delete);
-            kaccha = itemView.findViewById(R.id.tvKaccha);
+            tick = itemView.findViewById(R.id.tick);
+
         }
     }
 

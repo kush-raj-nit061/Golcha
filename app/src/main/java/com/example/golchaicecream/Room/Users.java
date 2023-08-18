@@ -10,6 +10,16 @@ import java.io.Serializable;
 public class Users implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private  int id;
+
+    public String getTick() {
+        return tick;
+    }
+
+    public void setTick(String tick) {
+        this.tick = tick;
+    }
+
+    String tick;
     String name;
     String address;
     String notes;
@@ -32,12 +42,23 @@ public class Users implements Serializable {
     int bonanzaQtyDepart;
     int familyQtyDepart;
     int family2QtyDepart;
+    float commision;
 
-    public Users(int id, String name, String address, String notes, int kacchaQtyDepart, int litchiQtyDepart, int strawQtyDepart, int colaQtyDepart, int pineQtyDepart, int orangeQtyDepart, int mangoQtyDepart, int cupSQtyDepart, int cupBQtyDepart, int chocoSQtyDepart, int chocoBQtyDepart, int matkaQtyDepart, int coneSQtyDepart, int coneBQtyDepart, int nuttyQtyDepart, int keshaerQtyDepart, int bonanzaQtyDepart, int familyQtyDepart, int family2QtyDepart) {
+    public float getCommision() {
+        return commision;
+    }
+
+    public void setCommision(float commision) {
+        this.commision = commision;
+    }
+
+    public Users(int id, float comm, String name, String address, String tick, String notes, int kacchaQtyDepart, int litchiQtyDepart, int strawQtyDepart, int colaQtyDepart, int pineQtyDepart, int orangeQtyDepart, int mangoQtyDepart, int cupSQtyDepart, int cupBQtyDepart, int chocoSQtyDepart, int chocoBQtyDepart, int matkaQtyDepart, int coneSQtyDepart, int coneBQtyDepart, int nuttyQtyDepart, int keshaerQtyDepart, int bonanzaQtyDepart, int familyQtyDepart, int family2QtyDepart) {
+        this.commision=comm;
         this.id = id;
         this.name = name;
         this.address = address;
         this.notes = notes;
+        this.tick = tick;
         this.kacchaQtyDepart = kacchaQtyDepart;
         this.litchiQtyDepart = litchiQtyDepart;
         this.strawQtyDepart = strawQtyDepart;

@@ -73,14 +73,6 @@ public class MainActivity2 extends AppCompatActivity implements Serializable {
                 editTexts[17]= findViewById(R.id.tvFamilyDep);
                 editTexts[18]= findViewById(R.id.tvFamily2Dep);
                 editTexts[14]= findViewById(R.id.tvNuttyDep);
-                for (int i = 0; i < editTexts.length; i++) {
-                    String text = editTexts[i].getText().toString().trim();
-                    if (text.isEmpty()) {
-                        editTexts[i].setText("0");
-                        text = "0";
-                    }
-                    s[i] = Integer.parseInt(editTexts[i].getText().toString().trim());
-                }
                 if (TextUtils.isEmpty(etName.getText().toString())) {
                     Toast.makeText(getApplicationContext(),
                                     "Please enter Name",
@@ -95,7 +87,16 @@ public class MainActivity2 extends AppCompatActivity implements Serializable {
                             .show();
                     return;
                 }
-                Users users = new Users(0,name,address,notes,s[0],s[1],s[2],s[3],s[4],s[5],s[6],s[7],s[8],s[9],s[10],s[11],s[12],s[13],s[14],s[15],s[16],s[17],s[18]);
+                for (int i = 0; i < editTexts.length; i++) {
+                    String text = editTexts[i].getText().toString().trim();
+                    if (text.isEmpty()) {
+                        editTexts[i].setText("0");
+                        text = "0";
+                    }
+                    s[i] = Integer.parseInt(editTexts[i].getText().toString().trim());
+                }
+
+                Users users = new Users(0,0,name,address,"",notes,s[0],s[1],s[2],s[3],s[4],s[5],s[6],s[7],s[8],s[9],s[10],s[11],s[12],s[13],s[14],s[15],s[16],s[17],s[18]);
 
                 Intent i  = new Intent(MainActivity2.this,DisplayUserActivity.class);
                 i.putExtra("user",users);
@@ -104,7 +105,6 @@ public class MainActivity2 extends AppCompatActivity implements Serializable {
 
                 etName.setText("");
                 etAddress.setText("");
-                Toast.makeText(getApplicationContext(),"Good Job",Toast.LENGTH_LONG).show();
                 startActivity(i);
 
 
