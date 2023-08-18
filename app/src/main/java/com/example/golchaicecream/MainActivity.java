@@ -2,11 +2,13 @@ package com.example.golchaicecream;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.golchaicecream.Registration_Activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -63,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
     String userID;
     StorageReference storageReference;
     ImageView ivPlace,logOut;
+    AlertDialog.Builder builder;
 
     long invoice;
     ProgressBar progressBar ;
@@ -184,9 +187,25 @@ public class MainActivity extends AppCompatActivity {
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Signed Out",Toast.LENGTH_SHORT).show();
-                fAuth.signOut();
-                signOutUser();
+                builder= new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Sign Out").setMessage("Do you really want to Log Out from App?")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(getApplicationContext(),"Signed Out",Toast.LENGTH_SHORT).show();
+                                fAuth.signOut();
+                                signOutUser();
+                            }
+                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        }).show();
+
+
+
 
             }
         });
@@ -239,8 +258,8 @@ public class MainActivity extends AppCompatActivity {
                             tvLocation.setText(loc);
                             location.setText(loc);
 
-                            tvEmail.setText(email);
-                            textView.setText(name);
+//                            tvEmail.setText(email);
+//                            textView.setText(name);
                             progressBar.setVisibility(View.VISIBLE);
                             profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override

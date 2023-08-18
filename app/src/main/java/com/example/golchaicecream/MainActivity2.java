@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.golchaicecream.Room.Users;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MainActivity2 extends AppCompatActivity implements Serializable {
 
@@ -23,6 +25,8 @@ public class MainActivity2 extends AppCompatActivity implements Serializable {
 
     EditText[] editTexts = new EditText[19];
     Integer[] s = new Integer[19];
+    @SuppressLint("SimpleDateFormat")
+    SimpleDateFormat datePatternFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm a");
 
 
 
@@ -51,6 +55,8 @@ public class MainActivity2 extends AppCompatActivity implements Serializable {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String si = datePatternFormat.format(new Date());
+                String q = si.substring(0,11);
                 String name = etName.getText().toString();
                 String address = etAddress.getText().toString();
                 String notes = etNotes.getText().toString();
@@ -96,7 +102,7 @@ public class MainActivity2 extends AppCompatActivity implements Serializable {
                     s[i] = Integer.parseInt(editTexts[i].getText().toString().trim());
                 }
 
-                Users users = new Users(0,0,name,address,"",notes,s[0],s[1],s[2],s[3],s[4],s[5],s[6],s[7],s[8],s[9],s[10],s[11],s[12],s[13],s[14],s[15],s[16],s[17],s[18]);
+                Users users = new Users(0,q,0,name,address,"",notes,s[0],s[1],s[2],s[3],s[4],s[5],s[6],s[7],s[8],s[9],s[10],s[11],s[12],s[13],s[14],s[15],s[16],s[17],s[18]);
 
                 Intent i  = new Intent(MainActivity2.this,DisplayUserActivity.class);
                 i.putExtra("user",users);

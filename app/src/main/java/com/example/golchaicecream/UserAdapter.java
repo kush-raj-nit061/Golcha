@@ -61,6 +61,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
         holder.name.setText(users.getName());
         holder.address.setText(users.getAddress());
         holder.tick.setText(users.getTick());
+        holder.date.setText(users.getDate());
         holder.update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,6 +76,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
 
             }
         });
+        holder.tick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.tick.setText("🛒");
+
+
+            }
+        });
 
 
     }
@@ -85,7 +94,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        private TextView name,address,kaccha,tick;
+        private TextView name,address,kaccha,tick,date;
         private ImageView update,delete;
 
 
@@ -96,6 +105,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
             update = itemView.findViewById(R.id.edit);
             delete = itemView.findViewById(R.id.delete);
             tick = itemView.findViewById(R.id.tick);
+            date = itemView.findViewById(R.id.Date);
 
         }
     }

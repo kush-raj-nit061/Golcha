@@ -427,7 +427,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/profile"
-                android:textColor="@color/carbon_cyan_900"
+                android:textColor="#80CE7a"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -535,7 +535,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/proximanovaregular"
-                            android:text="Change Profile"
+                            android:text="@string/cam"
                             android:layout_gravity="center_horizontal"
                             android:textColor="@color/blue"
                             android:textSize="15sp"
@@ -594,7 +594,8 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/number_of_orders"
+                                    android:text="@string/ordersa"
+                                    android:textColor="@color/black"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -605,6 +606,7 @@
                                     android:layout_marginTop="2dp"
                                     android:layout_gravity="center_horizontal"
                                     android:text="@string/_0"
+                                    android:textColor="@color/black"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </LinearLayout>
@@ -634,6 +636,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/your_location"
+                                    android:textColor="@color/black"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -707,6 +710,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/change_details"
+                                    android:textColor="@color/black"
                                     android:fontFamily="@font/proximanovaregular"
                                     android:textSize="17sp"
                                     android:textStyle="bold" />
@@ -732,6 +736,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
+                                android:textColor="@color/black"
                                 android:text="@string/contact_golcha_for_any_kind_of_changes" />
                         </LinearLayout>
 
@@ -754,6 +759,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/contact_info"
+                                android:textColor="@color/black"
                                 android:textSize="17sp"
                                 android:fontFamily="@font/proximanovaregular"
                                 android:textStyle="bold" />
@@ -896,7 +902,7 @@
                 android:text="@string/from_our_family_to_yours_n_the_taste_of_happiness"
                 android:textAlignment="center" />
 
-            <androidx.cardview.widget.CardView
+            <soup.neumorphism.NeumorphCardView
                 android:id="@+id/card1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -918,41 +924,43 @@
                         android:id="@+id/ivPlace"
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
                         android:layout_marginStart="0dp"
                         android:scaleType="centerCrop"
                         android:src="@drawable/logoh" />
 
-                    <TextView
-                        android:id="@+id/tvPlaceName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/ivPlace"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginBottom="20dp"
-                        android:padding="5dp"
-                        android:letterSpacing="0.2"
-                        android:text="@string/usernamess"
-                        android:textColor="@color/black"
-                        android:textSize="25sp"
-                        android:textStyle="bold|italic" />
 
-
-                    <TextView
-                        android:id="@+id/tvEmail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/tvPlaceName"
-                        android:letterSpacing="0.2"
-                        android:layout_alignStart="@+id/tvPlaceName"
-                        android:layout_marginStart="6dp"
-                        android:layout_marginTop="-24dp"
-                        android:text="@string/your_email" />
                 </RelativeLayout>
+                <TextView
+                    android:id="@+id/tvPlaceName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ivPlace"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:padding="5dp"
+                    android:letterSpacing="0.2"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold|italic" />
 
 
-            </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvPlaceName"
+                    android:letterSpacing="0.2"
+                    android:layout_alignStart="@+id/tvPlaceName"
+                    android:layout_marginStart="6dp"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:layout_marginTop="-24dp"
+                    android:text="" />
+
+
+            </soup.neumorphism.NeumorphCardView>
 
             <TextView
                 android:layout_width="match_parent"

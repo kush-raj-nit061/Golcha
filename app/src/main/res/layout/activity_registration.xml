@@ -23,13 +23,12 @@
                 android:id="@+id/tvRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:drawableTop="@drawable/smalllogo"
                 android:fontFamily="@font/akronim"
-                android:paddingBottom="30dp"
                 android:text="Register"
                 android:textAlignment="center"
-                android:textColor="#700000"
+                android:textColor="#80CE7a"
                 android:textSize="60sp"
                 app:layout_constraintBottom_toTopOf="@+id/imageView"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -57,6 +56,7 @@
                         android:background="@null"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
+                        android:textAlignment="center"
                         android:textCursorDrawable="@drawable/cursor"
                         android:hint="Enter your Full Name" />
 
@@ -79,6 +79,7 @@
                         android:background="@null"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
+                        android:textAlignment="center"
                         android:inputType="textEmailAddress"
                         android:textCursorDrawable="@drawable/cursor"
                         android:hint="Enter your Email" />
@@ -100,6 +101,7 @@
                         android:background="@null"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
+                        android:textAlignment="center"
                         android:textCursorDrawable="@drawable/cursor"
                         android:hint="Enter your Password"
                         android:inputType="textPassword"/>
@@ -121,6 +123,7 @@
                         android:paddingEnd="10dp"
                         android:textCursorDrawable="@drawable/cursor"
                         android:inputType="phone"
+                        android:textAlignment="center"
                         android:hint="Enter your Phone No." />
 
 
@@ -151,7 +154,7 @@
                     android:paddingStart="20dp"
                     android:paddingBottom="5dp"
                     android:fontFamily="@font/akronim"
-                    android:textColor="#700000"
+                    android:textColor="#80CE7a"
                     android:layout_marginTop="10dp"
                     android:textSize="20dp"
                     />

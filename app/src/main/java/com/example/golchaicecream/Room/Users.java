@@ -43,6 +43,15 @@ public class Users implements Serializable {
     int familyQtyDepart;
     int family2QtyDepart;
     float commision;
+    String date;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public float getCommision() {
         return commision;
@@ -52,7 +61,8 @@ public class Users implements Serializable {
         this.commision = commision;
     }
 
-    public Users(int id, float comm, String name, String address, String tick, String notes, int kacchaQtyDepart, int litchiQtyDepart, int strawQtyDepart, int colaQtyDepart, int pineQtyDepart, int orangeQtyDepart, int mangoQtyDepart, int cupSQtyDepart, int cupBQtyDepart, int chocoSQtyDepart, int chocoBQtyDepart, int matkaQtyDepart, int coneSQtyDepart, int coneBQtyDepart, int nuttyQtyDepart, int keshaerQtyDepart, int bonanzaQtyDepart, int familyQtyDepart, int family2QtyDepart) {
+    public Users(int id,String date, float comm, String name, String address, String tick, String notes, int kacchaQtyDepart, int litchiQtyDepart, int strawQtyDepart, int colaQtyDepart, int pineQtyDepart, int orangeQtyDepart, int mangoQtyDepart, int cupSQtyDepart, int cupBQtyDepart, int chocoSQtyDepart, int chocoBQtyDepart, int matkaQtyDepart, int coneSQtyDepart, int coneBQtyDepart, int nuttyQtyDepart, int keshaerQtyDepart, int bonanzaQtyDepart, int familyQtyDepart, int family2QtyDepart) {
+        this.date=date;
         this.commision=comm;
         this.id = id;
         this.name = name;

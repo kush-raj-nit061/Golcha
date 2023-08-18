@@ -1,8 +1,10 @@
 package com.example.golchaicecream;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Matrix;
 import android.graphics.drawable.AnimationDrawable;
@@ -26,6 +28,8 @@ public class AdminLanding extends AppCompatActivity {
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     Button signOut;
     ProgressBar progressBar ;
+    AlertDialog.Builder builder;
+
 
     @SuppressLint({"MissingInflatedId", "UseCompatLoadingForDrawables"})
     @Override
@@ -91,12 +95,28 @@ public class AdminLanding extends AppCompatActivity {
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressBar.setVisibility(View.VISIBLE);
 
-                mAuth.signOut();
-                signOutUser();
-                Toast.makeText(getApplicationContext(),"Signed Out",Toast.LENGTH_SHORT).show();
-                progressBar.setVisibility(View.GONE);
+                builder= new AlertDialog.Builder(AdminLanding.this);
+                builder.setTitle("Sign Out").setMessage("Do you really want to Log Out from App?")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                progressBar.setVisibility(View.VISIBLE);
+                                mAuth.signOut();
+                                signOutUser();
+                                Toast.makeText(getApplicationContext(),"Signed Out",Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.GONE);
+                            }
+                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        }).show();
+
+
+
 
             }
         });

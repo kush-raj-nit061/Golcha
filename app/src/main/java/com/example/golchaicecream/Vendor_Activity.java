@@ -154,8 +154,10 @@ public class Vendor_Activity extends AppCompatActivity {
                     }
                     s[i] = Integer.parseInt(editTexts[i].getText().toString().trim());
                 }
+                String si = datePatternFormat.format(new Date());
+                String q = si.substring(0,11);
 
-                Users userModel=new Users(users.getId(),Float.parseFloat(Comm.getText().toString()), vendorName.getText().toString(),vendorAddress.getText().toString(),"",vendorNotes.getText().toString(),
+                Users userModel=new Users(users.getId(),q,Float.parseFloat(Comm.getText().toString()), vendorName.getText().toString(),vendorAddress.getText().toString(),"🛒",vendorNotes.getText().toString(),
                         s[0],s[1],s[2],s[3],s[4],s[5],s[6],s[7],s[8],s[9],s[10],s[11],s[12],s[13],s[14],s[15],s[16],s[17],s[18]);
                 userDao.update(userModel);
                 Toast.makeText(getApplicationContext(),"Depart Details Updated Successfully",Toast.LENGTH_SHORT).show();
@@ -191,12 +193,6 @@ public class Vendor_Activity extends AppCompatActivity {
                     }
                 });
 
-
-
-
-
-
-
         btnBills.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -225,7 +221,7 @@ public class Vendor_Activity extends AppCompatActivity {
                     s[i] = Integer.parseInt(editTexts[i].getText().toString().trim());
                 }
 
-                Users userModel=new Users(users.getId(),Float.parseFloat(Comm.getText().toString()), vendorName.getText().toString(),vendorAddress.getText().toString(),"Paid",vendorNotes.getText().toString(),
+                Users userModel=new Users(users.getId(),users.getDate(),Float.parseFloat(Comm.getText().toString()), vendorName.getText().toString(),vendorAddress.getText().toString(),"✔️",vendorNotes.getText().toString(),
                         s[0],s[1],s[2],s[3],s[4],s[5],s[6],s[7],s[8],s[9],s[10],s[11],s[12],s[13],s[14],s[15],s[16],s[17],s[18]);
                 userDao.update(userModel);
                 Toast.makeText(getApplicationContext(),"Depart Details Updated Successfully",Toast.LENGTH_SHORT).show();
@@ -281,8 +277,6 @@ public class Vendor_Activity extends AppCompatActivity {
                 tvTotal.setText(String.valueOf(result));
                 tvCommision.setText(String.valueOf(comm));
                 tvDues.setText(String.valueOf(dues));
-
-
             }
         });
 

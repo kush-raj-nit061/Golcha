@@ -20,7 +20,10 @@ import com.example.golchaicecream.Room.Users;
 import com.github.sshadkany.CircleButton;
 import com.github.sshadkany.neo;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import carbon.widget.FloatingActionButton;
 
@@ -32,6 +35,7 @@ public class DisplayUserActivity extends AppCompatActivity implements AdapterLis
     RecyclerView myRecycler;
     private UserAdapter userAdapter;
     AlertDialog.Builder builder;
+    SimpleDateFormat datePatternFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm a");
 
 
     @Override
@@ -69,8 +73,18 @@ public class DisplayUserActivity extends AppCompatActivity implements AdapterLis
     private void fetchData(){
         userAdapter.clearData();
         List<Users> usersList = userDao.getAllUsers();
+        String si = datePatternFormat.format(new Date());
+        String q = si.substring(0,11);
         for (int i = 0;i<usersList.size();i++){
             Users users = usersList.get(i);
+
+            if(!Objects.equals(users.getDate(), q)){
+
+                if(!users.getTick().equals("🛒")){
+                    users.setTick("");
+                }
+
+            }
             userAdapter.addUser(users);
 
         }
