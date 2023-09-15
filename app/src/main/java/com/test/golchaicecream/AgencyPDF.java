@@ -248,7 +248,7 @@ public class AgencyPDF extends AppCompatActivity {
                     public void onSuccess(Void unused) {
                         Toast.makeText(getApplicationContext(),"Order Placed Successfully",Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(AgencyPDF.this,MainActivity.class);
-                        String s = String.valueOf(invoice+1);
+                        String s = String.valueOf(invoice);
                         Toast.makeText(getApplicationContext(),senderEmail+senderPass,Toast.LENGTH_LONG).show();
                         SendMail mail = new SendMail(senderEmail, senderPass,
                                 receiverEmail,

@@ -180,6 +180,7 @@ public class Menu_Activity extends AppCompatActivity {
                                     float commission = 0;
                                     assert com != null;
                                     if(com.equals("0")){
+                                        progressBar.setVisibility(View.GONE);
                                         Toast.makeText(getApplicationContext(), "Commission = "+com+"%", Toast.LENGTH_SHORT).show();
                                     }else{
                                         progressBar.setVisibility(View.GONE);
