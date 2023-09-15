@@ -6,8 +6,6 @@
                 android:angle="225"
                 android:startColor="@color/carbon_amber_100"
                 android:endColor="@color/carbon_cyan_a400"
-
-
                 />
         </shape>
     </item>

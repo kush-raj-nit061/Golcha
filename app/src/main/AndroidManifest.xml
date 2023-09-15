@@ -98,7 +98,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity2"
-            android:exported="true"></activity>
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"

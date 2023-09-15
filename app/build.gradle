@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.golchaicecream'
+    namespace 'com.test.golchaicecream'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.golchaicecream"
+        applicationId "com.test.golchaicecream"
         minSdk 21
         targetSdk 33
         versionCode 1
