@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1071577344389:android:a2d2296473f30f732afcec",
+        "mobilesdk_app_id": "",
         "android_client_info": {
           "package_name": "com.test.golchaicecream"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA8XqbNSfvabMI2dc_Slp_meGHZ62ai84c"
+          "current_key": ""
         }
       ],
       "services": {
